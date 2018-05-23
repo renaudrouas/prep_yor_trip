@@ -1,0 +1,9 @@
+<h1><%=current.email%></h1>
+<h2>Index of Trips</h2>
+<p><%@trips.each do |trip| %>
+<p><%=trip.title %></p>
+<p><%=trip.start_date %></p>
+<p><%=trip.end_date %></p>
+<p><%=trip.country %></p>
+
+<%end %></p>
