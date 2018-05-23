@@ -13,6 +13,7 @@ before_action :set_diary, only: [:show, :edit, :update, :destroy]
   end
 
   def create
+    @user.diary = current_user
     @diary = Diary.new(diary_params)
     if @diary.save
       redirect_to diary_path(@diary)
