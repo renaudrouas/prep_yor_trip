@@ -10,14 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_22_210041) do
+ActiveRecord::Schema.define(version: 2018_05_23_105040) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "accomodations", force: :cascade do |t|
     t.string "address"
-    t.string "kind"
     t.string "name"
     t.string "e_mail"
     t.string "phone_number"
@@ -25,18 +24,19 @@ ActiveRecord::Schema.define(version: 2018_05_22_210041) do
     t.float "longitude"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "kind", default: 0
   end
 
   create_table "diaries", force: :cascade do |t|
     t.date "date"
     t.text "description"
-    t.string "tittle"
     t.string "address"
     t.float "latitude"
     t.float "longitude"
     t.bigint "trip_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "title"
     t.index ["trip_id"], name: "index_diaries_on_trip_id"
   end
 
@@ -61,18 +61,17 @@ ActiveRecord::Schema.define(version: 2018_05_22_210041) do
   end
 
   create_table "tasks", force: :cascade do |t|
-    t.string "tittle"
     t.text "description"
     t.boolean "done"
     t.bigint "trip_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "title"
     t.index ["trip_id"], name: "index_tasks_on_trip_id"
   end
 
   create_table "travels", force: :cascade do |t|
     t.string "reservation_number"
-    t.string "mode"
     t.date "start_date"
     t.date "end_date"
     t.bigint "trip_id"
@@ -86,11 +85,11 @@ ActiveRecord::Schema.define(version: 2018_05_22_210041) do
     t.time "end_date_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "mode", default: 0
     t.index ["trip_id"], name: "index_travels_on_trip_id"
   end
 
   create_table "trips", force: :cascade do |t|
-    t.string "tittle"
     t.string "country"
     t.float "latitude"
     t.float "longitude"
@@ -99,6 +98,7 @@ ActiveRecord::Schema.define(version: 2018_05_22_210041) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "title"
     t.index ["user_id"], name: "index_trips_on_user_id"
   end
 
