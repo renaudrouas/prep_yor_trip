@@ -9,13 +9,16 @@ class TravelsController < ApplicationController
   end
 
   def new
+    @trip = Trip.find(params[:trip_id])
     @travel = Travel.new
   end
 
   def create
+    @trip = Trip.find(params[:trip_id])
     @travel = Travel.new(travel_params)
+    @travel.trip = @trip
     if @travel.save
-      redirect_to travel_path(@travel)
+      redirect_to @travel, notice: 'travel was successfully created.'
     else
       render :new
     end

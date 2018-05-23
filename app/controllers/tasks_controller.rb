@@ -9,13 +9,16 @@ before_action :set_task, only: [:show, :edit, :update, :destroy]
   end
 
   def new
+    @trip = Trip.find(params[:trip_id])
     @task = Task.new
   end
 
   def create
+    @trip = Trip.find(params[:trip_id])
     @task = Task.new(task_params)
+    @task.trip = @trip
     if @task.save
-      redirect_to task_path(@task)
+      redirect_to trip_task_path(@task)
     else
       render :new
     end

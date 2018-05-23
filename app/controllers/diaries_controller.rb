@@ -9,14 +9,16 @@ before_action :set_diary, only: [:show, :edit, :update, :destroy]
   end
 
   def new
+    @trip = Trip.find(params[:trip_id])
     @diary = Diary.new
   end
 
   def create
-    @user.diary = current_user
+    @trip = Trip.find(params[:trip_id])
     @diary = Diary.new(diary_params)
+    @diary.trip = @trip
     if @diary.save
-      redirect_to diary_path(@diary)
+      redirect_to @diary
     else
       render :new
     end
