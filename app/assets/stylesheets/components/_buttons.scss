@@ -14,8 +14,16 @@ border-width: 2px;
 border-color: rgb(59, 208, 214);
 cursor: pointer;
 text-decoration: none;
+margin-top:2vh;
+  a {
+    color:white;
+    &:hover {
+      color:white;
+
+    }
+  }
+
   &:hover {
-  color:white;
   transform: translateY(-2px);
   }
 }

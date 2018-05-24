@@ -2,6 +2,7 @@ class TasksController < ApplicationController
 before_action :set_task, only: [:show, :edit, :update, :destroy]
 
   def index
+    @trip = Trip.find(params[:trip_id])
     @tasks = Task.all
   end
 
@@ -9,29 +10,35 @@ before_action :set_task, only: [:show, :edit, :update, :destroy]
   end
 
   def new
+    @trip = Trip.find(params[:trip_id])
     @task = Task.new
   end
 
   def create
+    @trip = Trip.find(params[:trip_id])
     @task = Task.new(task_params)
+    @task.trip = @trip
     if @task.save
-      redirect_to task_path(@task)
+      redirect_to trip_task_path(@trip, @task)
     else
       render :new
     end
   end
   def edit
+    @trip = Trip.find(params[:trip_id])
   end
   def update
+    @trip = Trip.find(params[:trip_id])
     if @task.update(task_params)
-      redirect_to @task, notice: 'Task was successfully updated.'
+      redirect_to trip_task_path(@trip, @task), notice: 'Task was successfully updated.'
     else
       render :edit
     end
   end
-  def delete
+  def destroy
+    @trip = Trip.find(params[:trip_id])
     @task.destroy
-    redirect_to tasks_url, notice: 'Task was successfully destroyed.'
+    redirect_to trip_tasks_path, notice: 'Task was successfully destroyed.'
   end
 
   private

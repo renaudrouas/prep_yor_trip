@@ -1,0 +1,6 @@
+<h1>Index Of Travels</h1>
+<p><%=current_user.email%></p>
+<%@travels.each do |travel|%>
+<p><%=travel.reservation_number %></p>
+<%= link_to 'Show',  trip_travel_path(@trip, travel)%>
+<%end %>
