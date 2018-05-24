@@ -2,6 +2,7 @@ class DiariesController < ApplicationController
 before_action :set_diary, only: [:show, :edit, :update, :destroy]
 
   def index
+    @trip = Trip.find(params[:trip_id])
     @diaries = Diary.all
   end
 
@@ -37,7 +38,7 @@ before_action :set_diary, only: [:show, :edit, :update, :destroy]
   def destroy
     @trip = Trip.find(params[:trip_id])
     @diary.destroy
-    redirect_to diarys_url, notice: 'Diary was successfully destroyed.'
+    redirect_to trip_diaries_path, notice: 'Diary was successfully destroyed.'
   end
 
   private

@@ -1,5 +1,5 @@
 class TravelsController < ApplicationController
-  before_action :set_travel, only: [:show, :edit, :update]
+  before_action :set_travel, only: [:show, :edit, :update, :destroy]
 
   def index
     @trip = Trip.find(params[:trip_id])
@@ -36,8 +36,9 @@ class TravelsController < ApplicationController
     end
   end
   def destroy
+    @trip = Trip.find(params[:trip_id])
     @travel.destroy
-    render :index, notice: 'travel was successfully destroyed.'
+    redirect_to trip_travels_path, notice: 'travel was successfully destroyed.'
   end
 
   private
