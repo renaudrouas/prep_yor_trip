@@ -4,3 +4,61 @@
 <p><%=travel.reservation_number %></p>
 <%= link_to 'Show',  trip_travel_path(@trip, travel)%>
 <%end %>
+
+<div class="container container-full">
+  <div class="col-xs-12 col-sm-7">
+    <div class="col-xs-12 travel-card-frame bandeau border-solid">
+      <p>bandeau</p>
+    </div>
+    <div class="col-xs-12 travel-card-frame border-solid">
+      <div class ="col-xs-3 border-solid inner-components">
+         <div class="row border-solid">
+           <%= image_tag "hotel.png"%>
+         </div>
+         <div class="row border-solid">
+           <button></button>
+         </div>
+         <div class="row border-solid">
+           <p>-</p>
+         </div>
+      </div>
+      <div class="col-xs-9 border-solid inner-components">
+         <div class="row border-solid">
+           <p>enum icon</p>
+         </div>
+         <div class="row border-solid">
+           <p>enum icon</p>
+         </div>
+         <div class="row border-solid">
+           <p>enum icon</p>
+         </div>
+         <div class="row border-solid">
+           <p>enum icon</p>
+         </div>
+         <div class="row border-solid">
+           <p>enum icon</p>
+         </div>
+      </div>
+    </div>
+    <div class="col-xs-12 travel-card-frame border-solid">
+      <p>transport 2</p>
+      <p>transport 2</p>
+      <p>transport 2</p>
+      <p>transport 2</p>
+      <p>transport 2</p>
+      <p>transport 2</p>
+      <p>transport 2</p>
+      <p>transport 2</p>
+      <p>transport 2</p>
+      <p>transport 2</p>
+      <p>transport 2</p>
+      <p>transport 2</p>
+    </div>
+  </div>
+  <div class="col-xs-12 col-sm-5 ">
+    <div class ="travel-card-frame travel-card-frame-map border-solid">
+      <%= image_tag "map-marseille.png", {id: 'map'} %>
+    </div>
+  </div>
+</div>
+

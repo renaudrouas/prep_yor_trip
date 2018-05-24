@@ -1,0 +1,56 @@
+.border-solid {
+  border: solid 1px black;
+}
+
+.travel-card-frame {
+  // padding: 0px !important;
+  // margin: 0px !important;
+  margin: 5vh;
+}
+
+.inner-components {
+  // margin: 2vh;
+  padding: 2vh;
+}
+
+.bandeau {
+  height: 20vh;
+}
+
+.travel-card-frame-map {
+img {
+
+    width: 100%; /* or any custom size */
+    height: 100%;
+    object-fit: contain;
+    flex: 0 0 450px;
+    position: sticky !important;
+    top: 0 !important;
+  }
+}
+
+// #map {
+//     flex: 0 0 450px;
+//   height: 100vh;
+//   position: sticky !important;
+//   top: 0 !important;
+// }
+
+.container-full {
+  margin: 0 auto;
+  padding: 0;
+  width: 100%;
+  // display: flex;
+}
+
+
+
+// #map {
+//   flex: 0 0 450px;
+//   height: 100vh;
+//   position: sticky !important;
+//   top: 0 !important;
+// }
+// .content {
+//   display: flex;
+// }
