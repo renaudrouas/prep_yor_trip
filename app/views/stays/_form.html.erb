@@ -1,0 +1,38 @@
+
+
+  <%= simple_form_for (@stay.build_accomodation) do |f| %>
+    <%= f.error_notification %>
+    <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+    <div class="form-inputs form-color">
+      <%= f.input :address, placeholder: 'Address', input_html: { class: 'my-input' }, label_html: { class: 'my-label' } %>
+      <%= f.input :name, placeholder: 'Name', input_html: { class: 'my-input' }, label_html: { class: 'my-label' } %>
+      <%= f.input :e_mail, placeholder: 'email@email.com', input_html: { class: 'my-input' }, label_html: { class: 'my-label' } %>
+      <%= f.input :phone_number, placeholder: 'phone number', input_html: { class: 'my-input' }, label_html: { class: 'my-label' } %>
+      <%= f.input :kind, placeholder: 'kind', input_html: { class: 'my-input' }, label_html: { class: 'my-label' } %>
+    </div>
+    <div class="form-actions btn-medium my-button">
+      <%= f.button :submit %>
+    </div>
+  <% end %>
+
+
+
+
+
+  <%= simple_form_for [@trip, @stay] do |f| %>
+    <%= f.error_notification %>
+    <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+    <div class="form-inputs form-color">
+      <%= f.input :title, start_date: 'Title of your diary', input_html: { class: 'my-input' }, label_html: { class: 'my-label' } %>
+      <%= f.input :end_date, placeholder: 'RyanAir, Orange', input_html: { class: 'my-input' }, label_html: { class: 'my-label' } %>
+      <%= f.input :reservation_number, placeholder: 'Date', input_html: { class: 'my-input' }, label_html: { class: 'my-label' } %>
+    </div>
+    <div class="form-actions btn-medium my-button">
+      <%= f.button :submit %>
+    </div>
+  <% end %>
+
+
+

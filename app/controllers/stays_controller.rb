@@ -9,10 +9,14 @@ class StaysController < ApplicationController
   end
 
   def new
+    @accomodation = Accomodation.new
     @stay = Stay.new
   end
 
   def create
+    @accomodation = Accomodation.new(accomodation_params)
+    @accomodation.save
+    @accomodation.stay = @accomodation
     @stay = Stay.new(stay_params)
     if @stay.save
       redirect_to stay_path(@stay)
@@ -20,8 +24,10 @@ class StaysController < ApplicationController
       render :new
     end
   end
+
   def edit
   end
+
   def update
     if @stay.update(stay_params)
       redirect_to @stay, notice: 'Stay was successfully updated.'
@@ -29,6 +35,7 @@ class StaysController < ApplicationController
       render :edit
     end
   end
+
   def destroy
     @stay.destroy
     redirect_to stays_url, notice: 'Stay was successfully destroyed.'
@@ -47,5 +54,9 @@ class StaysController < ApplicationController
 
   def stay_params
     params.require(:stay).permit(:start_date, :end_date, :reservation_number)
+  end
+
+  def accomodation_params
+    params.require(:accomodation).permit(:address, :name, :e_mail, :phone_number, :latitude, :longitude, :kind)
   end
 end
