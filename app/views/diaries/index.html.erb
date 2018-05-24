@@ -1,0 +1,8 @@
+<h1>Diary Index</h1>
+<%@diaries.each do |diary| %>
+<p><%=diary.title %></p>
+<p><%=diary.description%></p>
+<p><%=diary.address %></p>
+<p><%=diary.date %></p>
+<%= link_to 'Show',  trip_diary_path(@trip, diary)%>
+<%end  %>

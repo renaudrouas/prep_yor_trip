@@ -1,0 +1,5 @@
+<h1>Travel show</h1>
+<p><%=@travel.reservation_number%></p>
+<%= link_to 'Destroy', trip_travel_path(@travel.trip), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary" %>
+<%= link_to 'Edit', edit_trip_travel_path(@travel.trip), class: "btn btn-primary" %>
+<%= link_to 'Back', trip_travels_path, class: "btn btn-primary" %>

@@ -13,7 +13,6 @@ class TripsController < ApplicationController
   end
 
   def create
-
     @trip = Trip.new(trip_params)
     @trip.user = current_user
     if @trip.save
@@ -24,9 +23,11 @@ class TripsController < ApplicationController
   end
 
   def edit
+    @trip = Trip.find(params[:trip_id])
   end
 
   def update
+     @trip = Trip.find(params[:trip_id])
     if @trip.update(trip_params)
       redirect_to @trip, notice: 'Trip was successfully updated.'
     else
@@ -34,7 +35,7 @@ class TripsController < ApplicationController
     end
   end
 
-  def delete
+  def destroy
     @trip.destroy
     redirect_to trips_url, notice: 'Trip was successfully destroyed.'
   end

@@ -2,6 +2,7 @@ class DiariesController < ApplicationController
 before_action :set_diary, only: [:show, :edit, :update, :destroy]
 
   def index
+    @trip = Trip.find(params[:trip_id])
     @diaries = Diary.all
   end
 
@@ -9,33 +10,39 @@ before_action :set_diary, only: [:show, :edit, :update, :destroy]
   end
 
   def new
+    @trip = Trip.find(params[:trip_id])
     @diary = Diary.new
   end
 
   def create
-    @user.diary = current_user
+    @trip = Trip.find(params[:trip_id])
     @diary = Diary.new(diary_params)
+    @diary.trip = @trip
     if @diary.save
-      redirect_to diary_path(@diary)
+      redirect_to trip_diary_path(@trip,@diary)
     else
       render :new
     end
   end
   def edit
+    @trip = Trip.find(params[:trip_id])
   end
   def update
+    @trip = Trip.find(params[:trip_id])
     if @diary.update(diary_params)
-      redirect_to @diary, notice: 'Diary was successfully updated.'
+      redirect_to trip_diary_path(@trip,@diary), notice: 'Diary was successfully updated.'
     else
       render :edit
     end
   end
-  def delete
+  def destroy
+    @trip = Trip.find(params[:trip_id])
     @diary.destroy
-    redirect_to diarys_url, notice: 'Diary was successfully destroyed.'
+    redirect_to trip_diaries_path, notice: 'Diary was successfully destroyed.'
   end
 
   private
+
   def set_diary
     @diary = Diary.find(params[:id])
     #authorize @diary
