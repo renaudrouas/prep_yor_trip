@@ -1,4 +1,5 @@
 class StaysController < ApplicationController
+
   before_action :set_stay, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -10,13 +11,17 @@ class StaysController < ApplicationController
 
   def new
     @accomodation = Accomodation.new
+    @trip = Trip.find(params[:trip_id])
     @stay = Stay.new
+
   end
 
   def create
+     @trip = Trip.find(params[:trip_id])
     @accomodation = Accomodation.new(accomodation_params)
     @accomodation.save
     @accomodation.stay = @accomodation
+    @trip.stay = @trip
     @stay = Stay.new(stay_params)
     if @stay.save
       redirect_to stay_path(@stay)
@@ -26,9 +31,11 @@ class StaysController < ApplicationController
   end
 
   def edit
+     @trip = Trip.find(params[:trip_id])
   end
 
   def update
+    @trip = Trip.find(params[:trip_id])
     if @stay.update(stay_params)
       redirect_to @stay, notice: 'Stay was successfully updated.'
     else
@@ -43,13 +50,15 @@ class StaysController < ApplicationController
 
   private
 
+  # def build_accomodation
+  #   build_accomodation
+  #   true
+
+  # end
+
   def set_stay
     @stay = Stay.find(params[:id])
     #authorize @stay
-  end
-
-  def set_trip
-    @trip = Trip.find(params[:trip_id])
   end
 
   def stay_params
