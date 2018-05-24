@@ -2,4 +2,6 @@
 <%@trips.each do |trip| %>
 <p><%=trip.title %></p>
 <p><%=trip.destination %></p>
+<%= link_to 'Show',  trip_path(trip)%>
+
 <% end %>
