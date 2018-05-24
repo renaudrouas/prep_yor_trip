@@ -2,5 +2,5 @@
 
 <%= render 'form', travel: @travel %>
 
-<%= link_to 'Show', @travel %> |
+<%= link_to 'Show',  trip_travel_path(@trip, @travel) %> |
 <%= link_to 'Back', trip_travels_path %>

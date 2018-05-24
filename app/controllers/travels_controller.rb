@@ -1,7 +1,8 @@
 class TravelsController < ApplicationController
-  before_action :set_travel, only: [:show, :edit, :update, :destroy]
+  before_action :set_travel, only: [:show, :edit, :update]
 
   def index
+    @trip = Trip.find(params[:trip_id])
     @travels = Travel.all
   end
 
@@ -18,23 +19,25 @@ class TravelsController < ApplicationController
     @travel = Travel.new(travel_params)
     @travel.trip = @trip
     if @travel.save
-      redirect_to @travel, notice: 'travel was successfully created.'
+      redirect_to trip_travel_path(@trip, @travel), notice: 'travel was successfully created.'
     else
       render :new
     end
   end
   def edit
+    @trip = Trip.find(params[:trip_id])
   end
   def update
+    @trip = Trip.find(params[:trip_id])
     if @travel.update(travel_params)
-      redirect_to @travel, notice: 'travel was successfully updated.'
+      redirect_to trip_travel_path(@trip, @travel), notice: 'travel was successfully updated.'
     else
       render :edit
     end
   end
-  def delete
+  def destroy
     @travel.destroy
-    redirect_to travels_url, notice: 'travel was successfully destroyed.'
+    render :index, notice: 'travel was successfully destroyed.'
   end
 
   private
