@@ -1,0 +1,7 @@
+<h1>Tasks Index</h1>
+<% @tasks.each do |task| %>
+<p><%=task.title%></p>
+<%= link_to 'Show',  trip_task_path(@trip, task)%>
+<%end  %>
+
+

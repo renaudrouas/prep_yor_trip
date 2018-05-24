@@ -29,15 +29,20 @@ class StaysController < ApplicationController
       render :edit
     end
   end
-  def delete
+  def destroy
     @stay.destroy
     redirect_to stays_url, notice: 'Stay was successfully destroyed.'
   end
 
   private
+
   def set_stay
     @stay = Stay.find(params[:id])
     #authorize @stay
+  end
+
+  def set_trip
+    @trip = Trip.find(params[:trip_id])
   end
 
   def stay_params

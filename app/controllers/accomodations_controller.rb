@@ -29,7 +29,7 @@ before_action :set_accomodation, only: [:show, :edit, :update, :destroy]
       render :edit
     end
   end
-  def delete
+  def destroy
     @accomodation.destroy
     redirect_to accomodations_url, notice: 'accomodation was successfully destroyed.'
   end
