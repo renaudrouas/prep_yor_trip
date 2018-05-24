@@ -2,3 +2,7 @@
 <p><%=@diary.title %></p>
 <p><%=@diary.description %></p>
 <p><%=@diary.address %></p>
+<%= link_to 'Destroy', trip_diary_path(@diary.trip), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary" %>
+<%= link_to 'Edit', edit_trip_diary_path(@diary.trip), class: "btn btn-primary" %>
+<%= link_to 'Back', trip_diaries_path, class: "btn btn-primary" %>
+

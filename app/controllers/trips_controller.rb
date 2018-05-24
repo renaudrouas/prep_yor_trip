@@ -23,11 +23,9 @@ class TripsController < ApplicationController
   end
 
   def edit
-    @trip = Trip.find(params[:trip_id])
   end
 
   def update
-     @trip = Trip.find(params[:trip_id])
     if @trip.update(trip_params)
       redirect_to @trip, notice: 'Trip was successfully updated.'
     else
