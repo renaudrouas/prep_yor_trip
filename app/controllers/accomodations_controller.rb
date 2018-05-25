@@ -10,18 +10,28 @@ before_action :set_accomodation, only: [:show, :edit, :update, :destroy]
 
   def new
     @accomodation = Accomodation.new
+    @trip = Trip.find(params[:trip_id])
+    @accomodation.stays.build
+    #@stay = Stay.new
   end
 
   def create
+    @trip = Trip.find(params[:trip_id])
+
     @accomodation = Accomodation.new(accomodation_params)
+    @accomodation.stays.each do |stay|
+      stay.trip = @trip
+    end
     if @accomodation.save
-      redirect_to accomodation_path(@accomodation)
+      redirect_to trip_accomodation_path(@trip, @accomodation), notice: 'accomodation and stay were successfully created.'
     else
       render :new
     end
   end
+
   def edit
   end
+
   def update
     if @accomodation.update(accomodation_params)
       redirect_to @accomodation, notice: 'accomodation was successfully updated.'
@@ -29,12 +39,14 @@ before_action :set_accomodation, only: [:show, :edit, :update, :destroy]
       render :edit
     end
   end
+
   def destroy
     @accomodation.destroy
     redirect_to accomodations_url, notice: 'accomodation was successfully destroyed.'
   end
 
   private
+
   def set_accomodation
     @accomodation = Accomodation.find(params[:id])
     #authorize @accomodation
