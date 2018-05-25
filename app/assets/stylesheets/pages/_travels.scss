@@ -19,12 +19,31 @@
 .table {
   margin: 15vh auto;
   background-color: $light-gray;
+  padding: 0;
+  border: 1px solid #ddd;
+  td {
+
+  }
 }
 
-td {
-  padding: 1em;
+.white-cell {
+  background-color: white;
 }
 
+
+
+.table > tbody > tr > td {
+  padding: 3px;
+  line-height: 1.428571;
+  vertical-align: top;
+  border: none;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.white-bottom-border {
+  border-bottom: 2px solid white !important;
+}
 .travel-card-frame {
   // padding: 0px !important;
   // margin: 0px !important;
