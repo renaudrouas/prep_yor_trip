@@ -5,9 +5,9 @@ require 'rest-client'
 # weather.temp # => 18°
 #
 class Weather
-  def initialize(city,start_date,end_date)
+  def initialize(city,start_date)
     base_url = "https://api.weatherbit.io/v2.0/history/daily"
-    params = "?city=#{city}&start_date=#{start_date}&end_date=#{end_date}"
+    params = "?city=#{city}&start_date=#{start_date}&end_date=#{start_date + 1.day}"
     key = "&key=#{ENV.fetch('WEATHER_API_KEY')}"
     @url = base_url + params + key
   end

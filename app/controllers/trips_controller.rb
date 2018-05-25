@@ -1,3 +1,4 @@
+
 class TripsController < ApplicationController
   before_action :set_trip, only: [:show, :edit, :update, :destroy]
 
@@ -5,22 +6,23 @@ class TripsController < ApplicationController
     @trips = Trip.all
   end
 
-  def weather
-    @weather = Weather.new(:destination,:start_date,:end_date)
-    @weather = @weather.call
+  # def weather
+  #   @weather = Weather.new(:destination,:start_date,:end_date)
+  #   @weather = @weather.call
 
-  end
-#   <i class="fa fa-sun"></i>
-#   <i class="fa fa-thermometer"></i>
-# <i class="fa fa-cloud"></i>
-# <i class="fa fa-tint"></i>
+  # end
+
   def show
+    @weather = Weather.new(@trip.destination, @trip.start_date)
+    @country_info = Restcountry::Country.find_by_name(@trip.destination)
+    @weather = @weather.call
     @travels = @trip.travels
     @stays = @trip.stays
     @diaries = @trip.diaries
     @accomodations = Accomodation.all
     # @weather = Weather.new(@trip.destination, @trip.start_date, @trip.end_date)
     # @weather = @weather.call
+
   end
 
   def new
