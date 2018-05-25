@@ -3,10 +3,11 @@ class TravelsController < ApplicationController
 
   def index
     @trip = Trip.find(params[:trip_id])
-    @travels = Travel.all
+    @travels = @trip.travels
   end
 
   def show
+
   end
 
   def new
