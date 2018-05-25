@@ -1,3 +1,4 @@
+
 class TripsController < ApplicationController
   before_action :set_trip, only: [:show, :edit, :update, :destroy]
 
@@ -15,11 +16,11 @@ class TripsController < ApplicationController
 # <i class="fa fa-cloud"></i>
 # <i class="fa fa-tint"></i>
   def show
+    @weather = Weather.new(@trip.destination, @trip.start_date, @trip.end_date)
+    @weather = @weather.call
     @travels = @trip.travels
     @stays = @trip.stays
     @diaries = @trip.diaries
-    @weather = Weather.new(@trip.destination, @trip.start_date, @trip.end_date)
-    @weather = @weather.call
   end
 
   def new
