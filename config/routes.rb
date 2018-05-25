@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :trips do
     resources :travels
-    resources :stays
+    resources :accomodations
     resources :tasks
     resources :diaries
   end
