@@ -7,6 +7,11 @@
     <div class="banner">
       <div class="banner-content">
         <h1>VOYAGER LE COEUR LEGER</h1>
+        <% if user_signed_in? %>
+          <%= link_to "Mes voyages", trips_path, class: "btn btn-trip" %>
+        <% else %>
+          <%= link_to "Let's go !", new_trip_path, class: "btn btn-trip" %>
+        <% end %>
       </div>
     </div>
   </div>
