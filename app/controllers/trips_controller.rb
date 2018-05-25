@@ -23,6 +23,7 @@ class TripsController < ApplicationController
   end
 
   def edit
+
   end
 
   def update

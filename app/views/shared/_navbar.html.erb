@@ -55,6 +55,11 @@
             <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
             <% end %>
           </li>
+          <li>
+            <%= link_to destroy_user_session_path, method: :delete do %>
+            <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
+            <% end %>
+          </li>
         </ul>
         <% else %>
         <%= image_tag "https://res.cloudinary.com/demo/image/upload/w_100,h_100,c_thumb,g_face,r_20,d_avatar.png/non_existing_id.png", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
@@ -71,7 +76,7 @@
           </li>
           <li>
             <%= link_to destroy_user_session_path, method: :delete do %>
-            <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
+            <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log ot") %>
             <% end %>
           </li>
         </ul>

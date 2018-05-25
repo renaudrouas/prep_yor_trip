@@ -9,6 +9,7 @@
           </div>
         </div>
       </div>
+      <%@travels.each do |travel|%>
       <div class="col-xs-12">
         <div class="table-responsive">
           <table class="table">
@@ -29,7 +30,9 @@
                 <td><p>travel.adress</p></td>
               </tr>
               <tr>
-                <td class="white-cell"><a href="" class="btn btn-trip">EDIT</a></td>
+                <td class="white-cell">
+                  <%= link_to 'Edit', edit_trip_travel_path(@trip, travel), class: "btn btn-primary" %>
+                </td>
                 <td><h3>Hotel Name</h3></td>
                 <td><p>travel.hotel.name</p></td>
               </tr>
@@ -39,12 +42,14 @@
                 <td><p>travel.phone.number</p></td>
               </tr>
               <tr>
-                <td class="white-cell"><a href="" class="btn btn-transport">DELETE</a></td>
+                <td class="white-cell"><%= link_to 'Destroy', trip_travel_path(@trip, travel), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary" %></td>
                 <td><h3>Email</h3></td>
                 <td><p>travel.email</p></td>
               </tr>
             </tbody>
           </table>
+          <%end %>
+          <%= link_to 'Add a new travel', new_trip_travel_path, class: "btn btn-primary" %>
         </div>
       </div>
     </div>
@@ -52,7 +57,11 @@
 <!--   <div id="map"></div> -->
 </div>
 
+
 <script>
+
+
+
       function initMap() {
         // Create a map object and specify the DOM element for display.
         var map = new google.maps.Map(document.getElementById('map'), {
