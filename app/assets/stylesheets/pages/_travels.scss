@@ -16,8 +16,9 @@
   width: 100%;
 }
 
-.table-bordered {
+.table {
   margin: 15vh auto;
+  background-color: $light-gray;
 }
 
 td {
