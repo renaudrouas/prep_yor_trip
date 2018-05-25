@@ -1,0 +1,67 @@
+.content {
+  border: solid 1px black;
+  display: flex;
+
+  @media (max-width: 700px) {
+    flex-direction: column;
+  }
+}
+
+.bandeau {
+  background-color: $light-gray;
+  width: 100%;
+  height: 30vh;
+}
+.cards-container {
+  width: 100%;
+}
+
+.table {
+  margin: 15vh auto;
+  background-color: $light-gray;
+  padding: 0;
+  border: 1px solid #ddd;
+  td {
+
+  }
+}
+
+.white-cell {
+  background-color: white;
+}
+
+
+
+.table > tbody > tr > td {
+  padding: 3px;
+  line-height: 1.428571;
+  vertical-align: top;
+  border: none;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.white-bottom-border {
+  border-bottom: 2px solid white !important;
+}
+.travel-card-frame {
+  // padding: 0px !important;
+  // margin: 0px !important;
+  margin: 5em;
+  height: 20vh;
+  width: 100%;
+
+}
+
+#map {
+  flex: 0 0 450px;
+  height: 100vh;
+  position: sticky !important;
+  top: 0 !important;
+
+  @media (max-width: 700px) {
+    height: auto;
+    position: relative;
+    width: 100vh;
+  }
+}
