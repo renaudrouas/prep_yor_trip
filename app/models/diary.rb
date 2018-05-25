@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Diary < ApplicationRecord
   belongs_to :trip
   has_many :photos, dependent: :destroy

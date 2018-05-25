@@ -1,14 +1,14 @@
+# frozen_string_literal: true
+
 class TravelsController < ApplicationController
-  before_action :set_travel, only: [:show, :edit, :update, :destroy]
+  before_action :set_travel, only: %i[show edit update destroy]
 
   def index
     @trip = Trip.find(params[:trip_id])
     @travels = @trip.travels
   end
 
-  def show
-
-  end
+  def show; end
 
   def new
     @trip = Trip.find(params[:trip_id])
@@ -25,9 +25,11 @@ class TravelsController < ApplicationController
       render :new
     end
   end
+
   def edit
     @trip = Trip.find(params[:trip_id])
   end
+
   def update
     @trip = Trip.find(params[:trip_id])
     if @travel.update(travel_params)
@@ -36,6 +38,7 @@ class TravelsController < ApplicationController
       render :edit
     end
   end
+
   def destroy
     @trip = Trip.find(params[:trip_id])
     @travel.destroy
@@ -43,9 +46,10 @@ class TravelsController < ApplicationController
   end
 
   private
+
   def set_travel
     @travel = Travel.find(params[:id])
-    #authorize @travel
+    # authorize @travel
   end
 
   def travel_params

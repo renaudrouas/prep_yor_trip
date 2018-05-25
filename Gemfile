@@ -1,9 +1,10 @@
+# frozen_string_literal: true
+
 source 'https://rubygems.org'
 ruby '2.4.3'
 
-gem 'cloudinary'
 gem 'carrierwave', '~> 1.2'
-
+gem 'cloudinary'
 
 gem 'bootsnap', require: false
 gem 'devise'
@@ -24,21 +25,18 @@ gem 'webpacker'
 
 gem 'rest-client'
 
+gem 'geocoder'
 gem 'google_places_autocomplete', '~> 0.0.3'
-gem "geocoder"
 gem 'restcountry'
-
-
-
 
 group :development do
   gem 'web-console', '>= 3.3.0'
 end
 
 group :development, :test do
+  gem 'listen', '~> 3.0.5'
   gem 'pry-byebug'
   gem 'pry-rails'
-  gem 'listen', '~> 3.0.5'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end

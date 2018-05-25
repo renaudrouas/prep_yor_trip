@@ -1,13 +1,14 @@
+# frozen_string_literal: true
+
 class TasksController < ApplicationController
-before_action :set_task, only: [:show, :edit, :update, :destroy]
+  before_action :set_task, only: %i[show edit update destroy]
 
   def index
     @trip = Trip.find(params[:trip_id])
-    @tasks = Task.all.order("created_at DESC")
+    @tasks = Task.all.order('created_at DESC')
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @trip = Trip.find(params[:trip_id])
@@ -44,17 +45,17 @@ before_action :set_task, only: [:show, :edit, :update, :destroy]
     redirect_to trip_tasks_path, notice: 'Task was successfully destroyed.'
   end
 
-def complete
+  def complete
     @task = Task.find(params[:trip_id])
     @task.update(done: true)
     redirect_to trip_tasks_path(@task)
-  end
+    end
 
   private
 
   def set_task
     @task = Task.find(params[:id])
-    #authorize @task
+    # authorize @task
   end
 
   def task_params

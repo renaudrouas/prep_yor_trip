@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class AccomodationsController < ApplicationController
-before_action :set_accomodation, only: [:show, :edit, :update, :destroy]
+  before_action :set_accomodation, only: %i[show edit update destroy]
 
   def index
     @trip = Trip.find(params[:trip_id])
@@ -7,15 +9,15 @@ before_action :set_accomodation, only: [:show, :edit, :update, :destroy]
   end
 
   def show
-     @trip = Trip.find(params[:trip_id])
-     @stays = @accomodation.stays
+    @trip = Trip.find(params[:trip_id])
+    @stays = @accomodation.stays
   end
 
   def new
     @accomodation = Accomodation.new
     @trip = Trip.find(params[:trip_id])
     @accomodation.stays.build
-    #@stay = Stay.new
+    # @stay = Stay.new
   end
 
   def create
@@ -53,14 +55,14 @@ before_action :set_accomodation, only: [:show, :edit, :update, :destroy]
 
   def set_accomodation
     @accomodation = Accomodation.find(params[:id])
-    #authorize @accomodation
+    # authorize @accomodation
   end
 
   def accomodation_params
     params.require(:accomodation).permit(
       :address, :name, :e_mail, :phone_number,
       :latitude, :longitude, :kind,
-      stays_attributes:[:start_date, :end_date, :trip_id, :reservation_number]
+      stays_attributes: %i[start_date end_date trip_id reservation_number]
     )
   end
 end
