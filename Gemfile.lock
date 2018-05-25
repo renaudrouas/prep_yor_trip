@@ -250,6 +250,7 @@ DEPENDENCIES
   puma
   rails (= 5.2.0)
   redis
+  rest-client
   sass-rails
   simple_form
   spring

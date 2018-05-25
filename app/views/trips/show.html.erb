@@ -1,14 +1,35 @@
 <h1><%=@trip.title%></h1>
 
-
-
   <div class="wrapper">
     <nav id="sidebar">
       <ul class="list-unstyled components">
-            <li><a href="#"><i class="fa fa-plane"></i></a></li>
-            <li><a href="#"><i class="fa fa-home"></i></a></li>
-            <li><a href="#"><i class="fa fa-book"></i></a></li>
-            <li><a href="#"><i class="fa fa-info"></i></a></li>
+            <li>
+              <% if @travels.empty? %>
+                <%= link_to new_trip_travel_path(@trip) do %>
+                  <i class="fa fa-plane"></i>
+                <% end %>
+              <% else %>
+                <%= link_to trip_travels_path(@trip) %>
+              <% end %>
+            </li>
+            <li>
+              <% if @stays.empty? %>
+                <%= link_to new_trip_stay_path(@trip) do %>
+                  <i class="fa fa-home"></i>
+                <% end %>
+              <% else %>
+                <%= link_to trip_stays_path(@trip) %>
+              <% end %>
+            </li>
+            <li>
+              <% if @diaries.empty? %>
+                <%= link_to new_trip_diary_path(@trip) do %>
+                  <i class="fa fa-book"></i>
+              <% end %>
+              <% else %>
+              <%= link_to trip_diaries_path(@trip) %>
+              <% end %>
+            </li>
       </ul>
     </nav>
   </div>
@@ -17,14 +38,18 @@
         <div class= "col-xs-6">
           <div class="card two-card-container">
             <div class="two-card-title">
-              <p> Information </p>
+              <h1> Information </h1>
+                <h2> Meteo</h2>
+                <p> <i class="fas fa-thermometer"><strong>Temperature = <%=  @weather.temp %>°C</strong></i></p>
+                <p> <i class="fa fa-sun"><strong>Temperature max = <%= @weather.max_temp %>°C</strong></i></p>
+                <p><i class="fas fa-snowflake"><strong> Temperature min = <%= @weather.min_temp %>°C</strong></i></p>
             </div>
           </div>
         </div>
         <div class= "col-xs-6">
           <div class="card two-card-container">
             <div class="two-card-title">
-              <p> Liste </p>
+              <h1> Liste </h1>
             </div>
           </div>
         </div>
