@@ -1,6 +1,6 @@
 <div class="content">
   <div class="cards-container">
-    <div class="col-xs-12">
+    <div class="col-xs-12 col-sm-7">
       <div class="row">
         <div class="col-xs-12">
           <div class="bandeau">
@@ -9,53 +9,46 @@
         </div>
       </div>
       <div class="col-xs-12">
-        <div class="cards">
-          <div class ="col-xs-3">
-             <div class="row">
-               <%= image_tag "hotel.png"%>
-             </div>
-             <div class="row">
-               <a href="" class="btn btn-trip">EDIT</a>
-             </div>
-             <div class="row">
-               <a href="" class="btn btn-transport">DELETE</a>
-             </div>
-          </div>
-          <div class="col-xs-9 inner-components">
-            <div class="row">
-              <div class="col-xs-6">
-                <h3>Depart - Arrivée</h3>
-              </div>
-              <div class="col-xs-6">
-                <h3>Nom de la ville - Pays</h3>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-xs-6">
-                <h3>Hotel Name</h3>
-               </div>
-            </div>
-            <div class="row">
-              <div class="col-xs-6">
-                <h3>Adress</h3>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-xs-6">
-                <h3>Phone number</h3>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-xs-6">
-                <h3>Email</h3>
-              </div>
-            </div>
-          </div>
+        <div class="table-responsive">
+          <table class="table-bordered">
+            <tbody>
+              <tr>
+                <td></td>
+                <td><h3>Depart - Arrivée</h3></td>
+                <td><h3>Nom de la ville - Pays</h3></td>
+              </tr>
+              <tr>
+                <td><%= image_tag "hotel.png"%></td>
+                <td><h3>travel.date.depart</h3></td>
+                <td><h3>travel.country</h3></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td><h3>Adress</h3></td>
+                <td><h3>travel.adress</h3></td>
+              </tr>
+              <tr>
+                <td><a href="" class="btn btn-trip">EDIT</a></td>
+                <td><h3>Hotel Name</h3></td>
+                <td><h3>travel.hotel.name</h3></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td><h3>Phone number</h3></td>
+                <td><h3>travel.phone.number</h3></td>
+              </tr>
+              <tr>
+                <td><a href="" class="btn btn-transport">DELETE</a></td>
+                <td><h3>Email</h3></td>
+                <td><h3>travel.email</h3></td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
   </div>
-  <div id="map"></div>
+<!--   <div id="map"></div> -->
 </div>
 
 <script>
@@ -128,4 +121,50 @@
     <!-- </div> -->
   <!-- </div> -->
 <!-- </div> -->
+
+
+
+<!--         <div class="cards">
+          <div class ="col-xs-3">
+             <div class="row">
+               <%# image_tag "hotel.png"%>
+             </div>
+             <div class="row">
+               <a href="" class="btn btn-trip">EDIT</a>
+             </div>
+             <div class="row">
+               <a href="" class="btn btn-transport">DELETE</a>
+             </div>
+          </div>
+          <div class="col-xs-9 inner-components">
+            <div class="row">
+              <div class="col-xs-6">
+                <h3>Depart - Arrivée</h3>
+              </div>
+              <div class="col-xs-6">
+                <h3>Nom de la ville - Pays</h3>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-6">
+                <h3>Hotel Name</h3>
+               </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-6">
+                <h3>Adress</h3>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-6">
+                <h3>Phone number</h3>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-6">
+                <h3>Email</h3>
+              </div>
+            </div>
+          </div>
+        </div> -->
 
