@@ -2,6 +2,7 @@ h1 {
   font-size: 30px;
   line-height: 40px;
   color: black;
+  text-align:center;
 }
 
 h2 {
@@ -24,6 +25,9 @@ body {
   background-color: white;
 }
 
+.full-screen {
+  min-height: calc(100vh - 170px);
+}
 // a {
 //   font-size: 20px;
 //   color: $light-gray;

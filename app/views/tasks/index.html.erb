@@ -3,5 +3,6 @@
 <p><%=task.title%></p>
 <%= link_to 'Show',  trip_task_path(@trip, task)%>
 <%end  %>
+<%= link_to 'Add a new task', new_trip_task_path, class: "btn btn-primary" %>
 
 

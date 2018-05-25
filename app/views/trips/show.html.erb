@@ -1,1 +1,141 @@
 <h1><%=@trip.title%></h1>
+
+
+
+  <div class="wrapper">
+    <nav id="sidebar">
+      <ul class="list-unstyled components">
+            <li><a href="#"><i class="fa fa-plane"></i></a></li>
+            <li><a href="#"><i class="fa fa-home"></i></a></li>
+            <li><a href="#"><i class="fa fa-book"></i></a></li>
+            <li><a href="#"><i class="fa fa-info"></i></a></li>
+      </ul>
+    </nav>
+  </div>
+    <div class="container">
+      <div class= "row">
+        <div class= "col-xs-6">
+          <div class="card two-card-container">
+            <div class="two-card-title">
+              <p> Information </p>
+            </div>
+          </div>
+        </div>
+        <div class= "col-xs-6">
+          <div class="card two-card-container">
+            <div class="two-card-title">
+              <p> Liste </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    <div class="row">
+      <div class="col-xs-6">
+        <div class="card">
+          <ul class="timeline">
+            <li>
+              <div class="timeline-badge">
+                <i class="fa fa-map-marker"></i>
+              </div>
+              <div class="timeline-panel">
+                <div class="timeline-heading">
+                  <h4 class="timeline-title">Jour 1 </h4>
+                </div>
+                <div class="timeline-body">
+                  <p>Hotel Name : du .. au .. </p>
+                  <p> Telephone </p>
+                </div>
+              </div>
+            </li>
+            <li class="timeline-inverted">
+              <div class="timeline-badge">
+                <i class="fa fa-map-marker"></i>
+              </div>
+              <div class="timeline-panel">
+                <div class="timeline-heading">
+                  <h4 class="timeline-title">Jour 2</h4>
+                </div>
+                <div class="timeline-body">
+                  <p>Hotel Name : du .. au .. </p>
+                  <p> Telephone </p>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="timeline-badge">
+                <i class="fa fa-map-marker"></i>
+              </div>
+              <div class="timeline-panel">
+                <div class="timeline-heading">
+                  <h4 class="timeline-title">Jour 3</h4>
+                </div>
+                <div class="timeline-body">
+                  <p>Hotel Name : du .. au .. </p>
+                  <p> Telephone </p>
+                </div>
+              </div>
+            </li>
+            <li class="timeline-inverted">
+              <div class="timeline-panel">
+                <div class="timeline-heading">
+                  <h4 class="timeline-title">25 Juillet 2018</h4>
+                </div>
+                <div class="timeline-body">
+                  <p> Départ pour Cassis </p>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="timeline-badge">
+                <i class="fa fa-map-marker"></i>
+              </div>
+              <div class="timeline-panel">
+                <div class="timeline-heading">
+                  <h4 class="timeline-title">Jour 4</h4>
+                </div>
+                <div class="timeline-body">
+                  <p>Hotel Name : du .. au .. </p>
+                  <p> Telephone </p>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="timeline-panel">
+                <div class="timeline-heading">
+                  <h4 class="timeline-title">1 er Aout</h4>
+                </div>
+                <div class="timeline-body">
+                  <p>Let's go Bandol  </p>
+                </div>
+              </div>
+            </li>
+            <li class="timeline-inverted">
+              <div class="timeline-badge">
+                <i class="fa fa-map-marker"></i>
+              </div>
+              <div class="timeline-panel">
+                <div class="timeline-heading">
+                  <h4 class="timeline-title">Jour 10</h4>
+                </div>
+                <div class="timeline-body">
+                  <p>Retour pour Paris sous la pluie </p>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-xs-6">
+        <div class="card">
+          <%= image_tag "maps.png", height: 800 %>
+        </div>
+      </div>
+    </div>
+</div>
+
+
+
+<%= link_to 'Destroy', trip_path(@trip), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary" %>
+<%= link_to 'Edit', edit_trip_path(@trip), class: "btn btn-primary" %>
+<%= link_to 'Back', trips_path, class: "btn btn-primary" %>
+
