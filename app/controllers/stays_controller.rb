@@ -17,14 +17,14 @@ class StaysController < ApplicationController
   end
 
   def create
-     @trip = Trip.find(params[:trip_id])
-    @accomodation = Accomodation.new(accomodation_params)
-    @accomodation.save
-    @accomodation.stay = @accomodation
-    @trip.stay = @trip
+    @trip = Trip.find(params[:trip_id])
+    @accomodation = Accomodation.new(params[:accomodation])
+     @accomodation.save
     @stay = Stay.new(stay_params)
+    @stay.accomodation = @accomodation
+    @stay.trip = @trip
     if @stay.save
-      redirect_to stay_path(@stay)
+      redirect_to trip_stay_path(@trip, @stay), notice: 'Stay and Accomodation were successfully created.'
     else
       render :new
     end
@@ -50,19 +50,13 @@ class StaysController < ApplicationController
 
   private
 
-  # def build_accomodation
-  #   build_accomodation
-  #   true
-
-  # end
-
   def set_stay
     @stay = Stay.find(params[:id])
     #authorize @stay
   end
 
   def stay_params
-    params.require(:stay).permit(:start_date, :end_date, :reservation_number)
+    params.require(:stay).permit(:start_date, :end_date, :reservation_number, accomodation_attributes: [:address, :name, :e_mail, :phone_number, :latitude, :longitude, :kind])
   end
 
   def accomodation_params

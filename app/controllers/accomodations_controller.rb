@@ -41,6 +41,6 @@ before_action :set_accomodation, only: [:show, :edit, :update, :destroy]
   end
 
   def accomodation_params
-    params.require(:accomodation).permit(:address, :name, :e_mail, :phone_number, :latitude, :longitude, :kind)
+    params.require(:accomodation).permit(:address, :name, :e_mail, :phone_number, :latitude, :longitude, :kind, stays_attributes:[:start_date, :end_date, :reservation_number])
   end
 end

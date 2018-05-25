@@ -6,18 +6,16 @@
       <%= f.input :start_date, placeholder: 'Title of your diary', input_html: { class: 'my-input' }, label_html: { class: 'my-label' } %>
       <%= f.input :end_date, placeholder: 'RyanAir, Orange', input_html: { class: 'my-input' }, label_html: { class: 'my-label' } %>
       <%= f.input :reservation_number, placeholder: 'Date', input_html: { class: 'my-input' }, label_html: { class: 'my-label' } %>
-     <%= f.simple_fields_for :accomodations do |p| %>
+     <%= f.simple_fields_for :accomodation do |p| %>
       <%= p.input :address, placeholder: 'Address', input_html: { class: 'my-input' }, label_html: { class: 'my-label' } %>
       <%= p.input :name, placeholder: 'Name', input_html: { class: 'my-input' }, label_html: { class: 'my-label' } %>
       <%= p.input :e_mail, placeholder: 'email@email.com', input_html: { class: 'my-input' }, label_html: { class: 'my-label' } %>
       <%= p.input :phone_number, placeholder: 'phone number', input_html: { class: 'my-input' }, label_html: { class: 'my-label' } %>
       <%= p.input :kind, placeholder: 'kind', input_html: { class: 'my-input' }, label_html: { class: 'my-label' } %>
     </div>
+    <%  %>
     <div class="form-actions btn-medium my-button">
       <%= p.button :submit %>
-    </div>
-    <div class="form-actions btn-medium my-button">
-      <%= f.button :submit %>
     </div>
 
     <% end %>
