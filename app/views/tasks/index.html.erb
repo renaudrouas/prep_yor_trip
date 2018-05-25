@@ -3,14 +3,14 @@
 <div class="col-md-6 col-md-offset-3">
 
   <% @tasks.each do |task| %>
-
+<div class="index-wrapper">
     <% if task.completed? %>
 
       <div class = "row item" >
       <div class = "col-md_8">
       <h2 style="opacity: 0,5;"><strike><%=link_to task.title, trip_task_path(@trip, task) %><strike></h2>
         <p style="opacity: 0,5;"><%=task.description%></p>
-        <pstyle="opacity: 0,5;">Completed<%= time_ago_in_words(task.completed_at) %> ago </p>
+        <pstyle="opacity: 0,5;">Completed<%= time_ago_in_words(task.completed) %> ago </p>
       </div>
       <div class = "col-md_2">
         <p><%= link_to complete_trip_task(@trip, task), method: :patch do %></p>
@@ -45,6 +45,7 @@
 
 
   <% end %>
+  </div>
 <% end  %>
 
 </div>

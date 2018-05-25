@@ -43,9 +43,9 @@ before_action :set_task, only: [:show, :edit, :update, :destroy]
     redirect_to trip_tasks_path, notice: 'Task was successfully destroyed.'
   end
 
-  def complete
+def complete
     @task = Task.find(params[:trip_id])
-    @task.update_attribute(:completed_at, Time.now)
+    @task.update_attribute(completed_at, Time.now)
     redirect_to trip_tasks_path(@trip, @task)
   end
 
