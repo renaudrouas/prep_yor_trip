@@ -3,7 +3,7 @@ before_action :set_task, only: [:show, :edit, :update, :destroy]
 
   def index
     @trip = Trip.find(params[:trip_id])
-    @tasks = Task.all
+    @tasks = Task.all.order("created_at DESC")
   end
 
   def show
@@ -42,6 +42,12 @@ before_action :set_task, only: [:show, :edit, :update, :destroy]
     @trip = Trip.find(params[:trip_id])
     @task.destroy
     redirect_to trip_tasks_path, notice: 'Task was successfully destroyed.'
+  end
+
+def complete
+    @task = Task.find(params[:trip_id])
+    @task.update(done: true)
+    redirect_to trip_tasks_path(@task)
   end
 
   private

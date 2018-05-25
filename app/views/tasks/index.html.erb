@@ -1,8 +1,54 @@
 <h1>Tasks Index</h1>
-<% @tasks.each do |task| %>
-<p><%=task.title%></p>
-<%= link_to 'Show',  trip_task_path(@trip, task)%>
-<%end  %>
-<%= link_to 'Add a new task', new_trip_task_path, class: "btn btn-primary" %>
+
+<div class="col-md-6 col-md-offset-3">
+
+  <% @tasks.each do |task| %>
+<div class="index-wrapper">
+    <% if task.done? %>
+
+      <div class = "row item" >
+      <div class = "col-md_8">
+      <h2 style="opacity: 0,5;"><strike><%=link_to task.title, trip_task_path(@trip, task) %><strike></h2>
+        <p style="opacity: 0,5;"><%=task.description%></p>
+
+      </div>
+      <div class = "col-md_2">
+        <p><%= link_to complete_trip_task_path(@trip, task), method: :patch do %></p>
+        <i class="fa fa-lg fa-check"></i>
+        <% end %>
+      </div>
+      <div class = "col-md_2">
+        <p><%#= link_to 'Destroy', trip_task_path(@task.trip), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary" do %></p>
+        <i class="fa fa-lg fa-trash"></i>
+        <%# end %>
+      </div>
+</div>
+  <% else %>
+
+  <div class = "row item" >
+    <div class = "col-md_8">
+      <h2> <%=link_to task.title, trip_task_path(@trip, task) %></h2>
+      <p><%=task.description%></p>
+
+    <div class = "col-md_2">
+      <p><%= link_to complete_trip_task_path(@trip, task), method: :patch do %></p>
+      <i class="fa fa-lg fa-check"></i>
+      <% end %>
+    </div>
+      <div class = "col-md_2">
+        <p><%#= link_to 'Destroy', trip_task_path(@task.trip), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary" do %></p>
+        <i class="fa fa-lg fa-trash"></i>
+        <%# end %>
+      </div>
+ </div>
+
+
+  <% end %>
+  </div>
+<% end  %>
+
+</div>
+
+  <%= link_to 'Add a new task', new_trip_task_path, class: "btn btn-primary" %>
 
 
