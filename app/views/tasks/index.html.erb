@@ -12,16 +12,18 @@
         <p style="opacity: 0,5;"><%=task.description%></p>
 
       </div>
+      <div>
       <div class = "col-md_2">
         <p><%= link_to complete_trip_task_path(@trip, task), method: :patch do %></p>
         <i class="fa fa-lg fa-check"></i>
         <% end %>
       </div>
       <div class = "col-md_2">
-        <p><%#= link_to 'Destroy', trip_task_path(@task.trip), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary" do %></p>
+        <p><%= link_to trip_task_path(@trip,task), method: :delete, data: { confirm: 'Are you sure?' } do %></p>
         <i class="fa fa-lg fa-trash"></i>
-        <%# end %>
+        <% end %>
       </div>
+</div>
 </div>
   <% else %>
 
@@ -36,9 +38,9 @@
       <% end %>
     </div>
       <div class = "col-md_2">
-        <p><%#= link_to 'Destroy', trip_task_path(@task.trip), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary" do %></p>
+        <p><%= link_to trip_task_path(@trip, task), method: :delete, data: { confirm: 'Are you sure?' } do %></p>
         <i class="fa fa-lg fa-trash"></i>
-        <%# end %>
+        <% end %>
       </div>
  </div>
 
