@@ -5,7 +5,21 @@ class TripsController < ApplicationController
     @trips = Trip.all
   end
 
+  def weather
+    @weather = Weather.new(:destination,:start_date,:end_date)
+    @weather = @weather.call
+
+  end
+#   <i class="fa fa-sun"></i>
+#   <i class="fa fa-thermometer"></i>
+# <i class="fa fa-cloud"></i>
+# <i class="fa fa-tint"></i>
   def show
+    @travels = @trip.travels
+    @stays = @trip.stays
+    @diaries = @trip.diaries
+    # @weather = Weather.new(@trip.destination, @trip.start_date, @trip.end_date)
+    # @weather = @weather.call
   end
 
   def new
@@ -23,6 +37,7 @@ class TripsController < ApplicationController
   end
 
   def edit
+
   end
 
   def update

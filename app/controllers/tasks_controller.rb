@@ -24,10 +24,10 @@ before_action :set_task, only: [:show, :edit, :update, :destroy]
       render :new
     end
   end
+
   def edit
     @trip = Trip.find(params[:trip_id])
   end
-
 
   def update
     @trip = Trip.find(params[:trip_id])
@@ -37,6 +37,7 @@ before_action :set_task, only: [:show, :edit, :update, :destroy]
       render :edit
     end
   end
+
   def destroy
     @trip = Trip.find(params[:trip_id])
     @task.destroy
@@ -50,6 +51,7 @@ def complete
   end
 
   private
+
   def set_task
     @task = Task.find(params[:id])
     #authorize @task

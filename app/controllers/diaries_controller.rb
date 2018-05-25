@@ -19,7 +19,7 @@ before_action :set_diary, only: [:show, :edit, :update, :destroy]
     @diary = Diary.new(diary_params)
     @diary.trip = @trip
     if @diary.save
-      redirect_to trip_diary_path(@trip,@diary)
+      redirect_to trip_diary_path(@trip, @diary)
     else
       render :new
     end

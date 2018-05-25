@@ -21,8 +21,12 @@ gem 'sass-rails'
 gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
+
+gem 'rest-client'
+
 gem 'google_places_autocomplete', '~> 0.0.3'
 gem "geocoder"
+
 
 
 
