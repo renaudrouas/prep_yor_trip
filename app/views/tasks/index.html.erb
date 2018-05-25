@@ -4,23 +4,23 @@
 
   <% @tasks.each do |task| %>
 <div class="index-wrapper">
-    <% if task.completed? %>
+    <% if task.done? %>
 
       <div class = "row item" >
       <div class = "col-md_8">
       <h2 style="opacity: 0,5;"><strike><%=link_to task.title, trip_task_path(@trip, task) %><strike></h2>
         <p style="opacity: 0,5;"><%=task.description%></p>
-        <pstyle="opacity: 0,5;">Completed<%= time_ago_in_words(task.completed) %> ago </p>
+
       </div>
       <div class = "col-md_2">
-        <p><%= link_to complete_trip_task(@trip, task), method: :patch do %></p>
+        <p><%= link_to complete_trip_task_path(@trip, task), method: :patch do %></p>
         <i class="fa fa-lg fa-check"></i>
         <% end %>
       </div>
       <div class = "col-md_2">
-        <p><%= link_to 'Delete', trip_task_path(@task.trip), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary" do %></p>
+        <p><%#= link_to 'Destroy', trip_task_path(@task.trip), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary" do %></p>
         <i class="fa fa-lg fa-trash"></i>
-        <% end %>
+        <%# end %>
       </div>
 </div>
   <% else %>
@@ -29,17 +29,16 @@
     <div class = "col-md_8">
       <h2> <%=link_to task.title, trip_task_path(@trip, task) %></h2>
       <p><%=task.description%></p>
-      <p>Created <%= time_ago_in_words(task.created_at) %> ago </p>
-    </div>
+
     <div class = "col-md_2">
-      <p><%= link_to complete_trip_task(@trip, task), method: :patch do %></p>
+      <p><%= link_to complete_trip_task_path(@trip, task), method: :patch do %></p>
       <i class="fa fa-lg fa-check"></i>
       <% end %>
     </div>
       <div class = "col-md_2">
-        <p><%= link_to 'Delete', trip_task_path(@task.trip), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary" do %></p>
+        <p><%#= link_to 'Destroy', trip_task_path(@task.trip), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary" do %></p>
         <i class="fa fa-lg fa-trash"></i>
-        <% end %>
+        <%# end %>
       </div>
  </div>
 

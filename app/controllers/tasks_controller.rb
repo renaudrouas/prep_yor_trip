@@ -46,8 +46,8 @@ before_action :set_task, only: [:show, :edit, :update, :destroy]
 
 def complete
     @task = Task.find(params[:trip_id])
-    @task.update_attribute(completed_at, Time.now)
-    redirect_to trip_tasks_path(@trip, @task)
+    @task.update(done: true)
+    redirect_to trip_tasks_path(@task)
   end
 
   private
