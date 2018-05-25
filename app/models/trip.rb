@@ -6,17 +6,8 @@ class Trip < ApplicationRecord
   belongs_to :user
 
 
-# geocoded_by :full_address
-#   after_validation :geocode, if: :full_address_changed?
-
-#   def full_address
-#     "#{address}, #{zip_code} #{city} #{ISO3166::Country[country].name}"
-#   end
-
-#   def full_address_changed?
-#     address_changed? || zip_code_changed? || city_changed? || country_changed?
-#   end
-
+geocoded_by :destination
+  after_validation :geocode, if: :will_save_change_to_address?
 
 
 
