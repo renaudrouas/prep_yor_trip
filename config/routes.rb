@@ -2,8 +2,12 @@ Rails.application.routes.draw do
   resources :trips do
     resources :travels
     resources :stays
-    resources :tasks
     resources :diaries
+    resources :tasks do
+      member do
+        patch :complete
+      end
+    end
   end
   devise_for :users
   root to: 'pages#home'
