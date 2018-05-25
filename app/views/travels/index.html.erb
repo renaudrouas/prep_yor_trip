@@ -1,6 +1,69 @@
-<h1>Index Of Travels</h1>
-<p><%=current_user.email%></p>
-<%@travels.each do |travel|%>
-<p><%=travel.reservation_number %></p>
-<%= link_to 'Show',  trip_travel_path(@trip, travel)%>
-<%end %>
+
+<div class="content">
+  <div class="cards-container">
+    <div class="col-xs-12 col-sm-7">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="bandeau">
+            <p>bandeau</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12">
+        <div class="table-responsive">
+          <table class="table">
+            <tbody>
+              <tr>
+                <td class="white-cell"></td>
+                <td><h3>Depart - Arrivée</h3></td>
+                <td><h3>Nom de la ville - Pays</h3></td>
+              </tr>
+              <tr>
+                <td class="white-cell"><%= image_tag "hotel.png"%></td>
+                <td class="white-bottom-border"><p>travel.date.depart</p></td>
+                <td class="white-bottom-border"><p>travel.country</p></td>
+              </tr>
+              <tr>
+                <td class="white-cell"></td>
+                <td><h3>Adress</h3></td>
+                <td><p>travel.adress</p></td>
+              </tr>
+              <tr>
+                <td class="white-cell"><a href="" class="btn btn-trip">EDIT</a></td>
+                <td><h3>Hotel Name</h3></td>
+                <td><p>travel.hotel.name</p></td>
+              </tr>
+              <tr>
+                <td class="white-cell"></td>
+                <td><h3>Phone number</h3></td>
+                <td><p>travel.phone.number</p></td>
+              </tr>
+              <tr>
+                <td class="white-cell"><a href="" class="btn btn-transport">DELETE</a></td>
+                <td><h3>Email</h3></td>
+                <td><p>travel.email</p></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+<!--   <div id="map"></div> -->
+</div>
+
+<script>
+      function initMap() {
+        // Create a map object and specify the DOM element for display.
+        var map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: 52.5206, lng: 13.4098},
+          scrollwheel: false,
+          zoom: 8
+        });
+      }
+    </script>
+
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCzER7O10ZOUp7FloJzMe2r8X1GIQhgt7Q&callback=initMap">
+        </script>
+
