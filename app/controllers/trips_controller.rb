@@ -19,6 +19,10 @@ class TripsController < ApplicationController
     @travels = @trip.travels
     @stays = @trip.stays
     @diaries = @trip.diaries
+    @accomodations = Accomodation.all
+    # @weather = Weather.new(@trip.destination, @trip.start_date, @trip.end_date)
+    # @weather = @weather.call
+
   end
 
   def new

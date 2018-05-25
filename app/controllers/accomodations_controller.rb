@@ -2,10 +2,13 @@ class AccomodationsController < ApplicationController
 before_action :set_accomodation, only: [:show, :edit, :update, :destroy]
 
   def index
+    @trip = Trip.find(params[:trip_id])
     @accomodations = Accomodation.all
   end
 
   def show
+     @trip = Trip.find(params[:trip_id])
+     @stays = @accomodation.stays
   end
 
   def new
@@ -17,7 +20,6 @@ before_action :set_accomodation, only: [:show, :edit, :update, :destroy]
 
   def create
     @trip = Trip.find(params[:trip_id])
-
     @accomodation = Accomodation.new(accomodation_params)
     @accomodation.stays.each do |stay|
       stay.trip = @trip
@@ -30,11 +32,13 @@ before_action :set_accomodation, only: [:show, :edit, :update, :destroy]
   end
 
   def edit
+    @trip = Trip.find(params[:trip_id])
   end
 
   def update
+    @trip = Trip.find(params[:trip_id])
     if @accomodation.update(accomodation_params)
-      redirect_to @accomodation, notice: 'accomodation was successfully updated.'
+      redirect_to trip_accomodation_path(@trip, @accomodation), notice: 'accomodation was successfully updated.'
     else
       render :edit
     end
@@ -42,7 +46,7 @@ before_action :set_accomodation, only: [:show, :edit, :update, :destroy]
 
   def destroy
     @accomodation.destroy
-    redirect_to accomodations_url, notice: 'accomodation was successfully destroyed.'
+    redirect_to trip_accomodations_path, notice: 'accomodation was successfully destroyed.'
   end
 
   private
@@ -53,6 +57,10 @@ before_action :set_accomodation, only: [:show, :edit, :update, :destroy]
   end
 
   def accomodation_params
-    params.require(:accomodation).permit(:address, :name, :e_mail, :phone_number, :latitude, :longitude, :kind, stays_attributes:[:start_date, :end_date, :reservation_number])
+    params.require(:accomodation).permit(
+      :address, :name, :e_mail, :phone_number,
+      :latitude, :longitude, :kind,
+      stays_attributes:[:start_date, :end_date, :trip_id, :reservation_number]
+    )
   end
 end

@@ -14,6 +14,7 @@
     <%= s.input :start_date, placeholder: 'Date', input_html: { class: 'my-input' }, label_html: { class: 'my-label' } %>
       <%= s.input :end_date, placeholder: 'Date', input_html: { class: 'my-input' }, label_html: { class: 'my-label' } %>
       <%= s.input :reservation_number, placeholder: 'Reservation number', input_html: { class: 'my-input' }, label_html: { class: 'my-label' } %>
+      <%= s.input :trip_id, as: :hidden, input_html:{value:@trip.id}   %>
 
     <div class="form-actions btn-medium my-button">
        <%= s.button :submit %>
