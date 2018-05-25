@@ -6,23 +6,13 @@ class TripsController < ApplicationController
     @trips = Trip.all
   end
 
-  # def weather
-  #   @weather = Weather.new(:destination,:start_date,:end_date)
-  #   @weather = @weather.call
-
-  # end
 
   def show
-    # @weather = Weather.new(@trip.destination, @trip.start_date)
-    # @country_info = Restcountry::Country.find_by_name(@trip.destination)
-    # @weather = @weather.call
+    @country_info = Restcountry::Country.find_by_name(@trip.destination)
     @travels = @trip.travels
     @stays = @trip.stays
     @diaries = @trip.diaries
     @accomodations = Accomodation.all
-    # @weather = Weather.new(@trip.destination, @trip.start_date, @trip.end_date)
-    # @weather = @weather.call
-
   end
 
   def new
