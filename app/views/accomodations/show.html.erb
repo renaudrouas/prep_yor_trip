@@ -1,6 +1,8 @@
 <h1>show  accomodation-stay</h1>
 <p><%=@accomodation.e_mail %></p>
-
+<%@stays.each do |stay|  %>
+<p><%=stay.reservation_number %></p>
+<% end %>
 <%= link_to 'Destroy', trip_accomodation_path(@trip, @accomodation), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary" %>
 <%= link_to 'Edit', edit_trip_accomodation_path(@trip, @accomodation), class: "btn btn-primary" %>
 <%= link_to 'Back', trip_accomodations_path, class: "btn btn-primary" %>

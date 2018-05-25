@@ -8,6 +8,7 @@ before_action :set_accomodation, only: [:show, :edit, :update, :destroy]
 
   def show
      @trip = Trip.find(params[:trip_id])
+     @stays = @accomodation.stays
   end
 
   def new
