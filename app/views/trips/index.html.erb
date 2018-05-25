@@ -1,8 +1,20 @@
-<h1>Index of trips</h1>
-<%@trips.each do |trip| %>
-<p><%=trip.title %></p>
-<p><%=trip.destination %></p>
-<%= link_to 'Show',  trip_path(trip)%>
 
-<% end %>
+
+<h1>Liste des voyages</h1>
+<div class="container">
+  <div class="row">
+    <%@trips.each do |trip| %>
+      <div class="col-xs-12 col-sm-4">
+        <div class="card carrousel-card ">
+            <strong><p><%=trip.title %></p></strong>
+            <p><%=trip.destination %></p>
+            <div class="btn-trip">
+              <%= link_to 'Show',  trip_path(trip)%>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
 <%= link_to 'Add a new trip', new_trip_path, class: "btn btn-primary" %>
+
