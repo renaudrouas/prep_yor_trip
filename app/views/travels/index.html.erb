@@ -33,7 +33,7 @@
                     </tr>
                     <tr>
                       <td class="white-cell">
-                        <%= link_to 'Edit', edit_trip_travel_path(@trip, travel), class: "btn btn-primary" %>
+                        <%= link_to 'Editer', edit_trip_travel_path(@trip, travel), class: "btn btn-primary" %>
                       </td>
                       <td><h3>Compagnie</h3></td>
                       <td><p><%= travel.compagny_name %></p></td>
@@ -44,7 +44,7 @@
                       <td><p><%= travel.reservation_number %></p></td>
                     </tr>
                     <tr>
-                      <td class="white-cell"><%= link_to 'Destroy', trip_travel_path(@trip, travel), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-transport" %></td>
+                      <td class="white-cell"><%= link_to 'Supprimer', trip_travel_path(@trip, travel), method: :delete, data: { confirm: 'Êtes-vous sûr?' }, class: "btn btn-transport" %></td>
                       <td><h3>Ticket</h3></td>
                       <td><p>Thumnail ticket</p></td>
                     </tr>
@@ -55,7 +55,7 @@
           <% end %>
         </div>
         <div class="text-center">
-          <%= link_to 'Add a new travel', new_trip_travel_path, class: "btn btn-primary" %>
+          <%= link_to 'Ajouter un transport', new_trip_travel_path, class: "btn btn-primary" %>
         </div>
       </div>
     </div>
