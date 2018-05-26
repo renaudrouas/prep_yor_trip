@@ -4,20 +4,20 @@
 
     <div class="form-inputs form-color">
 
-      <%= f.input :address, placeholder: 'Address', input_html: { class: 'my-input' }, label_html: { class: 'my-label' } %>
-      <%= f.input :name, placeholder: 'Name', input_html: { class: 'my-input' }, label_html: { class: 'my-label' } %>
+      <%= f.input :address, placeholder: 'Adresse', input_html: { class: 'my-input' }, label_html: { class: 'my-label' } %>
+      <%= f.input :name, placeholder: 'Nom', input_html: { class: 'my-input' }, label_html: { class: 'my-label' } %>
       <%= f.input :e_mail, placeholder: 'email@email.com', input_html: { class: 'my-input' }, label_html: { class: 'my-label' } %>
-      <%= f.input :phone_number, placeholder: 'phone number', input_html: { class: 'my-input' }, label_html: { class: 'my-label' } %>
+      <%= f.input :phone_number, placeholder: 'Numéro de téléphone', input_html: { class: 'my-input' }, label_html: { class: 'my-label' } %>
       <%= f.input :kind, placeholder: 'kind', input_html: { class: 'my-input' }, label_html: { class: 'my-label' } %>
     </div>
     <%= f.simple_fields_for :stays do |s| %>
-    <%= s.input :start_date, placeholder: 'Date', input_html: { class: 'my-input' }, label_html: { class: 'my-label' } %>
-      <%= s.input :end_date, placeholder: 'Date', input_html: { class: 'my-input' }, label_html: { class: 'my-label' } %>
-      <%= s.input :reservation_number, placeholder: 'Reservation number', input_html: { class: 'my-input' }, label_html: { class: 'my-label' } %>
+    <%= s.input :start_date, placeholder: '01/01/2000', input_html: { class: 'my-input' }, label_html: { class: 'my-label' } %>
+      <%= s.input :end_date, placeholder: '01/01/2000', input_html: { class: 'my-input' }, label_html: { class: 'my-label' } %>
+      <%= s.input :reservation_number, placeholder: 'Numero de réservation', input_html: { class: 'my-input' }, label_html: { class: 'my-label' } %>
       <%= s.input :trip_id, as: :hidden, input_html:{value:@trip.id}   %>
 
-    <div class="form-actions btn-medium my-button">
-       <%= s.button :submit %>
+    <div class="form-actions">
+       <%= s.button :submit, class: "btn btn-primary"%>
     </div>
 
     <% end %>
