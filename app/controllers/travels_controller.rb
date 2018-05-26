@@ -8,7 +8,9 @@ class TravelsController < ApplicationController
     @travels = @trip.travels
   end
 
-  def show; end
+  def show
+
+  end
 
   def new
     @trip = Trip.find(params[:trip_id])

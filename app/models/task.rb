@@ -4,6 +4,7 @@ class Task < ApplicationRecord
   belongs_to :trip
 
   # def completed?
-  #   blank?
+  #   :done == true
   # end
+
 end

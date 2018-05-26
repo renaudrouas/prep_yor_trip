@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class TasksController < ApplicationController
-  before_action :set_task, only: %i[show edit update destroy]
+  before_action :set_task, only: %i[show edit update destroy complete]
 
   def index
     @trip = Trip.find(params[:trip_id])
@@ -20,7 +20,7 @@ class TasksController < ApplicationController
     @task = Task.new(task_params)
     @task.trip = @trip
     if @task.save
-      redirect_to trip_task_path(@trip, @task)
+      redirect_to trip_tasks_path(@trip, @task)
     else
       render :new
     end
@@ -46,10 +46,13 @@ class TasksController < ApplicationController
   end
 
   def complete
-    @task = Task.find(params[:trip_id])
+
+    @trip = Trip.find(params[:trip_id])
     @task.update(done: true)
-    redirect_to trip_tasks_path(@task)
-    end
+    render :index, notice: "Task successfully completed!"
+  end
+
+
 
   private
 
