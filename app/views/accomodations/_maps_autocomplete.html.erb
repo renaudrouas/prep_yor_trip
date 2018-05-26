@@ -1,6 +1,8 @@
+
+<div>
 <input id="pac-input" class="controls" type="text"
 placeholder="Enter a location">
-
+</div>
 
 <%= render 'shared/map_big' %>
 
@@ -67,16 +69,17 @@ placeholder="Enter a location">
             ].join(' ');
           }
 
-          infowindow.setContent('<div><strong>' + place.name + '</strong><br>' + address);
+          infowindow.setContent('<div><strong>' + place.name + '</strong><br>' + place.formatted_address + '<div><strong>' + place.formatted_phone_number);
+
+
+
 
 
 
           document.getElementById('accomodation_name').value = place.name
-          document.getElementById('accomodation_address').value = address
+          document.getElementById('accomodation_address').value = place.formatted_address
 
-          // document.getElementById('accomodation_e_mail').value = place.mail
-
-          // document.getElementById('accomodation_phone_number').value = place.phone_number
+      document.getElementById('accomodation_phone_number').value = place.formatted_phone_number
 
           // document.getElementById('accomodation_kind').value = place.marker
           // 2. fill form address input #id_of_the_input with address

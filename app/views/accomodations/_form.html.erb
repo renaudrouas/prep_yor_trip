@@ -1,25 +1,26 @@
 <%= simple_form_for [@trip, @accomodation] do |f| %>
-    <%= f.error_notification %>
-    <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+<%= f.error_notification %>
+<%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-    <div class="form-inputs form-color">
+<div class="form-inputs form-color">
 
-      <%= f.input :address, placeholder: 'Address', input_html: { class: 'my-input' }, label_html: { class: 'my-label' } %>
-      <%= f.input :name, placeholder: 'Name', input_html: { class: 'my-input' }, label_html: { class: 'my-label' } %>
-      <%= f.input :e_mail, placeholder: 'email@email.com', input_html: { class: 'my-input' }, label_html: { class: 'my-label' } %>
-      <%= f.input :phone_number, placeholder: 'phone number', input_html: { class: 'my-input' }, label_html: { class: 'my-label' } %>
-      <%= f.input :kind, placeholder: 'kind', input_html: { class: 'my-input' }, label_html: { class: 'my-label' } %>
-    </div>
-    <%= f.simple_fields_for :stays do |s| %>
-    <%= s.input :start_date, placeholder: 'Date', input_html: { class: 'my-input' }, label_html: { class: 'my-label' } %>
-      <%= s.input :end_date, placeholder: 'Date', input_html: { class: 'my-input' }, label_html: { class: 'my-label' } %>
-      <%= s.input :reservation_number, placeholder: 'Reservation number', input_html: { class: 'my-input' }, label_html: { class: 'my-label' } %>
-      <%= s.input :trip_id, as: :hidden, input_html:{value:@trip.id}   %>
+  <%= f.input :name, placeholder: 'Name', input_html: { class: 'my-input' }, label_html: { class: 'my-label' } %>
+  <%= f.input :address, placeholder: 'Address', input_html: { class: 'my-input' }, label_html: { class: 'my-label' } %>
 
-    <div class="form-actions btn-medium my-button">
-       <%= s.button :submit %>
-    </div>
+  <%#= f.input :e_mail, placeholder: 'email@email.com', input_html: { class: 'my-input' }, label_html: { class: 'my-label' } %>
+  <%= f.input :phone_number, placeholder: 'phone number', input_html: { class: 'my-input' }, label_html: { class: 'my-label' } %>
+  <%= f.input :kind, placeholder: 'kind', input_html: { class: 'my-input' }, label_html: { class: 'my-label' } %>
+</div>
+<%= f.simple_fields_for :stays do |s| %>
+<%= s.input :start_date, placeholder: 'Date', input_html: { class: 'my-input' }, label_html: { class: 'my-label' } %>
+<%= s.input :end_date, placeholder: 'Date', input_html: { class: 'my-input' }, label_html: { class: 'my-label' } %>
+<%= s.input :reservation_number, placeholder: 'Reservation number', input_html: { class: 'my-input' }, label_html: { class: 'my-label' } %>
+<%= s.input :trip_id, as: :hidden, input_html:{value:@trip.id}   %>
 
-    <% end %>
-  <% end %>
+<div class="form-actions btn-medium my-button">
+ <%= s.button :submit %>
+</div>
+
+<% end %>
+<% end %>
 
