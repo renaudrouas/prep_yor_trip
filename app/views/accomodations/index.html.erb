@@ -1,10 +1,13 @@
 <h1>Index of stays</h1>
 <% @accomodations.each do |accomodation| %>
+<%@stays = accomodation.stays  %>
 <p><%=accomodation.e_mail%></p>
+<%@stays.each do |stay| %>
+<p><%=stay.reservation_number %></p>
+<%end  %>
 <%= link_to 'Show',  trip_accomodation_path(@trip, accomodation)%>
 <%= link_to 'Destroy', trip_accomodation_path(@trip, accomodation), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary" %>
 <%= link_to 'Edit', edit_trip_accomodation_path(@trip, accomodation), class: "btn btn-primary" %>
 <%end  %>
-
 <%= link_to 'Add a new accomodation and stay', new_trip_accomodation_path, class: "btn btn-primary" %>
 

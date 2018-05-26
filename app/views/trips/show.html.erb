@@ -45,12 +45,21 @@
         <div class= "col-xs-6">
           <div class="card two-card-container">
             <div class="two-card-title">
-                <h2> Départ pour :</h2>
+                 <h2> Départ pour :</h2>
                   <p> <%= @trip.destination %> </p>
                   <h2> Le :</h2>
                   <p> <%= @trip.start_date %></p>
+<<<<<<< HEAD
                   <h2> Meteo</h2>
 
+=======
+                  <h2> Information</h2>
+                  <p><strong> Capital : <%= @country_info.capital %></strong></p>
+                  <p><strong> Heure : <%= @country_info.timezones %></strong></p>
+                  <p><strong> Code téléphone : <%= @country_info.callingCodes %></strong></p>
+                  <p><strong> Monnaie : <%= @country_info.currencies %></strong></p>
+                  <p><strong> Langue : <%= @country_info.languages %></strong></p>
+>>>>>>> 07f1dac06be111216e8e02d5eff1f9839566f65e
             </div>
           </div>
         </div>

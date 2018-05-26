@@ -4,6 +4,9 @@ before_action :set_accomodation, only: [:show, :edit, :update, :destroy]
   def index
     @trip = Trip.find(params[:trip_id])
     @accomodations = Accomodation.all
+    Accomodation.all.each do |accomodation|
+    @stays = accomodation.stays
+    end
   end
 
   def show
