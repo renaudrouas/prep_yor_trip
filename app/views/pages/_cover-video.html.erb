@@ -9,9 +9,9 @@
         <h1>You’re unique personal<br>trip assistant</h1>
         <h2><span id="banner-typed-text"></span></h2>
         <% if user_signed_in? %>
-          <%= link_to "Mes voyages", trips_path, class: "btn btn-trip" %>
+          <%= link_to "Mes voyages", trips_path, class: "btn btn-primary" %>
         <% else %>
-          <%= link_to "Let's go !", new_trip_path, class: "btn btn-trip" %>
+          <%= link_to "Let's go !", new_trip_path, class: "btn btn-primary" %>
         <% end %>
       </div>
     </div>
