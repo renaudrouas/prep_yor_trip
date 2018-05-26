@@ -9,7 +9,7 @@ class TripsController < ApplicationController
   end
 
   def show
-    @country_info = Restcountry::Country.find_by_name(@trip.destination)
+    # @country_info = Restcountry::Country.find_by_name(@trip.destination)
     @travels = @trip.travels
     @stays = @trip.stays
     @diaries = @trip.diaries
