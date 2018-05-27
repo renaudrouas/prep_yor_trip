@@ -13,7 +13,7 @@
     <%= f.simple_fields_for :stays do |s| %>
     <%= s.input :start_date, label: "Date check-in", placeholder: '01/01/2000', input_html: { class: 'my-input' }, label_html: { class: 'my-label' } %>
       <%= s.input :end_date, label: "Date check-out", placeholder: '01/01/2000', input_html: { class: 'my-input' }, label_html: { class: 'my-label' } %>
-      <%= s.input :reservation_number, label: "Numéro de réservation", placeholder: 'Numero de réservation', input_html: { class: 'my-input' }, label_html: { class: 'my-label' } %>
+      <%= s.input :reservation_number, label: "Numéro de réservation", placeholder: '22XY50B', input_html: { class: 'my-input' }, label_html: { class: 'my-label' } %>
       <%= s.input :trip_id, as: :hidden, input_html:{value:@trip.id}   %>
 
     <div class="form-actions">
