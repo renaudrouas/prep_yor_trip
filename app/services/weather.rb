@@ -1,4 +1,4 @@
-require 'rest-client'
+ require 'rest-client'
 
 # How to ?
 # weather = Weather.new("Paris,FR", "2018-05-24", 2018-05-25).call
