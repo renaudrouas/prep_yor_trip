@@ -1,0 +1,22 @@
+<div class="container" style="margin-top:20px;">
+
+
+  <div class="row">
+    <div class="col-xs-6">
+      <div class="well" style="max-height: 300px;overflow: auto;">
+        <% Task.all.each do |task| %>
+          <ul class="list-group checked-list-box">
+              <% if task.done == true %>
+                <li class="list-group-item" data-checked="true"><%=link_to task.title, trip_task_path(@trip, task) %></li>
+              <% else %>
+                <li class="list-group-item"><%=link_to task.title, trip_task_path(@trip, task) %></li>
+              <% end %>
+
+          </ul>
+       <% end %>
+     </div>
+   </div>
+ </div>
+</div>
+
+<%= link_to 'Add a new task', new_trip_task_path(@trip, @task), class: "btn btn-primary" %>

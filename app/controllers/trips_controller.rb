@@ -13,7 +13,12 @@ class TripsController < ApplicationController
     @travels = @trip.travels
     @stays = @trip.stays
     @diaries = @trip.diaries
+
     @tasks = @trip.tasks
+
+
+
+
     @accomodations = Accomodation.all
   end
 
@@ -51,6 +56,15 @@ class TripsController < ApplicationController
   def set_trip
     @trip = Trip.find(params[:id])
     # authorize @trip
+  end
+
+  def set_task
+    @task = Task.find(params[:id])
+    # authorize @task
+  end
+
+  def task_params
+    params.require(:task).permit(:description, :done, :title)
   end
 
   def trip_params

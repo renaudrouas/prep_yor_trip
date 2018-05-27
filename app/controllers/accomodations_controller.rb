@@ -14,7 +14,7 @@ class AccomodationsController < ApplicationController
        lng: accomodation.longitude,
        title: accomodation.name,
        label: "#{accomodation.kind}",
-       id: accomodation.id,
+       id: accomodation.id
      }
     end
   end

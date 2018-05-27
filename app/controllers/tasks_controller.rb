@@ -46,7 +46,6 @@ class TasksController < ApplicationController
   end
 
   def complete
-
     @trip = Trip.find(params[:trip_id])
     @task.update(done: true)
     render :index, notice: "Task successfully completed!"

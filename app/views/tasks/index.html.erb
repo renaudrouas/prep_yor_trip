@@ -1,49 +1,49 @@
-<div class="col-md-6 col-md-offset-3">
-  <% Task.all.each do |task| %>
-  <div class="index-wrapper">
-    <% if task.done == true %>
-    <div class="row item">
-      <div class="col-md-8">
-        <h2 style="opacity: 0.5;" class="item-title"><strike><%=link_to task.title, trip_task_path(@trip, task) %></strike></h2>
-        <p style="opacity: 0.5;" class="item-sub-title item-desc"><strike><%= task.description %><strike></p>
-        <!-- <p style="opacity: 0.5;" class="time-created-at item-sub-title">Completed <%#= time_ago_in_words(task.completed_at) %> ago</p> -->
-      </div>
-      <div class="col-md-2">
-        <p><%= link_to complete_trip_task_path(@trip,task), method: :patch do %></p>
-        <i class="fa fa-check fa-lg"></i>
-        <% end %>
-      </div>
-      <div class="col-md-2">
-        <p><%= link_to trip_task_path(@trip, task), method: :delete, data: { confirm: "Are you sure?" } do %></p>
-        <i class="fa fa-trash fa-lg"></i>
-        <% end %>
-      </div>
-    </div>
-    <% else %>
-    <div class="row item">
-      <div class="col-md-8">
-        <h2 class="item-title"><%=link_to task.title, trip_task_path(@trip, task) %></h2>
-        <p class="item-sub-title item-desc"><%= task.description %></p>
-       <!--  <p style="opacity: 0.5;" class="time-created-at item-sub-title">Created <%#= time_ago_in_words(task.created_at) %> ago</p> -->
-      </div>
-      <div class="col-md-2">
-        <p><%= link_to complete_trip_task_path(@trip,task), method: :patch do %></p>
-        <i class="fa fa-check fa-lg"></i>
-        <% end %>
-      </div>
-      <div class="col-md-2">
-        <p><%= link_to trip_task_path(@trip, task), method: :delete, data: { confirm: "Are you sure?" } do %></p>
-        <i class="fa fa-trash fa-lg"></i>
-        <% end %>
-      </div>
-    </div>
-    <% end %>
+<!-- <div class="container" style="margin-top:20px;">
+  <div class="row">
+        <div class="col-xs-6">
+            <h3 class="text-center">Liste des choses à faire</h3>
+            <div class="well" style="max-height: 300px;overflow: auto;">
+            <ul class="list-group checked-list-box">
+                  <li class="list-group-item">Cras justo odio</li>
+                  <li class="list-group-item" data-checked="true">Dapibus ac facilisis in</li>
+                  <li class="list-group-item">Morbi leo risus</li>
+                  <li class="list-group-item">Porta ac consectetur ac</li>
+                  <li class="list-group-item">Vestibulum at eros</li>
+                  <li class="list-group-item">Cras justo odio</li>
+                  <li class="list-group-item">Dapibus ac facilisis in</li>
+                  <li class="list-group-item">Morbi leo risus</li>
+                  <li class="list-group-item">Porta ac consectetur ac</li>
+                  <li class="list-group-item">Vestibulum at eros</li>
+                </ul>
+            </div>
+        </div>
   </div>
+</div> -->
 
-  <% end %>
+
+<div class="container" style="margin-top:20px;">
+
+
+  <div class="row">
+    <div class="col-xs-6">
+      <h3 class="text-center">Liste des choses à faire</h3>
+      <div class="well" style="max-height: 300px;overflow: auto;">
+        <% Task.all.each do |task| %>
+          <ul class="list-group checked-list-box">
+              <% if task.done == true %>
+                <li class="list-group-item" data-checked="true"><%=link_to task.title, trip_task_path(@trip, task) %></li>
+              <% else %>
+                <li class="list-group-item"><%=link_to task.title, trip_task_path(@trip, task) %></li>
+              <% end %>
+
+          </ul>
+       <% end %>
+     </div>
+   </div>
+ </div>
 </div>
 
-  <%= link_to 'Add a new task', new_trip_task_path, class: "btn btn-primary" %>
+<%= link_to 'Add a new task', new_trip_task_path, class: "btn btn-primary" %>
 
 
 

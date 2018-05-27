@@ -1,3 +1,4 @@
+
 <h1><%=@trip.title%></h1>
 
   <div class="wrapper">
@@ -61,7 +62,10 @@
         <div class= "col-xs-6">
           <div class="card two-card-container">
             <div class="two-card-title">
+              <div class="row">
               <h1> Liste </h1>
+               <%= render "tasks" %>
+               </div>
             </div>
           </div>
         </div>
@@ -79,7 +83,7 @@
                   <h4 class="timeline-title">Jour 1 </h4>
                 </div>
                 <div class="timeline-body">
-                  <p>Hotel Name : du .. au .. </p>
+                  <p>Hotel Name : du  au  </p>
                   <p> Telephone </p>
                 </div>
               </div>
@@ -171,8 +175,8 @@
 </div>
 
 
-
-<%= link_to 'Destroy', trip_path(@trip), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary" %>
-<%= link_to 'Edit', edit_trip_path(@trip), class: "btn btn-primary" %>
-<%= link_to 'Back', trips_path, class: "btn btn-primary" %>
-
+<div class="text-center">
+<%= link_to 'Supprimer', trip_path(@trip), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-transport" %>
+<%= link_to 'Editer', edit_trip_path(@trip), class: "btn btn-primary" %>
+<%= link_to 'Retour', trips_path, class: "btn btn-default" %>
+</div>
