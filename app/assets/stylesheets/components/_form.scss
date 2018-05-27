@@ -1,5 +1,5 @@
 .form-control {
-  font-size: 1.2vh !important;
+  font-size: 0.8em;
   line-height: 18px !important;
   letter-spacing: normal !important;
   cursor: pointer !important;
@@ -22,3 +22,11 @@
   height: 53vh;
 }
 
+.form-group {
+  label {
+  font-size: 1em;
+  }
+  .form-check-label {
+    padding-left: 1em;
+  }
+}
