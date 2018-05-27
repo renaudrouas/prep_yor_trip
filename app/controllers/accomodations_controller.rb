@@ -6,6 +6,17 @@ class AccomodationsController < ApplicationController
   def index
     @trip = Trip.find(params[:trip_id])
     @accomodations = Accomodation.all
+    @accomodations_geo = @accomodations.where.not(latitude: nil, longitude: nil)
+
+    @markers = @accomodations_geo.map do |accomodation|
+     {
+       lat: accomodation.latitude,
+       lng: accomodation.longitude,
+       title: accomodation.name,
+       label: "#{accomodation.kind}",
+       id: accomodation.id,
+     }
+    end
   end
 
   def show
@@ -18,6 +29,7 @@ class AccomodationsController < ApplicationController
     @trip = Trip.find(params[:trip_id])
     @accomodation.stays.build
     # @stay = Stay.new
+
   end
 
   def create

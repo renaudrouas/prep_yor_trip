@@ -13,10 +13,22 @@
 <%= link_to 'Add a new accomodation and stay', new_trip_accomodation_path, class: "btn btn-primary" %>
 
 <div class="map-container">
-  <div
-  id="map"
-  style="width: 100%;
-  height: 800px;"
-  data-markers="<%= @markers.to_json %>"
-  ></div>
-</div>
+      <div
+      id="map"
+      style="width: 100%;
+      height: 600px;"
+      data-markers="<%= @markers.to_json %>"
+      ></div>
+    </div>
+
+
+<!-- <script>
+ function initMap() {
+        var map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: 43.2944947, lng: 5.3727672},
+          zoom: 13
+        });
+  </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAvdATWDXEuY1SASpXpkOW8fC8sm9Q7hHE&libraries=places&callback=initMap"
+    async defer></script>
+ -->

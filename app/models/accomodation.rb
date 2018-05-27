@@ -5,6 +5,6 @@ class Accomodation < ApplicationRecord
   enum kind: %i[tbd hotel camping auberge b_b habitant]
   accepts_nested_attributes_for :stays, reject_if: :all_blank
 
-  # geocoded_by :address
-  # after_validation :geocode, if: :will_save_change_to_address?
+  geocoded_by :address
+  after_validation :geocode, if: :will_save_change_to_address?
 end
