@@ -13,12 +13,12 @@ border-left-style: solid;
 border-width: 2px;
 border-color: rgb(59, 208, 214);
 cursor: pointer;
-text-decoration: none;
+text-decoration: none !important;
 margin-top:2vh;
   a {
     color:white;
     &:hover {
-      color:white;
+      color:white !important;
 
     }
   }
@@ -29,24 +29,37 @@ margin-top:2vh;
 }
 
 .btn-transport {
-color: #FE546D;
+color: $red;
 border-radius: 4px;
 background-color: white;
-padding-left: 1.5em;
-padding-bottom: 0.7em;
-padding-right: 1.5em;
-padding-top: 0.7em;
-margin-bottom: 1em;
+// padding-left: 1.5em;
+// padding-bottom: 0.7em;
+// padding-right: 1.5em;
+// padding-top: 0.7em;
+margin: 1em;
 line-height: 1.2;
 text-align: center;
 border-left-style: solid;
-border-width: 2px;
-border-color: #FE546D;
+border-width: 1px;
+border-color: $red;
 cursor: pointer;
 text-decoration: none;
   &:hover {
-    color:#42D1D6;
+    color:$red;
    transform: translateY(-2px);
   }
 }
 
+.btn-primary {
+  margin: 1em;
+  &:hover {
+   transform: translateY(-2px);
+  }
+}
+
+.btn-default {
+  margin: 1em;
+  &:hover {
+   transform: translateY(-2px);
+  }
+}
