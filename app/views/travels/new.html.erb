@@ -1,24 +1,44 @@
-<h1>Créez votre voyage</h1>
+<!-- <h1>Créez votre transport</h1>
 <div class="container">
     <div class="row">
       <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
 
         <div class="col-xs-6">
         <div class="card">
-          <%= render 'autocomplete_travels' %>
+          <%# render 'autocomplete_travels' %>
         </div>
       </div>
 
         <div class="col-xs-6">
         <div class="card">
-         <%= render 'form', travel: @travel %>
+         <%# render 'form', travel: @travel %>
         </div>
       </div>
 
 
       </div>
       <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
-        <%= link_to 'Back', trip_travels_path, class: "btn btn-default" %>
+        <%# link_to 'Back', trip_travels_path, class: "btn btn-default" %>
       </div>
     </div>
   </div>
+-->
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-4 col-sm-offset-1">
+      <div class="form-login">
+        <h1>Créez votre transport</h1>
+        <%= render 'form', travel: @travel %>
+        <div style="margin-right: 30px;">
+          <%= link_to 'Retour', trip_travels_path, class: "btn btn-default" %>
+        </div>
+      </div>
+
+    </div>
+    <div class="col-xs-12 col-sm-5 col-sm-offset-1">
+      <%= render 'autocomplete_travels' %>
+    </div>
+  </div>
+</div>
