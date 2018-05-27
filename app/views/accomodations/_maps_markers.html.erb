@@ -1,16 +1,20 @@
+<%= render 'shared/map_big' %>
 
-import GMaps from 'gmaps/gmaps.js';
-import autocomplete from '../components/autocomplete';
+<script>
 
+  function initMap() {
 const mapElement = document.getElementById('map');
 if (mapElement) { // don't try to build a map if there's no div#map to inject in
-  const map = new GMaps({ el: '#map', lat: 0, lng: 0 });
+  var map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: 43.2944947, lng: 5.3727672},
+          zoom: 13
+        });
   const markers = JSON.parse(mapElement.dataset.markers);
   markers.forEach(function(marker) {
     let new_marker = map.addMarker(marker);
     new_marker.addListener('click', function() {
       console.log("click on marker");
-      window.location.pathname = "pathname" + marker.id;
+      window.location.pathname = "accomodations/" + marker.id;
     });
   });
 
@@ -25,5 +29,7 @@ if (mapElement) { // don't try to build a map if there's no div#map to inject in
     map.fitLatLngBounds(markers);
   }
 }
-
-// autocomplete();
+}
+ </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAvdATWDXEuY1SASpXpkOW8fC8sm9Q7hHE&libraries=places&callback=initMap"
+    async defer></script>

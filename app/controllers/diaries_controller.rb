@@ -1,13 +1,14 @@
+# frozen_string_literal: true
+
 class DiariesController < ApplicationController
-before_action :set_diary, only: [:show, :edit, :update, :destroy]
+  before_action :set_diary, only: %i[show edit update destroy]
 
   def index
     @trip = Trip.find(params[:trip_id])
     @diaries = Diary.all
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @trip = Trip.find(params[:trip_id])
@@ -24,17 +25,20 @@ before_action :set_diary, only: [:show, :edit, :update, :destroy]
       render :new
     end
   end
+
   def edit
     @trip = Trip.find(params[:trip_id])
   end
+
   def update
     @trip = Trip.find(params[:trip_id])
     if @diary.update(diary_params)
-      redirect_to trip_diary_path(@trip,@diary), notice: 'Diary was successfully updated.'
+      redirect_to trip_diary_path(@trip, @diary), notice: 'Diary was successfully updated.'
     else
       render :edit
     end
   end
+
   def destroy
     @trip = Trip.find(params[:trip_id])
     @diary.destroy
@@ -45,7 +49,7 @@ before_action :set_diary, only: [:show, :edit, :update, :destroy]
 
   def set_diary
     @diary = Diary.find(params[:id])
-    #authorize @diary
+    # authorize @diary
   end
 
   def diary_params
