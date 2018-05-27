@@ -5,11 +5,11 @@
 
     <div class="form-inputs form-color my-form-box">
       <%= f.input :title,
-            placeholder: 'My new trip',
+            placeholder: '2 semaines en Afrique',
             input_html: { class: 'my-input' },
             label_html: { class: 'my-label' } %>
       <%= f.input :destination,
-            placeholder: 'USA, Germany',
+            placeholder: 'Afrique du Sud',
             input_html: { class: 'my-input' },
             label_html: { class: 'my-label' } %>
       <%= f.input :start_date,
@@ -24,7 +24,7 @@
             html5: true %>
     </div>
     <div class="form-actions">
-        <%= f.button :submit, class:'btn btn-primary'%>
+        <%= f.button :submit, "Créer mon voyage", class:'btn btn-primary'%>
     </div>
   <% end %>
 
