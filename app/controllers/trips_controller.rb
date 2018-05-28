@@ -15,6 +15,7 @@ class TripsController < ApplicationController
     @country_info = Restcountry::Country.find_by_name(@trip.destination)
     @travels = @trip.travels
     @stays = @trip.stays
+    #@stays_in_order = @stays.order(start_date DESC)
     @diaries = @trip.diaries
     @tasks = @trip.tasks
     @accomodations = Accomodation.all

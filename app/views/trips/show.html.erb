@@ -1,6 +1,5 @@
 
 <h1><%=@trip.title%></h1>
-
   <div class="wrapper">
     <nav id="sidebar">
       <ul class="list-unstyled components">
@@ -79,35 +78,45 @@
       <div class="col-xs-6">
         <div class="card">
           <ul class="timeline">
+             <%@accomodations.each do |accomodation|  %>
+               <%accomodation.stays.each do |stay| %>
             <li>
               <div class="timeline-badge">
                 <i class="fa fa-map-marker"></i>
               </div>
               <div class="timeline-panel">
                 <div class="timeline-heading">
-                  <h4 class="timeline-title">Jour 1 </h4>
+                  <h4 class="timeline-title">Hebergement</h4>
                 </div>
                 <div class="timeline-body">
-                  <p>Hotel Name : du  au  </p>
-                  <p> Telephone </p>
+                  <p><%=accomodation.name  %> </p>
+                  <p><%=accomodation.phone_number %></p>
+                  <p><%=stay.start_date%></p>
+                  <p><%=stay.end_date%></p>
                 </div>
               </div>
+              <%end  %>
+              <%end  %>
             </li>
             <li class="timeline-inverted">
+              <%@travels.each do |travel|  %>
               <div class="timeline-badge">
                 <i class="fa fa-map-marker"></i>
               </div>
               <div class="timeline-panel">
                 <div class="timeline-heading">
-                  <h4 class="timeline-title">Jour 2</h4>
+                  <h4 class="timeline-title">Transport</h4>
                 </div>
                 <div class="timeline-body">
-                  <p>Hotel Name : du .. au .. </p>
-                  <p> Telephone </p>
+                  <p><%=travel.compagny_name%></p>
+                  <p><%=travel.address_in%></p>
+                  <p><%=travel.start_date%></p>
+                  <p><%=travel.address_out%></p>
+                  <p><%=travel.end_date%></p>
                 </div>
               </div>
             </li>
-            <li>
+            <!-- <li>
               <div class="timeline-badge">
                 <i class="fa fa-map-marker"></i>
               </div>
@@ -167,7 +176,8 @@
                   <p>Retour pour Paris sous la pluie </p>
                 </div>
               </div>
-            </li>
+            </li> -->
+          <%end  %>
           </ul>
         </div>
       </div>
