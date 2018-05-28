@@ -29,7 +29,7 @@
 
 .card {
 
-  height: 300px;
+  height: 368px;
   border-radius: 1px;
   // margin: 15px 10px;
   box-shadow: 0 0 10px rgba(0,0,0,0.2);
@@ -54,13 +54,15 @@
       margin-top: 20px;
     }
 
-    // .trip-destination {
-    //   position: absolute;
-    //   top: 118px;
-    //   left: 13px;
-    // }
-    .pri {
+    .trip-destination {
+      margin-top: 20px;
+    }
+    .trip-date {
+      margin-top: 20px;
+    }
+    .trip-btn {
       margin-right: 34px;
+
       .btn {
       // position: absolute;
       // top: 86px;
