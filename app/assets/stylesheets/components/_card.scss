@@ -37,8 +37,8 @@
   font-size: 25px;
   flex: 1 1 auto;
   background-color: $light-gray;
-  margin-top:3em;
-
+  margin-top: 20px;
+  margin-bottom:70px;
   .card-picture {
     background-size: cover;
     background-position: center;
@@ -53,16 +53,16 @@
       // left: 112px;
       // top: 10px;
       width: 100%;
-      margin-top: 20px;
+      margin-top: 10px;
     }
     .trip-btn-new {
      margin-top: 50%;
     }
     .trip-destination {
-      margin-top: 20px;
+      margin-top: 10px;
     }
     .trip-date {
-      margin-top: 20px;
+      margin-top: 10px;
     }
     .trip-btn {
       margin-right: 34px;
