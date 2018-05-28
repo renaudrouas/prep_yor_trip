@@ -6,15 +6,17 @@
     <%@trips.each do |trip| %>
       <div class="col-xs-12 col-sm-4">
         <div class="card carrousel-card ">
-            <strong><p><%=trip.title %></p></strong>
-            <p><%=trip.destination %></p>
-            <div class="btn-trip">
-              <%= link_to 'Show',  trip_path(trip)%>
-            </div>
+          <strong><p><%=trip.title %></p></strong>
+          <p><%=trip.destination %></p>
+          <div>
+            <%= link_to 'Voir',  trip_path(trip), class: "btn btn-primary"%>
           </div>
         </div>
-      <% end %>
-    </div>
+      </div>
+    <% end %>
   </div>
-<%= link_to 'Add a new trip', new_trip_path, class: "btn btn-primary" %>
+  <div class="text-center" style="margin: 40px;">
+  <%= link_to 'Ajouter un voyage', new_trip_path, class: "btn btn-primary" %>
+  </div>
+</div>
 

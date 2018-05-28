@@ -1,5 +1,6 @@
-class StaysController < ApplicationController
+# frozen_string_literal: true
 
+class StaysController < ApplicationController
   # before_action :set_stay, only: [:show, :edit, :update, :destroy]
 
   # def index

@@ -4,27 +4,29 @@
     <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
     <div class="form-inputs form-color my-form-box">
-      <%= f.input :title,
-            placeholder: 'My new trip',
+      <%= f.input :title,  label: "Donnez un nom à votre voyage",
+            placeholder: '2 semaines en Afrique',
             input_html: { class: 'my-input' },
             label_html: { class: 'my-label' } %>
-      <%= f.input :destination,
-            placeholder: 'USA, Germany',
+
+      <%= f.input :destination,  label: "Où allez vous?",
+            placeholder: 'Afrique du Sud',
             input_html: { class: 'my-input' },
+
             label_html: { class: 'my-label' } %>
-      <%= f.input :start_date,
+      <%= f.input :start_date,  label: "Quand partez vous ?",
             placeholder: 'Date',
             input_html: { class: 'my-input' },
             label_html: { class: 'my-label' },
             html5: true %>
-      <%= f.input :end_date,
+      <%= f.input :end_date,  label: "Quand revenez vous?",
             placeholder: 'Date',
             input_html: { class: 'my-input' },
             label_html: { class: 'my-label' },
             html5: true %>
     </div>
-    <div class="form-actions ">
-        <%= f.button :submit, class:'btn-trip' %>
+    <div class="form-actions">
+        <%= f.button :submit, "Créer mon voyage", class:'btn btn-primary'%>
     </div>
   <% end %>
 

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
   resources :trips do
     resources :travels
@@ -17,7 +19,6 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
-
 
 # get 'trips', to: 'trips#index', as: :trips
 # get 'trips/new"', to: 'trips#new'

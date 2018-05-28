@@ -1,25 +1,24 @@
 <%= simple_form_for [@trip, @accomodation] do |f| %>
-    <%= f.error_notification %>
-    <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+<%= f.error_notification %>
+<%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-    <div class="form-inputs form-color">
+<div class="form-inputs form-color">
 
-      <%= f.input :address, placeholder: 'Address', input_html: { class: 'my-input' }, label_html: { class: 'my-label' } %>
-      <%= f.input :name, placeholder: 'Name', input_html: { class: 'my-input' }, label_html: { class: 'my-label' } %>
-      <%= f.input :e_mail, placeholder: 'email@email.com', input_html: { class: 'my-input' }, label_html: { class: 'my-label' } %>
-      <%= f.input :phone_number, placeholder: 'phone number', input_html: { class: 'my-input' }, label_html: { class: 'my-label' } %>
-      <%= f.input :kind, placeholder: 'kind', input_html: { class: 'my-input' }, label_html: { class: 'my-label' } %>
+      <%= f.input :address, label: "Adresse", placeholder: '10 Place de la Concorde, 75008 Paris', input_html: { class: 'my-input' }, label_html: { class: 'my-label' } %>
+      <%= f.input :name, label: "Nom de l'hébergement", placeholder: 'Hôtel de Crillon', input_html: { class: 'my-input' }, label_html: { class: 'my-label' } %>
+      <%= f.input :phone_number, label: "Numéro de téléphone", placeholder: '0102030405', input_html: { class: 'my-input' }, label_html: { class: 'my-label' } %>
+      <%= f.input :kind, label: "Type d'hébergement", placeholder: 'Hôtel', input_html: { class: 'my-input' }, label_html: { class: 'my-label' } %>
     </div>
     <%= f.simple_fields_for :stays do |s| %>
-    <%= s.input :start_date, placeholder: 'Date', input_html: { class: 'my-input' }, label_html: { class: 'my-label' } %>
-      <%= s.input :end_date, placeholder: 'Date', input_html: { class: 'my-input' }, label_html: { class: 'my-label' } %>
-      <%= s.input :reservation_number, placeholder: 'Reservation number', input_html: { class: 'my-input' }, label_html: { class: 'my-label' } %>
+    <%= s.input :start_date, label: "Date check-in", placeholder: '01/01/2000', input_html: { class: 'my-input' }, label_html: { class: 'my-label' } %>
+      <%= s.input :end_date, label: "Date check-out", placeholder: '01/01/2000', input_html: { class: 'my-input' }, label_html: { class: 'my-label' } %>
+      <%= s.input :reservation_number, label: "Numéro de réservation", placeholder: '22XY50B', input_html: { class: 'my-input' }, label_html: { class: 'my-label' } %>
       <%= s.input :trip_id, as: :hidden, input_html:{value:@trip.id}   %>
 
-    <div class="form-actions btn-medium my-button">
-       <%= s.button :submit %>
+    <div class="form-actions">
+       <%= s.button :submit, class: "btn btn-primary"%>
     </div>
 
-    <% end %>
-  <% end %>
+<% end %>
+<% end %>
 
