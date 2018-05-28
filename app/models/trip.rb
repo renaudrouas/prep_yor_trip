@@ -5,6 +5,7 @@ class Trip < ApplicationRecord
   has_many :stays, dependent: :destroy
   has_many :tasks, dependent: :destroy
   has_many :travels, dependent: :destroy
+  has_many :accomodations, through: :stays
   belongs_to :user
 
   geocoded_by :destination
