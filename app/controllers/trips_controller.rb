@@ -17,6 +17,7 @@ class TripsController < ApplicationController
     @accomodations = @trip.accomodations
     combined = (@travels + @stays).flatten
     @date_order = combined.sort_by{|item|item.start_date}
+    #@start_date = @date_order.first.start_date
 
     @weather = Weather.new(@trip.destination)
     @weather = @weather.call

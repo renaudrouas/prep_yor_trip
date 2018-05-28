@@ -82,9 +82,15 @@
               <%if index.even? %>
              <% if item.class == Stay %>
             <li>
+              <%if item.start_date < Time.now %>
+              <div class="timeline-badge-past">
+                <i class="fa fa-map-marker"></i>
+              </div>
+              <%else  %>
               <div class="timeline-badge">
                 <i class="fa fa-map-marker"></i>
               </div>
+              <% end %>
               <div class="timeline-panel">
                 <div class="timeline-heading">
                   <h4 class="timeline-title">Hebergement</h4>
@@ -97,11 +103,17 @@
                 </div>
               </div>
             </li>
-            <%else  %>
+            <%else %>
             <li >
+              <%if item.start_date < Time.now %>
+              <div class="timeline-badge-past">
+                <i class="fa fa-map-marker"></i>
+              </div>
+              <%else  %>
               <div class="timeline-badge">
                 <i class="fa fa-map-marker"></i>
               </div>
+              <% end %>
               <div class="timeline-panel">
                 <div class="timeline-heading">
                   <h4 class="timeline-title">Transport</h4>
@@ -116,12 +128,18 @@
               </div>
             <%end %>
             </li>
-            <%else  %>
+            <%else %>
              <% if item.class == Stay %>
             <li class="timeline-inverted">
+              <%if item.start_date < Time.now %>
+              <div class="timeline-badge-past">
+                <i class="fa fa-map-marker"></i>
+              </div>
+              <%else  %>
               <div class="timeline-badge">
                 <i class="fa fa-map-marker"></i>
               </div>
+              <% end %>>
               <div class="timeline-panel">
                 <div class="timeline-heading">
                   <h4 class="timeline-title">Hebergement</h4>
@@ -136,9 +154,15 @@
             </li>
             <%else  %>
             <li class="timeline-inverted">
+              <%if item.start_date < Time.now %>
+              <div class="timeline-badge-past">
+                <i class="fa fa-map-marker"></i>
+              </div>
+              <%else  %>
               <div class="timeline-badge">
                 <i class="fa fa-map-marker"></i>
               </div>
+              <% end %>
               <div class="timeline-panel">
                 <div class="timeline-heading">
                   <h4 class="timeline-title">Transport</h4>
