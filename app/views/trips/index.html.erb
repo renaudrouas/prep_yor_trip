@@ -1,22 +1,31 @@
-
-
 <h1>Liste des voyages</h1>
 <div class="container">
   <div class="row">
     <%@trips.each do |trip| %>
-      <div class="col-xs-12 col-sm-4">
-        <div class="card carrousel-card ">
-          <strong><p><%=trip.title %></p></strong>
-          <p><%=trip.destination %></p>
-          <div>
-            <%= link_to 'Voir',  trip_path(trip), class: "btn btn-primary"%>
+    <div class="col-xs-12 col-sm-4">
+      <div class="card">
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="card-picture" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path "picture-card-trip.jpg" %>');"></div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="card-content">
+              <div class="trip-title">
+                <strong><p><%=trip.title %></p></strong>
+              </div>
+              <div class="trip-destination">
+                <p><%=trip.destination %></p>
+              </div>
+              <div>
+                <%= link_to 'Voir',  trip_path(trip), class: "btn btn-primary"%>
+              </div>
+            </div>
           </div>
         </div>
       </div>
+    </div>
     <% end %>
   </div>
-  <div class="text-center" style="margin: 40px;">
-  <%= link_to 'Ajouter un voyage', new_trip_path, class: "btn btn-primary" %>
-  </div>
 </div>
-

@@ -17,11 +17,49 @@
 }
 
 .carrousel-card {
+  background-color: $light-gray;
   color: black;
-  border: 3px solid #999999;
+  border: 1px solid #999999;
   padding: 86px 92px;
   border-radius: 20px;
   font-weight: lighter;
   // opacity: 0.6;
   margin-top: 5vh;
+}
+
+.card {
+
+  height: 80vh;
+  border-radius: 1px;
+  // margin: 15px 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  align-items: center;
+  font-size: 25px;
+  flex: 1 1 auto;
+  background-color: $light-gray;
+  margin-top:3em;
+  .card-picture {
+    background-size: cover;
+    background-position: center;
+    height: 40vh;
+  }
+  .card-content {
+    position: relative;
+
+    .trip-title {
+      position: absolute;
+      left: 3vh;
+    }
+
+    .trip-destination {
+      position: absolute;
+      top: 32vh;
+      left: 3vh;
+    }
+    .btn-primary {
+      position: absolute;
+      top: 20vh;
+      right: -3vh;
+    }
+  }
 }
