@@ -9,9 +9,6 @@ class TripsController < ApplicationController
   end
 
   def show
-    @weather = Weather.new(@trip.destination, @trip.start_date)
-    @country_info = Restcountry::Country.find_by_name(@trip.destination)
-    @weather = @weather.call
     @country_info = Restcountry::Country.find_by_name(@trip.destination)
     @travels = @trip.travels.order('start_date')
     @stays = @trip.stays.order('start_date')
@@ -19,6 +16,10 @@ class TripsController < ApplicationController
     @tasks = @trip.tasks
     @accomodations = @trip.accomodations
     @date_order = []
+    @weather = Weather.new(@trip.destination)
+    @weather = @weather.call
+    gouv = Gouv.new(@trip.destination)
+    @vaccination = gouv.call[:vaccination]
   end
 
   def new
