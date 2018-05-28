@@ -13,6 +13,10 @@ class TripsController < ApplicationController
     @stays = @trip.stays
     @diaries = @trip.diaries
     @accomodations = Accomodation.all
+    @weather = Weather.new(@trip.destination)
+    @weather = @weather.call
+    gouv = Gouv.new(@trip.destination)
+    @vaccination = gouv.call[:vaccination]
   end
 
   def new

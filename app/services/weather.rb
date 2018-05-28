@@ -5,9 +5,9 @@
 # weather.temp # => 18°
 #
 class Weather
-  def initialize(city,start_date)
-    base_url = "https://api.weatherbit.io/v2.0/history/daily"
-    params = "?city=#{city}&start_date=#{start_date}&end_date=#{start_date + 1.day}"
+  def initialize(city)
+    base_url = "https://api.weatherbit.io/v2.0/forecast/daily"
+    params = "?city=#{city}"
     key = "&key=#{ENV.fetch('WEATHER_API_KEY')}"
     @url = base_url + params + key
   end
@@ -20,7 +20,6 @@ class Weather
       max_temp: data["max_temp"],
       min_temp: data["min_temp"],
       temp: data["temp"],
-      precip: data["precip"],
     )
   end
 end
