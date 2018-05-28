@@ -56,7 +56,7 @@ end
     @travel.lngout = latlngout[0].data["geometry"]["location"]["lng"]
     @travel.trip = @trip
     if @travel.save
-      redirect_to trip_travel_path(@trip, @travel), notice: 'travel was successfully created.'
+      redirect_to trip_travels_path(@trip), notice: 'travel was successfully created.'
     else
       render :new
     end
@@ -69,7 +69,7 @@ end
   def update
     @trip = Trip.find(params[:trip_id])
     if @travel.update(travel_params)
-      redirect_to trip_travel_path(@trip, @travel), notice: 'travel was successfully updated.'
+      redirect_to trip_travels_path(@trip), notice: 'travel was successfully updated.'
     else
       render :edit
     end

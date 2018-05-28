@@ -6,8 +6,10 @@ class AccomodationsController < ApplicationController
   def index
     @trip = Trip.find(params[:trip_id])
     @accomodations = Accomodation.all
+    @accomodations.each do |accomodation|
+    @stays = accomodation.stays
+    end
     @accomodations_geo = @accomodations.where.not(latitude: nil, longitude: nil)
-
     @markers = @accomodations_geo.map do |accomodation|
      {
        lat: accomodation.latitude,
@@ -27,8 +29,6 @@ class AccomodationsController < ApplicationController
     @accomodation = Accomodation.new
     @trip = Trip.find(params[:trip_id])
     @accomodation.stays.build
-    # @stay = Stay.new
-
   end
 
   def create
@@ -38,7 +38,7 @@ class AccomodationsController < ApplicationController
       stay.trip = @trip
     end
     if @accomodation.save
-      redirect_to trip_accomodation_path(@trip, @accomodation), notice: 'accomodation and stay were successfully created.'
+      redirect_to trip_accomodations_path(@trip), notice: 'accomodation and stay were successfully created.'
     else
       render :new
     end
@@ -50,8 +50,10 @@ class AccomodationsController < ApplicationController
 
   def update
     @trip = Trip.find(params[:trip_id])
+    # @stays = @accomodation.stays
+    # @stays.destroy
     if @accomodation.update(accomodation_params)
-      redirect_to trip_accomodation_path(@trip, @accomodation), notice: 'accomodation was successfully updated.'
+      redirect_to trip_accomodations_path(@trip), notice: 'accomodation was successfully updated.'
     else
       render :edit
     end
@@ -73,7 +75,7 @@ class AccomodationsController < ApplicationController
     params.require(:accomodation).permit(
       :address, :name, :e_mail, :phone_number,
       :latitude, :longitude, :kind,
-      stays_attributes: %i[start_date end_date trip_id reservation_number]
+      stays_attributes:[:start_date, :end_date, :trip_id, :reservation_number]
     )
   end
 end
