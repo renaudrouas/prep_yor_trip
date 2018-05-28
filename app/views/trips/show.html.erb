@@ -78,9 +78,47 @@
       <div class="col-xs-6">
         <div class="card">
           <ul class="timeline">
-             <% @date_order.each do |item|%>
+             <% @date_order.each_with_index do |item, index|%>
+              <%if index.even? %>
              <% if item.class == Stay %>
             <li>
+              <div class="timeline-badge">
+                <i class="fa fa-map-marker"></i>
+              </div>
+              <div class="timeline-panel">
+                <div class="timeline-heading">
+                  <h4 class="timeline-title">Hebergement</h4>
+                </div>
+                <div class="timeline-body">
+                <p><%=item.accomodation.name%></p>
+                <p><%=item.accomodation.phone_number%></p>
+                <p><%=item.start_date%></p>
+                <p><%=item.end_date%></p>
+                </div>
+              </div>
+            </li>
+            <%else  %>
+            <li >
+              <div class="timeline-badge">
+                <i class="fa fa-map-marker"></i>
+              </div>
+              <div class="timeline-panel">
+                <div class="timeline-heading">
+                  <h4 class="timeline-title">Transport</h4>
+                </div>
+                <div class="timeline-body">
+                  <p><%=item.compagny_name%></p>
+                  <p><%=item.address_in%></p>
+                  <p><%=item.start_date%></p>
+                  <p><%=item.address_out%></p>
+                  <p><%=item.end_date%></p>
+                </div>
+              </div>
+            <%end %>
+            </li>
+            <%else  %>
+             <% if item.class == Stay %>
+            <li class="timeline-inverted">
               <div class="timeline-badge">
                 <i class="fa fa-map-marker"></i>
               </div>
@@ -113,7 +151,9 @@
                   <p><%=item.end_date%></p>
                 </div>
               </div>
+            <%end %>
             </li>
+
           <%end %>
           <%end %>
           </ul>
