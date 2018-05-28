@@ -1,40 +1,37 @@
+</head>
+<body>
+  <%= render 'shared/map_big' %>
 
-    <input id="origin-input" class="controls" type="text"
-        placeholder="Enter an origin location">
+  <script>
 
-    <input id="destination-input" class="controls" type="text"
-        placeholder="Enter a destination location">
-
-    <div id="mode-selector" class="controls">
-      <input type="radio" name="type" id="changemode-walking" checked="checked">
-      <label for="changemode-walking">Walking</label>
-
-      <input type="radio" name="type" id="changemode-transit">
-      <label for="changemode-transit">Transit</label>
-
-      <input type="radio" name="type" id="changemode-driving">
-      <label for="changemode-driving">Driving</label>
-    </div>
-
-    <%= render 'shared/map_big' %>
-
-    <script>
-      // This example requires the Places library. Include the libraries=places
-      // parameter when you first load the API. For example:
-      // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
-
-      function initMap() {
+function initMap() {
         var map = new google.maps.Map(document.getElementById('map'), {
           mapTypeControl: false,
-          center: {lat: 43.300000, lng: 5.400000},
+          center: {lat: -33.8688, lng: 151.2195},
           zoom: 13
         });
 
-        new AutocompleteDirectionsHandler(map);
+           new AutocompleteDirectionsHandler(map);
 
+ if (markers != null) {
 
-
-
+  markers.forEach(function(marker) {
+    let new_marker = map.addMarker(marker);
+    new_marker.addListener('click', function() {
+      window.location.pathname = "pathname" + marker.id;
+    });
+  });
+  console.log(markers)
+  map.addMarkers(markers);
+  if (markers.length === 0) {
+    map.setZoom(2);
+  } else if (markers.length === 1) {
+    map.setCenter(markers[0].lat, markers[0].lng);
+    map.setZoom(14);
+  } else {
+    map.fitLatLngBounds(markers);
+  }
+}
 
 
       }
@@ -42,11 +39,11 @@
        /**
         * @constructor
        */
-      function AutocompleteDirectionsHandler(map) {
+       function AutocompleteDirectionsHandler(map) {
         this.map = map;
         this.originPlaceId = null;
         this.destinationPlaceId = null;
-        this.travelMode = 'WALKING';
+        this.travelMode = 'DRIVING';
         var originInput = document.getElementById('origin-input');
         var destinationInput = document.getElementById('destination-input');
         var modeSelector = document.getElementById('mode-selector');
@@ -119,16 +116,26 @@
           }
         });
       };
+          // var address = '';
+          // if (place.address_components) {
+          //   address = [
+          //     (place.address_components[0] && place.address_components[0].short_name || ''),
+          //     (place.address_components[1] && place.address_components[1].short_name || ''),
+          //     (place.address_components[2] && place.address_components[2].short_name || '')
+          //   ].join(' ');
+          // }
+
+
+          // infowindow.setContent('<div><strong>' + place.name + '</strong><br>' + place.formatted_address + '<div><strong>' + place.formatted_phone_number);
+
+          // document.getElementById('accomodation_name').value = place.name
+          // document.getElementById('accomodation_address').value = place.formatted_address
+          // document.getElementById('accomodation_phone_number').value = place.formatted_phone_number
+
+          // infowindow.open(map, marker);
 
 
 
-
-
-
-
-
-
-
-    </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAvdATWDXEuY1SASpXpkOW8fC8sm9Q7hHE&libraries=places&callback=initMap"
-        async defer></script>
+  </script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAvdATWDXEuY1SASpXpkOW8fC8sm9Q7hHE&libraries=places&callback=initMap"
+  async defer></script>

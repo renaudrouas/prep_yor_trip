@@ -6,6 +6,34 @@ class TravelsController < ApplicationController
   def index
     @trip = Trip.find(params[:trip_id])
     @travels = @trip.travels
+
+@travels_in = @travels.where.not(latitude: nil, longitude: nil)
+
+    @markers = @travels_in.map do |travel|
+     {
+       lat: travel.latin,
+       lng: travel.lngin,
+       id: travel.id
+     }
+
+@travels_out = @travels.where.not(latitude: nil, longitude: nil)
+
+    @markers = @travels_out.map do |travel|
+     {
+       lat: travel.latout,
+       lng: travel.lngout,
+       id: travel.id
+     }
+
+
+
+
+
+    end
+end
+
+
+
   end
 
   def show
@@ -20,6 +48,12 @@ class TravelsController < ApplicationController
   def create
     @trip = Trip.find(params[:trip_id])
     @travel = Travel.new(travel_params)
+    latlngin = Geocoder.search(@travel.address_in)
+    @travel.latin = latlngin[0].data["geometry"]["location"]["lat"]
+    @travel.lngin = latlngin[0].data["geometry"]["location"]["lng"]
+    latlngout = Geocoder.search(@travel.address_out)
+    @travel.latout = latlngout[0].data["geometry"]["location"]["lat"]
+    @travel.lngout = latlngout[0].data["geometry"]["location"]["lng"]
     @travel.trip = @trip
     if @travel.save
       redirect_to trip_travel_path(@trip, @travel), notice: 'travel was successfully created.'

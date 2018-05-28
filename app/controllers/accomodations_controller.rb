@@ -13,7 +13,6 @@ class AccomodationsController < ApplicationController
        lat: accomodation.latitude,
        lng: accomodation.longitude,
        title: accomodation.name,
-       label: "#{accomodation.kind}",
        id: accomodation.id
      }
     end
