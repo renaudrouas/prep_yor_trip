@@ -12,13 +12,13 @@
         <div class="row">
           <div class="col-xs-12">
             <div class="card-content">
-              <div class="trip-title">
+              <div class="trip-title text-center">
                 <strong><p><%=trip.title %></p></strong>
               </div>
               <div class="trip-destination">
-                <p><%=trip.destination %></p>
+                <p>Destination : <%=trip.destination %></p>
               </div>
-              <div>
+              <div class="pri text-center">
                 <%= link_to 'Voir',  trip_path(trip), class: "btn btn-primary"%>
               </div>
             </div>

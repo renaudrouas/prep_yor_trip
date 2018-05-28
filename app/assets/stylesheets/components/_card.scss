@@ -29,7 +29,7 @@
 
 .card {
 
-  height: 80vh;
+  height: 300px;
   border-radius: 1px;
   // margin: 15px 10px;
   box-shadow: 0 0 10px rgba(0,0,0,0.2);
@@ -41,25 +41,34 @@
   .card-picture {
     background-size: cover;
     background-position: center;
-    height: 40vh;
+    height: 150px;
   }
   .card-content {
     position: relative;
 
     .trip-title {
-      position: absolute;
-      left: 3vh;
+      // position: absolute;
+      // left: 112px;
+      // top: 10px;
+      width: 100%;
+      margin-top: 20px;
     }
 
-    .trip-destination {
-      position: absolute;
-      top: 32vh;
-      left: 3vh;
-    }
-    .btn-primary {
-      position: absolute;
-      top: 20vh;
-      right: -3vh;
+    // .trip-destination {
+    //   position: absolute;
+    //   top: 118px;
+    //   left: 13px;
+    // }
+    .pri {
+      margin-right: 34px;
+      .btn {
+      // position: absolute;
+      // top: 86px;
+      // right: 3px;
+      width: 100%;
+      // margin-bottom: 20px;
+      // margin-right: 30px;
+      }
     }
   }
 }
