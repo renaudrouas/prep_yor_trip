@@ -6,7 +6,7 @@
       <div class="card">
         <div class="row">
           <div class="col-xs-12">
-            <div class="card-picture" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path "picture-card-trip.jpg" %>');"></div>
+            <div class="card-picture" style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.1)), url('<%= image_path "picture-card-trip.jpg" %>');"></div>
           </div>
         </div>
         <div class="row">
@@ -34,7 +34,7 @@
               <div class="row">
                 <div class="col-xs-12">
                   <div class="trip-btn text-center">
-                    <%= link_to 'Voir',  trip_path(trip), class: "btn btn-primary"%>
+                    <%= link_to 'Voir',  trip_path(trip), class: "btn btn-default"%>
                   </div>
                 </div>
               </div>
@@ -44,5 +44,17 @@
       </div>
     </div>
     <% end %>
+    <div class="col-xs-12 col-sm-4">
+      <div class="card card-new">
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="trip-btn-new text-center" style="margin-top: 45%;">
+              <%# link_to 'Ajouter un voyage', new_trip_path, class: "btn btn-primary" %>
+              <%= link_to '  + ', new_trip_path, class: "btn btn-plus" %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

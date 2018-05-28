@@ -38,11 +38,13 @@
   flex: 1 1 auto;
   background-color: $light-gray;
   margin-top:3em;
+
   .card-picture {
     background-size: cover;
     background-position: center;
     height: 150px;
   }
+
   .card-content {
     position: relative;
 
@@ -53,7 +55,9 @@
       width: 100%;
       margin-top: 20px;
     }
-
+    .trip-btn-new {
+     margin-top: 50%;
+    }
     .trip-destination {
       margin-top: 20px;
     }
@@ -74,3 +78,7 @@
     }
   }
 }
+
+.card .card-new {
+    background-color: $gray !important;
+  }
