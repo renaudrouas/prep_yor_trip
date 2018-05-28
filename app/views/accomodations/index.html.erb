@@ -1,4 +1,5 @@
 
+
 <div class="content">
   <div class="cards-container">
     <div class="bandeau" style="background-image: url('<%= asset_path "cover-accomodation.jpg" %>');">
@@ -10,6 +11,7 @@
           <%= link_to 'Ajouter un hébergement', new_trip_accomodation_path, class: "btn btn-primary" %>
         </div>
         <% @accomodations.each do |accomodation| %>
+            <%@stays.each do |stay| %>
             <div class="col-xs-12">
               <div class="table-responsive">
                 <table class="table">
@@ -21,8 +23,8 @@
                     </tr>
                     <tr>
                       <td class="white-cell"></td>
-                      <td class="white-bottom-border"><p><%# accomodation.stays.start_date %> le <%# travel.start_date %></p></td>
-                      <td class="white-bottom-border"><p><%# travel.end_date_time %> le <%# travel.end_date %></p></td>
+                      <td class="white-bottom-border"><p> le <%= stay.start_date %></p></td>
+                      <td class="white-bottom-border"><p> le <%= stay.end_date %></p></td>
                     </tr>
                     <tr>
                       <td class="white-cell"></td>
@@ -38,13 +40,8 @@
                     </tr>
                     <tr>
                       <td class="white-cell"></td>
-                      <td><h3>E-mail</h3></td>
-                      <td><p><%= accomodation.e_mail %></p></td>
-                    </tr>
-                    <tr>
-                      <td class="white-cell"></td>
                       <td><h3>Numéro de téléphone</h3></td>
-                      <td><p><% accomodation.phone_number %></p></td>
+                      <td><p><%=accomodation.phone_number %></p></td>
                     </tr>
                     <tr>
                       <td class="white-cell"><%= link_to 'Supprimer', trip_accomodation_path(@trip, accomodation), method: :delete, data: { confirm: 'Êtes-vous sûr?' }, class: "btn btn-transport" %></td>
@@ -56,6 +53,7 @@
               </div>
             </div>
           <% end %>
+          <% end %>
         </div>
         <div class="text-center">
           <%= link_to 'Ajouter un hébergement', new_trip_accomodation_path, class: "btn btn-primary" %>
@@ -63,7 +61,6 @@
         </div>
       </div>
     </div>
-
     <%= render 'shared/map_big' %>
   </div>
 

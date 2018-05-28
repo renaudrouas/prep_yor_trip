@@ -49,6 +49,11 @@
                  <h2> Départ pour :</h2>
                   <p> <%#= @trip.destination %> </p>
                   <h2> Le :</h2>
+                  <p> <%= @trip.start_date %></p>
+                  <h2> Meteo</h2>
+                  <p> <i class="fa fa-thermometer"><strong>Temperature = <%= @weather.temp %>°C</strong></i></p>
+                  <p> <i class="fa fa-sun"><strong>Temperature max = <%= @weather.max_temp %>°C</strong></i></p>
+                  <p><i class="fas fa-snowflake"><strong> Temperature min = <%= @weather.min_temp %>°C</strong></i></p>
                   <p> <%#= @trip.start_date %></p>
                   <h2> Information</h2>
                   <p><strong> Capital : <%#= @country_info.capital %></strong></p>

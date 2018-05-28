@@ -1,6 +1,5 @@
 
  require 'rest-client'
-75918244f55f3d612e76a035f9d5b155912a715d
 
 # How to ?
 # weather = Weather.new("Paris,FR", "2018-05-24", 2018-05-25).call
