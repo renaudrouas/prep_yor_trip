@@ -1,17 +1,22 @@
 
+# frozen_string_literal: true
+
 class TripsController < ApplicationController
-  before_action :set_trip, only: [:show, :edit, :update, :destroy]
+  before_action :set_trip, only: %i[show edit update destroy]
 
   def index
     @trips = Trip.all
   end
 
-
   def show
+    @weather = Weather.new(@trip.destination, @trip.start_date)
+    @country_info = Restcountry::Country.find_by_name(@trip.destination)
+    @weather = @weather.call
     @country_info = Restcountry::Country.find_by_name(@trip.destination)
     @travels = @trip.travels
     @stays = @trip.stays
     @diaries = @trip.diaries
+    @tasks = @trip.tasks
     @accomodations = Accomodation.all
     @weather = Weather.new(@trip.destination)
     @weather = @weather.call
@@ -33,9 +38,7 @@ class TripsController < ApplicationController
     end
   end
 
-  def edit
-
-  end
+  def edit; end
 
   def update
     if @trip.update(trip_params)
@@ -54,7 +57,16 @@ class TripsController < ApplicationController
 
   def set_trip
     @trip = Trip.find(params[:id])
-    #authorize @trip
+    # authorize @trip
+  end
+
+  def set_task
+    @task = Task.find(params[:id])
+    # authorize @task
+  end
+
+  def task_params
+    params.require(:task).permit(:description, :done, :title)
   end
 
   def trip_params

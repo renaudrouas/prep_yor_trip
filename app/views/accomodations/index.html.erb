@@ -1,14 +1,3 @@
-<!-- <h1>Index of stays</h1> -->
-<%# @accomodations.each do |accomodation| %>
-<!-- <p><%#accomodation.e_mail%></p> -->
-<%# link_to 'Show',  trip_accomodation_path(@trip, accomodation)%>
-<%# link_to 'Destroy', trip_accomodation_path(@trip, accomodation), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary" %>
-<%# link_to 'Edit', edit_trip_accomodation_path(@trip, accomodation), class: "btn btn-primary" %>
-<%#end  %>
-
-<%# link_to 'Add a new accomodation and stay', new_trip_accomodation_path, class: "btn btn-primary" %>
-
-
 
 
 <div class="content">
@@ -22,6 +11,7 @@
           <%= link_to 'Ajouter un hébergement', new_trip_accomodation_path, class: "btn btn-primary" %>
         </div>
         <% @accomodations.each do |accomodation| %>
+            <%@stays.each do |stay| %>
             <div class="col-xs-12">
               <div class="table-responsive">
                 <table class="table">
@@ -33,8 +23,8 @@
                     </tr>
                     <tr>
                       <td class="white-cell"></td>
-                      <td class="white-bottom-border"><p><%# accomodation.stays.start_date %> le <%# travel.start_date %></p></td>
-                      <td class="white-bottom-border"><p><%# travel.end_date_time %> le <%# travel.end_date %></p></td>
+                      <td class="white-bottom-border"><p> le <%= stay.start_date %></p></td>
+                      <td class="white-bottom-border"><p> le <%= stay.end_date %></p></td>
                     </tr>
                     <tr>
                       <td class="white-cell"></td>
@@ -50,13 +40,8 @@
                     </tr>
                     <tr>
                       <td class="white-cell"></td>
-                      <td><h3>E-mail</h3></td>
-                      <td><p><%= accomodation.e_mail %></p></td>
-                    </tr>
-                    <tr>
-                      <td class="white-cell"></td>
                       <td><h3>Numéro de téléphone</h3></td>
-                      <td><p><% accomodation.phone_number %></p></td>
+                      <td><p><%=accomodation.phone_number %></p></td>
                     </tr>
                     <tr>
                       <td class="white-cell"><%= link_to 'Supprimer', trip_accomodation_path(@trip, accomodation), method: :delete, data: { confirm: 'Êtes-vous sûr?' }, class: "btn btn-transport" %></td>
@@ -68,6 +53,7 @@
               </div>
             </div>
           <% end %>
+          <% end %>
         </div>
         <div class="text-center">
           <%= link_to 'Ajouter un hébergement', new_trip_accomodation_path, class: "btn btn-primary" %>
@@ -75,25 +61,7 @@
         </div>
       </div>
     </div>
-
-    <div id="map"></div>
+    <%= render 'shared/map_big' %>
   </div>
 
 </div>
-
-
-<script>
-  function initMap() {
-    // Create a map object and specify the DOM element for display.
-    var map = new google.maps.Map(document.getElementById('map'), {
-      center: {lat: 52.5206, lng: 13.4098},
-      scrollwheel: false,
-      zoom: 8
-    });
-  }
-</script>
-
-<script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCzER7O10ZOUp7FloJzMe2r8X1GIQhgt7Q&callback=initMap">
-</script>
-

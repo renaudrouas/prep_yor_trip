@@ -1,21 +1,35 @@
+# frozen_string_literal: true
+
 class AccomodationsController < ApplicationController
-before_action :set_accomodation, only: [:show, :edit, :update, :destroy]
+  before_action :set_accomodation, only: %i[show edit update destroy]
 
   def index
     @trip = Trip.find(params[:trip_id])
     @accomodations = Accomodation.all
+    @accomodations.each do |accomodation|
+    @stays = accomodation.stays
+    end
+    @accomodations_geo = @accomodations.where.not(latitude: nil, longitude: nil)
+    @markers = @accomodations_geo.map do |accomodation|
+     {
+       lat: accomodation.latitude,
+       lng: accomodation.longitude,
+       title: accomodation.name,
+       label: "#{accomodation.kind}",
+       id: accomodation.id
+     }
+    end
   end
 
   def show
-     @trip = Trip.find(params[:trip_id])
-     @stays = @accomodation.stays
+    @trip = Trip.find(params[:trip_id])
+    @stays = @accomodation.stays
   end
 
   def new
     @accomodation = Accomodation.new
     @trip = Trip.find(params[:trip_id])
     @accomodation.stays.build
-    #@stay = Stay.new
   end
 
   def create
@@ -25,7 +39,7 @@ before_action :set_accomodation, only: [:show, :edit, :update, :destroy]
       stay.trip = @trip
     end
     if @accomodation.save
-      redirect_to trip_accomodation_path(@trip, @accomodation), notice: 'accomodation and stay were successfully created.'
+      redirect_to trip_accomodations_path(@trip), notice: 'accomodation and stay were successfully created.'
     else
       render :new
     end
@@ -37,8 +51,10 @@ before_action :set_accomodation, only: [:show, :edit, :update, :destroy]
 
   def update
     @trip = Trip.find(params[:trip_id])
+    # @stays = @accomodation.stays
+    # @stays.destroy
     if @accomodation.update(accomodation_params)
-      redirect_to trip_accomodation_path(@trip, @accomodation), notice: 'accomodation was successfully updated.'
+      redirect_to trip_accomodations_path(@trip), notice: 'accomodation was successfully updated.'
     else
       render :edit
     end
@@ -53,7 +69,7 @@ before_action :set_accomodation, only: [:show, :edit, :update, :destroy]
 
   def set_accomodation
     @accomodation = Accomodation.find(params[:id])
-    #authorize @accomodation
+    # authorize @accomodation
   end
 
   def accomodation_params

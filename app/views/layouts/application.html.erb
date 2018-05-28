@@ -7,6 +7,7 @@
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
+
     <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
   </head>
   <body>
@@ -17,6 +18,10 @@
     </div>
     <%= render 'shared/footer' %>
     <%= javascript_include_tag 'application' %>
+    <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAvdATWDXEuY1SASpXpkOW8fC8sm9Q7hHE&libraries=places&callback=initMap" async defer></script> -->
+    <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyAvdATWDXEuY1SASpXpkOW8fC8sm9Q7hHE" %>
     <%= javascript_pack_tag 'application' %>
+
+     <%= javascript_pack_tag 'map' %>
   </body>
 </html>

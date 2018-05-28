@@ -16,3 +16,60 @@
   }
 }
 
+
+.card {
+
+  height: 368px;
+  border-radius: 1px;
+  // margin: 15px 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  align-items: center;
+  font-size: 25px;
+  flex: 1 1 auto;
+  background-color: $light-gray;
+  margin-top: 20px;
+  margin-bottom:70px;
+  .card-picture {
+    background-size: cover;
+    background-position: center;
+    height: 150px;
+  }
+
+  .card-content {
+    position: relative;
+
+    .trip-title {
+      // position: absolute;
+      // left: 112px;
+      // top: 10px;
+      width: 100%;
+      margin-top: 10px;
+    }
+    .trip-btn-new {
+     margin-top: 50%;
+    }
+    .trip-destination {
+      margin-top: 10px;
+    }
+    .trip-date {
+      margin-top: 10px;
+    }
+    .trip-btn {
+      margin-right: 34px;
+
+      .btn {
+      // position: absolute;
+      // top: 86px;
+      // right: 3px;
+      width: 100%;
+      // margin-bottom: 20px;
+      // margin-right: 30px;
+      }
+    }
+  }
+}
+
+.card .card-new {
+    background-color: $gray !important;
+  }
+
