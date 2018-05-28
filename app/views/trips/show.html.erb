@@ -49,19 +49,17 @@
                   <p> <%#= @trip.destination %> </p>
                   <h2> Le :</h2>
                   <p> <%= @trip.start_date %></p>
-
-                  <h2> Meteo : </h2>
-                 <p> <i class="fa fa-thermometer"><strong>Temperature = <%=  @weather.temp %>°C</strong></i></p>
-                 <p> <i class="fa fa-sun"><strong>Temperature max = <%= @weather.max_temp %>°C</strong></i></p>
-                 <p><i class="fas fa-snowflake"><strong> Temperature min = <%= @weather.min_temp %>°C</strong></i></p>
-                  <h2> Information :</h2>
-                  <p><strong> Capital : <%# @country_info.capital %></strong></p>
-                  <p><strong> Heure : <%# @country_info.timezones %></strong></p>
-                  <p><strong> Code téléphone : <%# @country_info.callingCodes %></strong></p>
-                  <p><strong> Monnaie : <%# @country_info.currencies %></strong></p>
-                  <p><strong> Langue : <%# @country_info.languages %></strong></p>
-                  <h2> Vaccins: </h2>
-                   <p><%= @vaccination %></p>
+                  <h2> Meteo</h2>
+                  <p> <i class="fa fa-thermometer"><strong>Temperature = <%= @weather.temp %>°C</strong></i></p>
+                  <p> <i class="fa fa-sun"><strong>Temperature max = <%= @weather.max_temp %>°C</strong></i></p>
+                  <p><i class="fas fa-snowflake"><strong> Temperature min = <%= @weather.min_temp %>°C</strong></i></p>
+                  <p> <%#= @trip.start_date %></p>
+                  <h2> Information</h2>
+                  <p><strong> Capital : <%#= @country_info.capital %></strong></p>
+                  <p><strong> Heure : <%#= @country_info.timezones %></strong></p>
+                  <p><strong> Code téléphone : <%#= @country_info.callingCodes %></strong></p>
+                  <p><strong> Monnaie : <%#= @country_info.currencies %></strong></p>
+                  <p><strong> Langue : <%#= @country_info.languages %></strong></p>
             </div>
           </div>
         </div>
@@ -80,7 +78,8 @@
       <div class="col-xs-6">
         <div class="card">
           <ul class="timeline">
-             <%@stays.each do |stay| %>
+             <% @date_order.each do |item|%>
+             <% if item.class == Stay %>
             <li>
               <div class="timeline-badge">
                 <i class="fa fa-map-marker"></i>
@@ -90,34 +89,52 @@
                   <h4 class="timeline-title">Hebergement</h4>
                 </div>
                 <div class="timeline-body">
-                <p><%=stay.accomodation.name%></p>
-                <p><%=stay.accomodation.phone_number%></p>
-                <p><%=stay.start_date%></p>
-                <p><%=stay.end_date%></p>
+                <p><%=item.accomodation.name%></p>
+                <p><%=item.accomodation.phone_number%></p>
+                <p><%=item.start_date%></p>
+                <p><%=item.end_date%></p>
                 </div>
               </div>
-              <%end %>
-             <%@travels.each do |travel|%>
             </li>
+            <%else  %>
             <li class="timeline-inverted">
               <div class="timeline-badge">
                 <i class="fa fa-map-marker"></i>
               </div>
               <div class="timeline-panel">
                 <div class="timeline-heading">
-
                   <h4 class="timeline-title">Transport</h4>
                 </div>
                 <div class="timeline-body">
-                  <p><%=travel.compagny_name%></p>
-                  <p><%=travel.address_in%></p>
-                  <p><%=travel.start_date%></p>
-                  <p><%=travel.address_out%></p>
-                  <p><%=travel.end_date%></p>
+                  <p><%=item.compagny_name%></p>
+                  <p><%=item.address_in%></p>
+                  <p><%=item.start_date%></p>
+                  <p><%=item.address_out%></p>
+                  <p><%=item.end_date%></p>
                 </div>
               </div>
             </li>
-            <%end  %><!-- <li>
+          <%end %>
+          <%end %>
+          </ul>
+        </div>
+      </div>
+      <div class="col-xs-6">
+        <!-- <div class="card"> -->
+          <%= render "maps_directions" %>
+        <!-- </div> -->
+      </div>
+    </div>
+</div>
+
+
+<div class="text-center">
+<%= link_to 'Supprimer', trip_path(@trip), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-transport" %>
+<%= link_to 'Editer', edit_trip_path(@trip), class: "btn btn-primary" %>
+<%= link_to 'Retour', trips_path, class: "btn btn-default" %>
+</div>
+
+ <!-- <li>
               <div class="timeline-badge">
                 <i class="fa fa-map-marker"></i>
               </div>
@@ -178,20 +195,3 @@
                 </div>
               </div>
             </li> -->
-          </ul>
-        </div>
-      </div>
-      <div class="col-xs-6">
-        <!-- <div class="card"> -->
-          <%= render "maps_directions" %>
-        <!-- </div> -->
-      </div>
-    </div>
-</div>
-
-
-<div class="text-center">
-<%= link_to 'Supprimer', trip_path(@trip), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-transport" %>
-<%= link_to 'Editer', edit_trip_path(@trip), class: "btn btn-primary" %>
-<%= link_to 'Retour', trips_path, class: "btn btn-default" %>
-</div>
