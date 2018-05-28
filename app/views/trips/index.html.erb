@@ -1,22 +1,60 @@
-
-
 <h1>Liste des voyages</h1>
 <div class="container">
   <div class="row">
     <%@trips.each do |trip| %>
-      <div class="col-xs-12 col-sm-4">
-        <div class="card carrousel-card ">
-          <strong><p><%=trip.title %></p></strong>
-          <p><%=trip.destination %></p>
-          <div>
-            <%= link_to 'Voir',  trip_path(trip), class: "btn btn-primary"%>
+    <div class="col-xs-12 col-sm-4">
+      <div class="card">
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="card-picture" style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.1)), url('<%= image_path "picture-card-trip.jpg" %>');"></div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="card-content">
+              <div class="col-xs-12">
+                <div class="trip-title text-center">
+                  <h3><%=trip.title %></h3>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xs-12">
+                  <div class="trip-destination text-center">
+                    <p>Destination : <em><%=trip.destination %></em></p>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xs-12">
+                  <div class="trip-date text-center">
+                    <p>Du  <em><%=trip.start_date %></em>  au  <em><%=trip.end_date %></em></p>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xs-12">
+                  <div class="trip-btn text-center">
+                    <%= link_to 'Voir',  trip_path(trip), class: "btn btn-default"%>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
+    </div>
     <% end %>
-  </div>
-  <div class="text-center" style="margin: 40px;">
-  <%= link_to 'Ajouter un voyage', new_trip_path, class: "btn btn-primary" %>
+    <div class="col-xs-12 col-sm-4">
+      <div class="card card-new">
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="trip-btn-new text-center" style="margin-top: 45%;">
+              <%# link_to 'Ajouter un voyage', new_trip_path, class: "btn btn-primary" %>
+              <%= link_to '  + ', new_trip_path, class: "btn btn-plus" %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
-
