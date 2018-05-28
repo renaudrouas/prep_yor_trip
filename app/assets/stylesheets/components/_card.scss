@@ -1,11 +1,11 @@
 .two-card-container {
   color: black;
   border: 3px solid #999999;
-  padding: 0vh 3vh;
+  padding: 0vh 1vh;
   border-radius: 20px;
   font-weight: lighter;
   opacity: 0.6;
-  margin-left: 10vh;
+  margin-left: 6vh;
   margin-top: 1vh;
 }
 
@@ -16,16 +16,6 @@
   }
 }
 
-.carrousel-card {
-  background-color: $light-gray;
-  color: black;
-  border: 1px solid #999999;
-  padding: 86px 92px;
-  border-radius: 20px;
-  font-weight: lighter;
-  // opacity: 0.6;
-  margin-top: 5vh;
-}
 
 .card {
 
@@ -82,3 +72,4 @@
 .card .card-new {
     background-color: $gray !important;
   }
+
