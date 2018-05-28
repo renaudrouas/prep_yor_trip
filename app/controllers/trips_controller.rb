@@ -8,11 +8,10 @@ class TripsController < ApplicationController
 
 
   def show
-    # @weather = Weather.new(@trip.destination, @trip.start_date)
-    # @country_info = Restcountry::Country.find_by_name(@trip.destination)
-    # @weather = @weather.call
+    @weather = Weather.new(@trip.destination, @trip.start_date)
     @country_info = Restcountry::Country.find_by_name(@trip.destination)
-    07f1dac06be111216e8e02d5eff1f9839566f65e
+    @weather = @weather.call
+    @country_info = Restcountry::Country.find_by_name(@trip.destination)
     @travels = @trip.travels
     @stays = @trip.stays
     @diaries = @trip.diaries
