@@ -1,6 +1,6 @@
 <h1>Tasks Show</h1>
 <p><%=@task.title %></p>
 <p><%=@task.description %></p>
-<%= link_to 'Destroy', trip_task_path(@task.trip), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary" %>
+<%= link_to 'Destroy', trip_task_path(@task.trip), method: :delete, data: { confirm: 'Etes vous sûr?' }, class: "btn btn-primary" %>
 <%= link_to 'Edit', edit_trip_task_path(@task.trip), class: "btn btn-primary" %>
 <%= link_to 'Back', trip_tasks_path, class: "btn btn-primary" %>

@@ -1,17 +1,16 @@
+<%= simple_form_for [@trip, @task] do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-  <%= simple_form_for [@trip, @task] do |f| %>
-    <%= f.error_notification %>
-    <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+  <div class="form-inputs form-color">
+    <%= f.input :title, placeholder: 'Ne pas oublier : passeport', input_html: { class: 'my-input' }, label_html: { class: 'my-label' } %>
+    <%= f.input :description, placeholder: 'Description', input_html: { class: 'my-input' }, label_html: { class: 'my-label' } %>
 
-    <div class="form-inputs form-color">
-      <%= f.input :title, placeholder: 'Your task', input_html: { class: 'my-input' }, label_html: { class: 'my-label' } %>
-      <%= f.input :description, placeholder: 'Description', input_html: { class: 'my-input' }, label_html: { class: 'my-label' } %>
-
-    </div>
-    <div class="form-actions btn-medium my-button">
-      <%= f.button :submit %>
-    </div>
-  <% end %>
+  </div>
+  <div class="form-actions btn-medium my-button">
+    <%= f.button :submit %>
+  </div>
+<% end %>
 
 
 
