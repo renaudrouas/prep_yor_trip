@@ -69,14 +69,15 @@
         <div class= "col-xs-6">
           <div class="card two-card-container">
             <div class="two-card-title">
-              <div class="row">
-              <h1> Liste </h1>
-               <%= render "tasks" %>
+              <div class="list-to-ckeck">
+              <h1> Checklist </h1>
+               <%= render "tasks", tasks: @trip.tasks, trip: @trip %>
                </div>
             </div>
           </div>
         </div>
       </div>
+    </div>
     <div class="row">
       <div class="col-xs-6">
         <div class="card">

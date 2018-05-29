@@ -9,9 +9,6 @@ class TripsController < ApplicationController
   end
 
   def show
-    @weather = Weather.new(@trip.destination, @trip.start_date)
-    @country_info = Restcountry::Country.find_by_name(@trip.destination)
-    @weather = @weather.call
     @country_info = Restcountry::Country.find_by_name(@trip.destination)
     @travels = @trip.travels
     @stays = @trip.stays
@@ -49,6 +46,8 @@ class TripsController < ApplicationController
   end
 
   def destroy
+    @trip.task.destroy
+    redirect_to trips_url, notice: 'Task was successfully destroyed.'
     @trip.destroy
     redirect_to trips_url, notice: 'Trip was successfully destroyed.'
   end
