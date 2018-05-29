@@ -5,35 +5,37 @@ class TravelsController < ApplicationController
 
   def index
     @trip = Trip.find(params[:trip_id])
-    @travels = @trip.travels
+    @travels = @trip.travels.order(start_date: :asc)
 
-@travels_in = @travels.where.not(latitude: nil, longitude: nil)
-
-    @markers = @travels_in.map do |travel|
-     {
-       lat: travel.latin,
-       lng: travel.lngin,
-       id: travel.id
-     }
-
-@travels_out = @travels.where.not(latitude: nil, longitude: nil)
-
-    @markers = @travels_out.map do |travel|
-     {
-       lat: travel.latout,
-       lng: travel.lngout,
-       id: travel.id
-     }
-
-
-
-
-
+    @markers = @travels.map do |travel|
+      [
+        {
+          lat: travel.latin,
+          lng: travel.lngin,
+          infoWindow: {
+            content: render_to_string(partial: "/travels/map_box", locals: {
+              travel: travel,
+              departure: true
+            })
+          }
+        },
+        {
+          lat: travel.latout,
+          lng: travel.lngout,
+          infoWindow: {
+            content: render_to_string(partial: "/travels/map_box", locals: {
+              travel: travel,
+              departure: false
+            })
+          }
+        }
+      ]
     end
-end
+    @markers.flatten!
 
-
-
+    @path = @travels.map do |travel|
+      [[travel.latin, travel.lngin], [travel.latout, travel.lngout]].flatten
+    end
   end
 
   def show
