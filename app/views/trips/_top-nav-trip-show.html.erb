@@ -1,11 +1,12 @@
 <!--   <div class="wrapper">
 </div> -->
 <nav>
-  <ul class="nav nav-pills">
+  <ul class="nav nav-tabs">
     <li role="presentation">
       <% if @travels.empty? %>
       <%= link_to new_trip_travel_path(@trip) do %>
-      <i class="fa fa-plane">Transports</i>
+      <!-- <i class="fa fa-plane">Transports</i> -->
+      <div><i class="fa fa-plane fa-fw" style="background:MistyRose"></i> <h2>Transports</h2></div>
       <% end %>
       <% else %>
       <%= link_to trip_travels_path(@trip) do %>
