@@ -5,7 +5,7 @@ class AccomodationsController < ApplicationController
 
   def index
     @trip = Trip.find(params[:trip_id])
-    @accomodations = Accomodation.all
+    @accomodations = @trip.accomodations
     @accomodations.each do |accomodation|
     @stays = accomodation.stays
     end
@@ -51,8 +51,12 @@ class AccomodationsController < ApplicationController
 
   def update
     @trip = Trip.find(params[:trip_id])
-    # @stays = @accomodation.stays
-    # @stays.destroy
+    @accomodations = @trip.accomodations
+    @accomodations.each do |accomodation|
+    @stays = accomodation.stays
+    end
+      @stay = @stays.first
+      @stay.destroy
     if @accomodation.update(accomodation_params)
       redirect_to trip_accomodations_path(@trip), notice: 'accomodation was successfully updated.'
     else
@@ -62,7 +66,7 @@ class AccomodationsController < ApplicationController
 
   def destroy
     @accomodation.destroy
-    redirect_to trip_accomodations_path, notice: 'accomodation was successfully destroyed.'
+    redirect_to new_trip_accomodation_path, notice: 'accomodation was successfully destroyed.'
   end
 
   private

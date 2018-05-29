@@ -11,7 +11,6 @@
           <%= link_to 'Ajouter un hébergement', new_trip_accomodation_path, class: "btn btn-primary" %>
           <%= link_to 'Dashboard', trip_path(@trip), class: "btn btn-default" %>
         </div>
-        <% @accomodations.each do |accomodation| %>
             <%@stays.each do |stay| %>
             <div class="col-xs-12">
               <div class="table-responsive">
@@ -30,22 +29,22 @@
                     <tr>
                       <td class="white-cell"></td>
                       <td><h3>Nom de l'hébergement</h3></td>
-                      <td><p><%= accomodation.name %></p></td>
+                      <td><p><%=stay.accomodation.name %></p></td>
                     </tr>
                     <tr>
                       <td class="white-cell">
-                        <%= link_to 'Editer', edit_trip_accomodation_path(@trip, accomodation), class: "btn btn-primary" %>
+                        <%= link_to 'Editer', edit_trip_accomodation_path(@trip, stay.accomodation), class: "btn btn-primary" %>
                       </td>
                       <td><h3>Adresse</h3></td>
-                      <td><p><%= accomodation.address %></p></td>
+                      <td><p><%=stay.accomodation.address %></p></td>
                     </tr>
                     <tr>
                       <td class="white-cell"></td>
                       <td><h3>Numéro de téléphone</h3></td>
-                      <td><p><%=accomodation.phone_number %></p></td>
+                      <td><p><%=stay.accomodation.phone_number %></p></td>
                     </tr>
                     <tr>
-                      <td class="white-cell"><%= link_to 'Supprimer', trip_accomodation_path(@trip, accomodation), method: :delete, data: { confirm: 'Êtes-vous sûr?' }, class: "btn btn-transport" %></td>
+                      <td class="white-cell"><%= link_to 'Supprimer', trip_accomodation_path(@trip, stay.accomodation), method: :delete, data: { confirm: 'Êtes-vous sûr?' }, class: "btn btn-transport" %></td>
                       <td><h3>Numéro de réservation</h3></td>
                       <td><p>Thumnail ticket</p></td>
                     </tr>
@@ -53,7 +52,6 @@
                 </table>
               </div>
             </div>
-          <% end %>
           <% end %>
         </div>
         <div class="text-center">
