@@ -15,11 +15,6 @@
               >
               <%= link_to task.title, trip_task_path(trip, task) %>
             </li>
-
-            <%= link_to 'Destroy',
-                  trip_task_path(trip, task),
-                  method: :delete, data: { confirm: 'Etes vous sûr?' },
-                  class: "btn btn-primary" %>
           </ul>
         <% end %>
       </div>
