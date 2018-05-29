@@ -1,10 +1,42 @@
-<h1>Diary Index</h1>
-<%@diaries.each do |diary| %>
-<p><%=diary.title %></p>
-<p><%=diary.description%></p>
-<p><%=diary.address %></p>
-<p><%=diary.date %></p>
-<%= link_to 'Show',  trip_diary_path(@trip, diary)%>
-<%end  %>
-<%= link_to 'Add a new diary', new_trip_diary_path, class: "btn btn-primary" %>
-<%= link_to 'Dashboard', trip_path(@trip), class: "btn btn-default" %>
+<h1>Vos notes</h1>
+<div class="container">
+  <div class="row">
+    <%@diaries.each do |diary| %>
+    <div class="col-xs-12 col-sm-4">
+      <div class="card card-diaries">
+
+
+          <div class="diary-title text-center">
+            <h2><%=diary.title %></h2>
+          </div>
+
+          <div class="diary-description text-center">
+            <p><%=diary.description.truncate_words(12) %></p>
+          </div>
+
+          <div class="diary-address-date text-center">
+            <p>Fait à <%=diary.address %> le <%=diary.date %></p>
+          </div>
+
+          <div class="diary-btn text-center">
+            <%= link_to 'Voir',  trip_diary_path(@trip, diary), class: "btn btn-default"%>
+          </div>
+
+
+      </div>
+    </div>
+    <% end %>
+    <div class="col-xs-12 col-sm-4">
+      <div class="card card-new">
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="trip-btn-new text-center" style="margin-top: 45%;">
+              <%# link_to 'Ajouter un voyage', new_trip_path, class: "btn btn-primary" %>
+              <%= link_to '+', new_trip_diary_path, class: "btn btn-plus" %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
