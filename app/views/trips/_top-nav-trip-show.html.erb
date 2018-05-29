@@ -1,0 +1,48 @@
+<!--   <div class="wrapper">
+</div> -->
+<nav>
+  <ul class="nav nav-pills">
+    <li role="presentation">
+      <% if @travels.empty? %>
+      <%= link_to new_trip_travel_path(@trip) do %>
+      <i class="fa fa-plane">Transports</i>
+      <% end %>
+      <% else %>
+      <%= link_to trip_travels_path(@trip) do %>
+      <i class="fa fa-plane">Transports</i>
+      <% end %>
+      <% end %>
+    </li>
+    <li role="presentation">
+      <% if @accomodations.empty? %>
+      <%= link_to new_trip_accomodation_path(@trip) do %>
+      <i class="fa fa-home">Hébergements</i>
+      <% end %>
+      <% else %>
+      <%= link_to trip_accomodations_path(@trip) do %>
+      <i class="fa fa-home">Hébergements</i>
+      <% end %>
+      <% end %>
+    </li>
+    <li role="presentation">
+      <% if @diaries.empty? %>
+      <%= link_to new_trip_diary_path(@trip) do %>
+      <i class="fa fa-book">Note</i>
+      <% end %>
+      <% else %>
+      <%= link_to trip_diaries_path(@trip) do %>
+      <i class="fa fa-book">Note</i>
+      <% end %>
+      <% end %>
+    </li>
+    <li role="presentation">
+      <%= link_to 'Supprimer', trip_path(@trip), method: :delete, data: { confirm: 'Are you sure?' }%>
+    </li>
+    <li role="presentation">
+      <%= link_to 'Editer', edit_trip_path(@trip)%>
+    </li>
+    <li role="presentation">
+      <%= link_to 'Retour', trips_path%>
+    </li>
+  </ul>
+<nav>
