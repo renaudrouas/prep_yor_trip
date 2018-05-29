@@ -27,6 +27,7 @@ class TripsController < ApplicationController
     @vaccination = gouv.call[:vaccination]
 
     set_markers
+    set_path
   end
 
   def new
@@ -119,5 +120,15 @@ class TripsController < ApplicationController
       end
     end
     @markers.flatten!
+  end
+
+  def set_path
+    @path = @date_order.map do |element|
+      if element.class == Stay
+        [element.accomodation.latitude, element.accomodation.longitude]
+      else
+        [[element.latin, element.lngin], [element.latout, element.lngout]].flatten
+      end
+    end
   end
 end
