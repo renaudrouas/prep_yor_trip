@@ -55,7 +55,7 @@
 
 }
 
-#map {
+.map {
   flex: 0 0 450px;
   height: 100vh;
   position: sticky !important;
@@ -66,4 +66,8 @@
     position: relative;
     width: 100vh;
   }
+}
+.icon {
+ width: 70px;
+ height: 70px;
 }

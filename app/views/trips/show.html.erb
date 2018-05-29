@@ -53,6 +53,7 @@
                   <p> <i class="fa fa-thermometer"><strong>Temperature = <%= @weather.temp %>°C</strong></i></p>
                   <p> <i class="fa fa-sun"><strong>Temperature max = <%= @weather.max_temp %>°C</strong></i></p>
                   <p><i class="fas fa-snowflake"><strong> Temperature min = <%= @weather.min_temp %>°C</strong></i></p>
+
                   <h2> Information</h2>
                   <% if @country_info.nil? %>
                     <p> Désolée le pays n'existe pas.</p>
@@ -69,6 +70,7 @@
                     <% else %>
                       <p> <%= @vaccination.first %></p>
                     <% end %>
+
             </div>
           </div>
         </div>
@@ -202,7 +204,11 @@
       </div>
       <div class="col-xs-6">
         <!-- <div class="card"> -->
-          <%= render "maps_directions" %>
+          <%= render "shared/map",
+                markers: @markers,
+                path: @path,
+                style: "width:100%; height:600px" %>
+
         <!-- </div> -->
       </div>
     </div>
@@ -275,4 +281,5 @@
                   <p>Retour pour Paris sous la pluie </p>
                 </div>
               </div>
-            </li> -->
+            </li>
+ -->

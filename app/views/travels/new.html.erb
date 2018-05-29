@@ -1,19 +1,14 @@
-
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-4 col-sm-offset-1">
       <div class="form-login">
-        <h1>Créez votre transport</h1>
+        <h1>Ajouter un transport</h1>
         <%= render 'form', travel: @travel %>
         <div style="margin-right: 30px;">
           <%= link_to 'Retour', trip_travels_path, class: "btn btn-default" %>
         </div>
       </div>
-
     </div>
-    <div class="col-xs-12 col-sm-7 col-sm-offset-0">
-      <%= render 'autocomplete_travels' %>
-    </div>
-  </div>
+</div>
 </div>
 

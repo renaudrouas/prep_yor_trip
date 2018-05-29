@@ -13,14 +13,28 @@
 
       <%= f.input :address_in, label: "Adresse d'arrivée", placeholder: '167 rue Paradis, Marseille', input_html: { class: 'my-input' }, label_html: { class: 'my-label' } %>
       <%= f.input :address_out, label: "Adresse de départ", placeholder: '167 rue Paradis, Marseille', input_html: { class: 'my-input' }, label_html: { class: 'my-label' } %>
-      <%= f.input :mode, label: 'Type de transport', placeholder: 'Hotel, Camping', input_html: { class: 'my-input' }, label_html: { class: 'my-label' } %>
+      <%= f.input :mode, collection: Travel.modes.keys, label: 'Type de transport', placeholder: 'Hotel, Camping', input_html: { class: 'my-input' }, label_html: { class: 'my-label' } %>
+
       <%= f.input :ticket_file, label: 'Votre ticket', placeholder: 'Date', input_html: { class: 'my-input' }, label_html: { class: 'my-label' } %>
 
     </div>
     <div class="form-actions">
       <%= f.button :submit, "Créer mon transport", class: "btn btn-primary"%>
     </div>
-  <% end %>
+    <% end %>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+
+        var originInput = document.getElementById('origin-input');
+        var destinationInput = document.getElementById('destination-input');
+
+        var originAutocomplete = new google.maps.places.Autocomplete(
+            originInput, {placeIdOnly: true});
+        var destinationAutocomplete = new google.maps.places.Autocomplete(
+            destinationInput, {placeIdOnly: true});
+});
+</script>
 
 
 
