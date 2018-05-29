@@ -52,6 +52,7 @@
                   <p> <i class="fa fa-thermometer"><strong>Temperature = <%= @weather.temp %>°C</strong></i></p>
                   <p> <i class="fa fa-sun"><strong>Temperature max = <%= @weather.max_temp %>°C</strong></i></p>
                   <p><i class="fas fa-snowflake"><strong> Temperature min = <%= @weather.min_temp %>°C</strong></i></p>
+
                   <h2> Information</h2>
                   <% if @country_info.nil? %>
                     <p> Désolée le pays n'existe pas.</p>
@@ -68,6 +69,7 @@
                     <% else %>
                       <p> <%= @vaccination.first %></p>
                     <% end %>
+
             </div>
           </div>
         </div>
@@ -274,4 +276,5 @@
                   <p>Retour pour Paris sous la pluie </p>
                 </div>
               </div>
-            </li> -->
+            </li>
+ -->

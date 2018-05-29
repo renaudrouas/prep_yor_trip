@@ -4,7 +4,7 @@
 # How to ?
 # weather = Weather.new("Paris,FR", "2018-05-24", 2018-05-25).call
 # weather.temp # => 18°
-#
+
 class Weather
 
   def initialize(city)
