@@ -10,13 +10,44 @@
         </div>
       </div>
     </div>
-    <div class="col-xs-12 col-sm-7 col-sm-offset-0">
-      <div>
-
-      </div>
-      <%= render 'shared/map_big' %>
-
-    </div>
-
   </div>
 
+<script>
+function autocomplete() {
+  document.addEventListener("DOMContentLoaded", function() {
+    var Input = document.getElementById('autocomplete_search');
+
+    if (Input) {
+      var input = new google.maps.places.Autocomplete(input, { types: [ 'geocode' ] });
+      google.maps.event.addDomListener(input, 'keydown', function(e) {
+        if (e.key === "Enter") {
+          e.preventDefault(); // Do not submit the form on Enter.
+        }
+      });
+    }
+
+  });
+}
+function onPlaceChanged() {
+  var place = this.getPlace();
+
+  // console.log(place);  // Uncomment this line to view the full object returned by Google API.
+
+  for (var i in place) {
+    var component = place[i];
+    for (var j in component.types) {  // Some types are ["country", "political"]
+      var type_element = document.getElementById(component.types[j]);
+      if (type_element) {
+        type_element.value = component.long_name;
+      }
+    }
+  }
+}
+
+google.maps.event.addDomListener(window, 'load', function() {
+  initializeAutocomplete('user_input_autocomplete_address');
+});
+</script>
+
+
+</script>
