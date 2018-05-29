@@ -5,10 +5,7 @@ class AccomodationsController < ApplicationController
 
   def index
     @trip = Trip.find(params[:trip_id])
-    @accomodations = Accomodation.all
-    @accomodations.each do |accomodation|
-    @stays = accomodation.stays
-    end
+    @accomodations = @trip.accomodations
     @accomodations_geo = @accomodations.where.not(latitude: nil, longitude: nil)
     @markers = @accomodations_geo.map do |accomodation|
      {
@@ -51,8 +48,11 @@ class AccomodationsController < ApplicationController
 
   def update
     @trip = Trip.find(params[:trip_id])
-    # @stays = @accomodation.stays
-    # @stays.destroy
+    # @accomodations.each do |accomodation|
+    # @stays = accomodation.stays
+    # end
+    #   @stay = @stays.first
+    #   @stay.destroy
     if @accomodation.update(accomodation_params)
       redirect_to trip_accomodations_path(@trip), notice: 'accomodation was successfully updated.'
     else
@@ -76,7 +76,7 @@ class AccomodationsController < ApplicationController
     params.require(:accomodation).permit(
       :address, :name, :e_mail, :phone_number,
       :latitude, :longitude, :kind,
-      stays_attributes:[:start_date, :end_date, :trip_id, :reservation_number]
+      stays_attributes:[:id, :start_date, :end_date, :trip_id, :reservation_number]
     )
   end
 end
