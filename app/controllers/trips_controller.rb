@@ -9,14 +9,11 @@ class TripsController < ApplicationController
   end
 
   def show
-    @country_info = Restcountry::Country.find_by_name(@trip.destination)
-
+    @country_info = Restcountry::Country.find_by_name(@trip.destination[0..2])
     @travels = @trip.travels
     @stays = @trip.stays
-
     @travels = @trip.travels.order('start_date')
     @stays = @trip.stays.order('start_date')
-
     @diaries = @trip.diaries
     @tasks = @trip.tasks
     @accomodations = @trip.accomodations
