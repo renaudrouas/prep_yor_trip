@@ -9,7 +9,7 @@ class TripsController < ApplicationController
   end
 
   def show
-    @country_info = Restcountry::Country.find_by_name(@trip.destination)
+    @country_info = Restcountry::Country.find_by_name(@trip.destination[0..2])
 
     @travels = @trip.travels
     @stays = @trip.stays
@@ -22,7 +22,7 @@ class TripsController < ApplicationController
 
     @accomodations = @trip.accomodations
     combined = (@travels + @stays).flatten
-    @date_order = combined.sort_by{|item|item.start_date} 
+    @date_order = combined.sort_by{|item|item.start_date}
     @weather = Weather.new(@trip.destination)
     @weather = @weather.call
     gouv = Gouv.new(@trip.destination)

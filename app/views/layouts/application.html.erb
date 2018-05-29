@@ -18,10 +18,8 @@
     </div>
     <%= render 'shared/footer' %>
     <%= javascript_include_tag 'application' %>
-    <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAvdATWDXEuY1SASpXpkOW8fC8sm9Q7hHE&libraries=places&callback=initMap" async defer></script> -->
     <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyAvdATWDXEuY1SASpXpkOW8fC8sm9Q7hHE" %>
     <%= javascript_pack_tag 'application' %>
-
-     <%= javascript_pack_tag 'map' %>
+    <%= javascript_pack_tag 'map' %>
   </body>
 </html>

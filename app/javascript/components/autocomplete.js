@@ -1,13 +1,16 @@
 export { autocomplete };
 import GMaps from 'gmaps/gmaps.js';
 
+
+
 document.addEventListener("DOMContentLoaded", function() {
 
-  var map = new GMaps({ el: '#map', lat: -33.866, lng: 151.196 });
   var mapElement = document.getElementById('map');
+  if (mapElement !=null) {
   const markers = JSON.parse(mapElement.dataset.markers);
-console.log(markers);
-if (markers != null) {
+  if (markers != null) {
+  var map = new GMaps({ el: '#map', lat: -33.866, lng: 151.196 });
+
 
   markers.forEach(function(marker) {
     let new_marker = map.addMarker(marker);
@@ -15,7 +18,6 @@ if (markers != null) {
       window.location.pathname = "pathname" + marker.id;
     });
   });
-  console.log(markers)
   map.addMarkers(markers);
   if (markers.length === 0) {
     map.setZoom(2);
@@ -25,7 +27,11 @@ if (markers != null) {
   } else {
     map.fitLatLngBounds(markers);
   }
-}
+} else {
+    var map = new google.maps.Map(document.getElementById('map'), {
+    center: {lat: -33.8688, lng: 151.2195},
+    zoom: 13
+  });
 // input d'autocomplete pour le moment uniquement sur l'id pac-input
   var input = /** @type {!HTMLInputElement} */(
     document.getElementById('pac-input'));
@@ -41,8 +47,10 @@ if (markers != null) {
 
         autocomplete.addListener('place_changed', function() {
           infowindow.close();
+          console.log(marker);
           marker.setVisible(false);
           var place = autocomplete.getPlace();
+          console.log(place);
           if (!place.geometry) {
             // User entered the name of a Place that was not suggested and
             // pressed the Enter key, or the Place Details request failed.
@@ -86,6 +94,8 @@ if (markers != null) {
           infowindow.open(map, marker);
           marker.setMap(map);
         });
+      }
+    }
 });
 
 

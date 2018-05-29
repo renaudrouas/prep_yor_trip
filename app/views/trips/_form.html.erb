@@ -32,9 +32,11 @@
 <% end %>
 
 <script>
+document.addEventListener("DOMContentLoaded", function() {
 
+        var Input = document.getElementById('placeSearch');
 
+        var Autocomplete = new google.maps.places.Autocomplete(
+            Input, {placeIdOnly: true});
+});
 </script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAvdATWDXEuY1SASpXpkOW8fC8sm9Q7hHE&libraries=places&callback=initMap"
-async defer></script>
-
