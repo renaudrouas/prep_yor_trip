@@ -9,7 +9,6 @@ class TravelsController < ApplicationController
   end
 
   def show
-
   end
 
   def new

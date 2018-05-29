@@ -14,7 +14,7 @@
       <%= s.input :end_date, label: "Date check-out", placeholder: '01/01/2000', input_html: { class: 'my-input' }, label_html: { class: 'my-label' } %>
       <%= s.input :reservation_number, label: "Numéro de réservation", placeholder: '22XY50B', input_html: { class: 'my-input' }, label_html: { class: 'my-label' } %>
       <%= s.input :trip_id, as: :hidden, input_html:{value:@trip.id}   %>
-
+      <%= s.input :id, as: :hidden %>
     <div class="form-actions">
        <%= s.button :submit, class: "btn btn-primary"%>
     </div>
