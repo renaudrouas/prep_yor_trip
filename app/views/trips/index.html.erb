@@ -3,7 +3,7 @@
   <div class="row">
     <%@trips.each do |trip| %>
     <div class="col-xs-12 col-sm-4">
-      <div class="card">
+      <div class="card card-trip">
         <div class="row">
           <div class="col-xs-12">
             <div class="card-picture" style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.1)), url('<%= image_path "picture-card-trip.jpg" %>');"></div>
@@ -11,7 +11,7 @@
         </div>
         <div class="row">
           <div class="col-xs-12">
-            <div class="card-content">
+            <div class="trip-index-card-content">
               <div class="col-xs-12">
                 <div class="trip-title text-center">
                   <h3><%=trip.title %></h3>
@@ -45,7 +45,7 @@
     </div>
     <% end %>
     <div class="col-xs-12 col-sm-4">
-      <div class="card card-new">
+      <div class="card card-trip">
         <div class="row">
           <div class="col-xs-12">
             <div class="trip-btn-new text-center" style="margin-top: 45%;">

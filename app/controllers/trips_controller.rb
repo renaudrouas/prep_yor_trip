@@ -13,10 +13,8 @@ class TripsController < ApplicationController
 
     @travels = @trip.travels
     @stays = @trip.stays
-
     @travels = @trip.travels.order('start_date')
     @stays = @trip.stays.order('start_date')
-
     @diaries = @trip.diaries
     @tasks = @trip.tasks
 
@@ -27,6 +25,7 @@ class TripsController < ApplicationController
     @weather = @weather.call
     gouv = Gouv.new(@trip.destination)
     @vaccination = gouv.call[:vaccination]
+    @raise
   end
 
   def new
@@ -55,6 +54,8 @@ class TripsController < ApplicationController
   end
 
   def destroy
+    @trip.task.destroy
+    redirect_to trips_url, notice: 'Task was successfully destroyed.'
     @trip.destroy
     redirect_to trips_url, notice: 'Trip was successfully destroyed.'
   end

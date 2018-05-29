@@ -2,13 +2,17 @@
 
 class TasksController < ApplicationController
   before_action :set_task, only: %i[show edit update destroy complete]
+  skip_before_action :verify_authenticity_token, only: :complete
+  skip_before_action :authenticate_user!, only: :complete
 
   def index
     @trip = Trip.find(params[:trip_id])
-    @tasks = Task.all.order('created_at DESC')
+    @tasks = @trip.tasks
   end
 
-  def show; end
+  def show
+    @trip = Trip.find(params[:trip_id])
+  end
 
   def new
     @trip = Trip.find(params[:trip_id])
@@ -20,7 +24,7 @@ class TasksController < ApplicationController
     @task = Task.new(task_params)
     @task.trip = @trip
     if @task.save
-      redirect_to trip_tasks_path(@trip, @task)
+      redirect_to trip_path(@trip)
     else
       render :new
     end
@@ -33,7 +37,7 @@ class TasksController < ApplicationController
   def update
     @trip = Trip.find(params[:trip_id])
     if @task.update(task_params)
-      redirect_to trip_task_path(@trip, @task), notice: 'Task was successfully updated.'
+      redirect_to trip_path(@trip), notice: 'Task was successfully updated.'
     else
       render :edit
     end
@@ -42,16 +46,18 @@ class TasksController < ApplicationController
   def destroy
     @trip = Trip.find(params[:trip_id])
     @task.destroy
-    redirect_to trip_tasks_path, notice: 'Task was successfully destroyed.'
+    redirect_to trip_path(@trip), notice: 'Task was successfully destroyed.'
   end
 
   def complete
     @trip = Trip.find(params[:trip_id])
-    @task.update(done: true)
-    render :index, notice: "Task successfully completed!"
+    if @task.done?
+      @task.update(done: false)
+    else
+      @task.update(done: true)
+    end
+    render json: { done: @task.done? }
   end
-
-
 
   private
 
