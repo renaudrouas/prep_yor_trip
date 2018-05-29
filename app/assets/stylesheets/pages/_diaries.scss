@@ -1,0 +1,35 @@
+.diary-container {
+  background-color: $light-gray;
+  text-align: center;
+  padding: 25px;
+  margin: 25px;
+  min-height: 300px;
+  width: 100%;
+  .btn {
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 100%;
+  }
+}
+
+.diary-description {
+  margin: 35px;
+}
+
+.diary-adress-date {
+  text-align: right;
+  margin: 15px;
+}
+.button-delete {
+  // .btn {
+  // padding-left: 10px;
+  // padding-right:10px;
+  // }
+}
+
+.button-edit {
+  // .btn {
+  // padding-left: 10px;
+  // padding-right:10px;
+  // }
+}

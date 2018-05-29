@@ -1,8 +1,38 @@
-<h1>show diary</h1>
-<p><%=@diary.title %></p>
-<p><%=@diary.description %></p>
-<p><%=@diary.address %></p>
-<%= link_to 'Destroy', trip_diary_path(@diary.trip), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary" %>
-<%= link_to 'Edit', edit_trip_diary_path(@diary.trip), class: "btn btn-primary" %>
-<%= link_to 'Back', trip_diaries_path, class: "btn btn-primary" %>
+<h1><%=@diary.title %></h1>
 
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+      <div class="diary-container">
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="diary-description">
+              <p><%=@diary.description %></p>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="diary-adress-date">
+              <p>Fait à <%=@diary.address %> le <%=@diary.date %> </p>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-6">
+            <div class="button-edit">
+              <%= link_to 'Edit', edit_trip_diary_path(@diary.trip), class: "btn btn-primary" %>
+            </div>
+          </div>
+          <div class="col-xs-6">
+            <div class="button-delete">
+              <%= link_to 'Destroy', trip_diary_path(@diary.trip), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-transport" %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= link_to 'Back', trip_diaries_path, class: "btn btn-primary" %>
