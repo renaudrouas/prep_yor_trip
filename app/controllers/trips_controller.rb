@@ -23,6 +23,7 @@ class TripsController < ApplicationController
     @weather = @weather.call
     gouv = Gouv.new(@trip.destination)
     @vaccination = gouv.call[:vaccination]
+    # @flag = flag.call[:flag]
     @raise
   end
 
