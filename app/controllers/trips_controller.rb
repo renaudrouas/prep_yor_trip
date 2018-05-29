@@ -19,6 +19,7 @@ class TripsController < ApplicationController
 
     @diaries = @trip.diaries
     @tasks = @trip.tasks
+
     @accomodations = @trip.accomodations
     combined = (@travels + @stays).flatten
     @date_order = combined.sort_by{|item|item.start_date}
