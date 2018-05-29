@@ -21,11 +21,12 @@ class TripsController < ApplicationController
     @tasks = @trip.tasks
     @accomodations = @trip.accomodations
     combined = (@travels + @stays).flatten
-    @date_order = combined.sort_by{|item|item.start_date} 
+    @date_order = combined.sort_by{|item|item.start_date}
     @weather = Weather.new(@trip.destination)
     @weather = @weather.call
     gouv = Gouv.new(@trip.destination)
     @vaccination = gouv.call[:vaccination]
+    @raise
   end
 
   def new
