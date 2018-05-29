@@ -1,7 +1,6 @@
 export { autocomplete };
 import GMaps from 'gmaps/gmaps.js';
 
-<<<<<<< HEAD
 
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -46,7 +45,6 @@ document.addEventListener("DOMContentLoaded", function() {
           anchorPoint: new google.maps.Point(0, -29)
         });
 
-<<<<<<< HEAD
         autocomplete.addListener('place_changed', function() {
           infowindow.close();
           console.log(marker);
