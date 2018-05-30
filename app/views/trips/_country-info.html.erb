@@ -18,7 +18,9 @@
 
   <div class="row">
     <div class="col-xs-6">
+
       <h2> <i> <%= image_tag "information.png", class: "icon-titre" %> </i>&nbsp; Information </h2>
+
       <% if @country_info.nil? %>
       <h4> Désolée le pays n'existe pas. </h4>
       <% else %>
@@ -32,10 +34,12 @@
 
 
     <div class="col-xs-6">
+
       <h2> <i> <%= image_tag "meteo.png", class: "icon-titre" %> </i> &nbsp; Meteo </h2>
       <h4> <i><%= image_tag "temperature.png", class: "icon-info" %></i>   <%=  @weather.temp %> °C </h4>
       <h4> <i><%= image_tag "temperature-max_2.png", class: "icon-info" %></i>   <%=  @weather.max_temp %> °C </h4>
       <h4><i><%= image_tag "temperature-mini-2.png", class: "icon-info" %></i>   <%= @weather.min_temp %> °C </h4>
+
     </div>
   </div> <!-- row 1 card 1 -->
 
