@@ -1,24 +1,27 @@
 h1 {
   font-size: 30px;
   line-height: 40px;
-  color: black;
-  text-align:center;
+  color: $half-black;
+  text-align:left;
+  padding-left: 20px;
 }
 
 h2 {
     font-size: 20px;
     line-height: 30px;
-    color: black;
+    color: $half-black;
 }
 
 p {
   font-size: 15px;
   line-height: 20px;
+  color: $gray;
 }
 
 h3 {
   font-size: 18px;
   line-height: 24px;
+  color: $half-black;
 }
 
 body {
@@ -42,3 +45,26 @@ em {
     text-transform: uppercase;
     color: $blue;
 }
+
+
+
+.nav-tabs {
+  li {
+    i {
+    color: #616668;
+    font-style: "Poppins";
+    }
+    a {
+    margin-right: 47px;
+    margin-left: 15px;
+    line-height: 1.428571429;
+    border: 1px solid transparent;
+    border-radius: 2px 2px 0 0;
+    color: #616668;
+    font-weight: lighter;
+    font-style: "Poppins";
+    }
+  }
+}
+
+
