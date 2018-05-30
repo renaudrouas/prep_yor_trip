@@ -1,7 +1,7 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-xs-12 col-sm-4 col-sm-offset-1">
+    <div class="col-xs-12 col-sm-4 col-sm-offset-4">
       <div class="form-login">
         <h1>Ajouter un hébergement</h1>
         <%= render 'form', accomodation: @accomodation %>
@@ -12,42 +12,35 @@
     </div>
   </div>
 
-<script>
-function autocomplete() {
-  document.addEventListener("DOMContentLoaded", function() {
-    var Input = document.getElementById('autocomplete_search');
+  <script>
 
-    if (Input) {
-      var input = new google.maps.places.Autocomplete(input, { types: [ 'geocode' ] });
-      google.maps.event.addDomListener(input, 'keydown', function(e) {
-        if (e.key === "Enter") {
+
+      document.addEventListener("DOMContentLoaded", function() {
+        var input = document.getElementById('pac-input');
+
+        var autocomplete = new google.maps.places.Autocomplete(input);
+        google.maps.event.addDomListener(input, 'keydown', function(e) {
+          if (e.key === "Enter") {
           e.preventDefault(); // Do not submit the form on Enter.
         }
+
+
+        autocomplete.addListener('place_changed', function() {
+          var place = autocomplete.getPlace()
+          var address = '';
+          if (place.address_components) {
+            address = [
+            (place.address_components[0] && place.address_components[0].short_name || ''),
+            (place.address_components[1] && place.address_components[1].short_name || ''),
+            (place.address_components[2] && place.address_components[2].short_name || '')
+            ].join(' ');
+          }
+
+          document.getElementById('accomodation_name').value = place.name
+          document.getElementById('accomodation_address').value = place.formatted_address
+          document.getElementById('accomodation_phone_number').value = place.formatted_phone_number
+        });
+      })
       });
-    }
 
-  });
-}
-function onPlaceChanged() {
-  var place = this.getPlace();
-
-  // console.log(place);  // Uncomment this line to view the full object returned by Google API.
-
-  for (var i in place) {
-    var component = place[i];
-    for (var j in component.types) {  // Some types are ["country", "political"]
-      var type_element = document.getElementById(component.types[j]);
-      if (type_element) {
-        type_element.value = component.long_name;
-      }
-    }
-  }
-}
-
-google.maps.event.addDomListener(window, 'load', function() {
-  initializeAutocomplete('user_input_autocomplete_address');
-});
-</script>
-
-
-</script>
+  </script>
