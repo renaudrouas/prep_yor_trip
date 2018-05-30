@@ -1,26 +1,20 @@
-<div class="container">
-  <div class="row">
-    <div class="col-xs-6">
-      <div class="well">
-        <% tasks.each do |task| %>
-          <ul class="list-group checked-list-box">
-            <li class="list-group-item" data-checked="<%= task.done? %>">
-              <input
-                class="check"
-                type="checkbox"
-                id="checkBox<%= task.id %>"
-                data-task="<%= task.id %>"
-                data-trip="<%= trip.id %>"
-                checked="<%= task.done? %>"
-              >
-              <%= link_to task.title, trip_task_path(trip, task) %>
-            </li>
-          </ul>
-        <% end %>
-      </div>
-    </div>
+<div class="well">
+    <% tasks.each do |task| %>
+      <ul class="list-group checked-list-box">
+        <li class="list-group-item" data-checked="<%= task.done? %>">
+          <input
+            class="check"
+            type="checkbox"
+            id="checkBox<%= task.id %>"
+            data-task="<%= task.id %>"
+            data-trip="<%= trip.id %>"
+            checked="<%= task.done? %>"
+          >
+          <%= link_to task.title, trip_task_path(trip, task) %>
+        </li>
+      </ul>
+    <% end %>
   </div>
-</div>
 
 <%= link_to 'Nouvelle tâche', new_trip_task_path(trip), class: "btn btn-primary" %>
 
