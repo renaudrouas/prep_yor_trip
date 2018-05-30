@@ -18,19 +18,19 @@
                   <table class="table">
                     <tbody>
                       <tr>
-                        <%if accomodation.kind == "hotel"  %>
+                        <%if accomodation.kind == "hotel" %>
                       <td class="white-cell">
-                        <div class="icon">
-                          <%= image_tag "hotel copie.png"%>
-                        </div></td>
+
+                          <%= image_tag "hotel copie.png", class: "icon" %>
+                        </td>
                       <%elsif accomodation.kind == "habitant"  %>
-                      <td class="white-cell"><div class="icon"><%= image_tag "habitant-2.png"%></div></td>
+                      <td class="white-cell"><%= image_tag "habitant-2.png", class: "icon" %></td>
                       <%elsif accomodation.kind == "b_b"  %>
-                      <td class="white-cell"><div class="icon"><%= image_tag "b-b.png"%></div></td>
+                      <td class="white-cell"><%= image_tag "b-b.png", class: "icon" %></td>
                       <%elsif accomodation.kind == "auberge"  %>
-                      <td class="white-cell"><div class="icon"><%= image_tag "auberge.png"%></div></td>
+                      <td class="white-cell"><%= image_tag "auberge.png", class: "icon" %></td>
                       <%else%>
-                      <td class="white-cell"><div class = "icon"><%= image_tag "travel.png"%></div></td>
+                      <td class="white-cell"><%= image_tag "travel.png", class: "icon" %></td>
                       <%end  %>
                         <td><h3>Date de départ</h3></td>
                         <td><h3>Date d'arrivée</h3></td>
