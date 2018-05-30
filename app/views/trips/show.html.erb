@@ -1,86 +1,86 @@
-<%= render "top-nav-trip-show"  %>
+<h1><%=@trip.title%></h1>
+  <div class="wrapper">
+    <nav id="sidebar">
+      <ul class="list-unstyled components">
+            <li>
+              <% if @travels.empty? %>
+                <%= link_to new_trip_travel_path(@trip) do %>
+                  <i class="fa fa-plane"></i>
+                <% end %>
+              <% else %>
+                <%= link_to trip_travels_path(@trip) do %>
+                  <i class="fa fa-plane"></i>
+                <% end %>
+              <% end %>
 
+            </li>
+            <li>
+              <% if @accomodations.empty? %>
+                <%= link_to new_trip_accomodation_path(@trip) do %>
+                  <i class="fa fa-home"></i>
+                <% end %>
+              <% else %>
+                <%= link_to trip_accomodations_path(@trip) do %>
+                   <i class="fa fa-home"></i>
+                  <% end %>
+              <% end %>
+            </li>
+            <li>
+              <% if @diaries.empty? %>
+                <%= link_to new_trip_diary_path(@trip) do %>
+                  <i class="fa fa-book"></i>
+              <% end %>
+              <% else %>
+              <%= link_to trip_diaries_path(@trip) do %>
+                  <i class="fa fa-book"></i>
+                  <% end %>
+              <% end %>
+            </li>
+      </ul>
+    </nav>
+  </div>
+    <div class="container">
+      <div class= "row">
+        <div class= "col-xs-6">
+          <div class="card two-card-container">
+            <div class="two-card-title">
+                 <h2> Départ pour :</h2>
+                 <p> @flag <p/>
+                  <p> <%= @trip.destination %> </p>
+                  <h2> Le :</h2>
+                  <p> <%= @trip.start_date %></p>
+                  <h2> Meteo</h2>
+                  <p> <i class="fa fa-thermometer"><strong>Temperature = <%= @weather.temp %>°C</strong></i></p>
+                  <p> <i class="fa fa-sun"><strong>Temperature max = <%= @weather.max_temp %>°C</strong></i></p>
+                  <p><i class="fas fa-snowflake"><strong> Temperature min = <%= @weather.min_temp %>°C</strong></i></p>
 
-<div class="wrapper">
-  <nav id="sidebar">
-    <ul class="list-unstyled components">
-      <li>
-        <% if @travels.empty? %>
-        <%= link_to new_trip_travel_path(@trip) do %>
-        <i class="fa fa-plane"></i>
-        <% end %>
-        <% else %>
-        <%= link_to trip_travels_path(@trip) do %>
-        <i class="fa fa-plane"></i>
-        <% end %>
-        <% end %>
+                  <h2> Information</h2>
+                  <% if @country_info.nil? %>
+                    <p> Désolée le pays n'existe pas.</p>
+                  <% else %>
+                    <p><strong> Capital : <%= @country_info.capital %></strong></p>
+                    <p><strong> Heure : <%= @country_info.timezones.first %></strong></p>
+                    <p><strong> Code téléphone : + <%= @country_info.callingCodes.first %></strong></p>
+                    <p><strong> Monnaie : <%= @country_info.currencies.first %></strong></p>
+                    <p><strong> Langue : <%= @country_info.languages.first %></strong></p>
+                  <% end %>
+                    <h2> Vaccins</h2>
+                    <% if @vaccination.nil? %>
+                      <p> Aucun vaccin nécessaire</p>
+                    <% else %>
+                      <p> <%= @vaccination.first %></p>
+                    <% end %>
 
-      </li>
-      <li>
-        <% if @accomodations.empty? %>
-        <%= link_to new_trip_accomodation_path(@trip) do %>
-        <i class="fa fa-home"></i>
-        <% end %>
-        <% else %>
-        <%= link_to trip_accomodations_path(@trip) do %>
-        <i class="fa fa-home"></i>
-        <% end %>
-        <% end %>
-      </li>
-      <li>
-        <% if @diaries.empty? %>
-        <%= link_to new_trip_diary_path(@trip) do %>
-        <i class="fa fa-book"></i>
-        <% end %>
-        <% else %>
-        <%= link_to trip_diaries_path(@trip) do %>
-        <i class="fa fa-book"></i>
-        <% end %>
-        <% end %>
-      </li>
-    </ul>
-  </nav>
-</div>
-<div class="container">
-  <div class= "row" style="display:flex">
-    <div class= "col-xs-6">
-      <div class="col-xs-12">
-        <div class="card two-card-container">
-          <div class="two-card-title">
-            <h2> Départ pour :</h2>
-            <p> <%= @trip.destination %> </p>
-            <p> <%= @flag %></p>
-            <h2> Le :</h2>
-            <p> <%= @trip.start_date %></p>
-            <h2> Meteo</h2>
-            <p> <i class="fa fa-thermometer"><strong>Temperature = <%= @weather.temp %>°C</strong></i></p>
-            <p> <i class="fa fa-sun"><strong>Temperature max = <%= @weather.max_temp %>°C</strong></i></p>
-            <p><i class="fas fa-snowflake"><strong> Temperature min = <%= @weather.min_temp %>°C</strong></i></p>
-            <h2> Information</h2>
-            <% if @country_info.nil? %>
-            <p> Désolée le pays n'existe pas.</p>
-            <% else %>
-            <p><strong> Capital : <%= @country_info.capital %></strong></p>
-            <p><strong> Heure : <%= @country_info.timezones.first %></strong></p>
-            <p><strong> Code téléphone : + <%= @country_info.callingCodes.first %></strong></p>
-            <p><strong> Monnaie : <%= @country_info.currencies.first %></strong></p>
-            <p><strong> Langue : <%= @country_info.languages.first %></strong></p>
-            <% end %>
-            <h2> Vaccins</h2>
-            <% if @vaccination.nil? %>
-            <p> Aucun vaccin nécessaire</p>
-            <% else %>
-            <p> <%= @vaccination.first %></p>
-            <% end %>
+            </div>
           </div>
         </div>
-      </div>
-      <div class= "col-xs-12">
-        <div class="card two-card-container">
-          <div class="two-card-title">
-            <div class="list-to-ckeck">
+        <div class= "col-xs-6">
+          <div class="card two-card-container">
+            <div class="two-card-title">
+              <div class="list-to-ckeck">
               <h1> Checklist </h1>
-              <%= render "tasks", tasks: @trip.tasks, trip: @trip %>
+               <%= render "tasks", tasks: @trip.tasks, trip: @trip %>
+               </div>
             </div>
           </div>
         </div>
@@ -227,11 +227,13 @@
                 <div class="timeline-heading">
                   <h4 class="timeline-title"><%= image_tag "hotel.png"%></h4>
                   <p>Jour: <%=(item.start_date - @start_date).to_i%></p>
-
                 </div>
-                <%else %>
-                <div class="timeline-badge">
-                  <i class="fa fa-map-marker"></i>
+                <div class="timeline-body">
+                  <p><%=item.compagny_name%></p>
+                  <p><%=item.address_in%></p>
+                  <p><%=item.start_date%></p>
+                  <p><%=item.address_out%></p>
+                  <p><%=item.end_date%></p>
                 </div>
               </div>
             </li>
@@ -264,31 +266,26 @@
            </li >
           <%end %>
           <%end %>
-
           </ul>
         </div>
-        </div>
       </div>
-    </div>
-    </div>
-    <div class="col-xs-6">
-      <div class="col-xs-12">
-        <div class="card map">
+      <div class="col-xs-6">
+        <!-- <div class="card"> -->
           <%= render "shared/map",
-          markers: @markers,
-          path: @path,
-          style: "width:100%; height:600px" %>
-        </div>
+                markers: @markers,
+                path: @path,
+                style: "width:100%; height:600px" %>
+
+        <!-- </div> -->
       </div>
     </div>
-  </div>
-
 </div>
-  <div class="text-center">
-    <%= link_to 'Supprimer', trip_path(@trip), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-transport" %>
-    <%= link_to 'Editer', edit_trip_path(@trip), class: "btn btn-primary" %>
-    <%= link_to 'Retour', trips_path, class: "btn btn-default" %>
-  </div>
+
+
+<div class="text-center">
+<%= link_to 'Supprimer', trip_path(@trip), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-transport" %>
+<%= link_to 'Editer', edit_trip_path(@trip), class: "btn btn-primary" %>
+<%= link_to 'Retour', trips_path, class: "btn btn-default" %>
 </div>
 
 
