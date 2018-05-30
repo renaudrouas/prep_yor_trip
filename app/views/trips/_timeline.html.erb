@@ -1,0 +1,178 @@
+<ul class="timeline">
+  <%if @date_order != [] %>
+    <%@start_date = @date_order.first.start_date %>
+  <%end %>
+  <% @date_order.each_with_index do |item, index|%>
+  <%if index.even? %>
+    <% if item.class == Stay %>
+      <li>
+        <%if item.start_date < Date.today %>
+          <div class="timeline-badge-past">
+            <i class="fa fa-map-marker"></i>
+          </div>
+        <%elsif item.start_date == Date.today %>
+          <div class="timeline-badge-now">
+            <i class="fa fa-map-marker"></i>
+          </div>
+        <%else %>
+          <div class="timeline-badge">
+            <i class="fa fa-map-marker"></i>
+          </div>
+        <% end %>
+        <div class="timeline-panel">
+          <div class="timeline-heading">
+            <h4 class="timeline-title"><%= image_tag "hotel.png"%></h4>
+              <p>Jour: <%=(item.start_date - @start_date).to_i%></p>
+          </div>
+          <div class="timeline-body">
+            <p><%=item.accomodation.name%></p>
+            <p><%=item.accomodation.phone_number%></p>
+            <p><%=item.start_date%></p>
+            <p><%=item.end_date%></p>
+          </div>
+        </div>
+      </li>
+    <%elsif item.class == Travel %>
+      <li >
+        <%if item.start_date < Date.today %>
+          <div class="timeline-badge-past">
+            <i class="fa fa-map-marker"></i>
+          </div>
+        <%elsif item.start_date == Date.today %>
+          <div class="timeline-badge-now">
+            <i class="fa fa-map-marker"></i>
+          </div>
+        <%else %>
+          <div class="timeline-badge">
+            <i class="fa fa-map-marker"></i>
+          </div>
+        <% end %>
+          <div class="timeline-panel">
+            <div class="timeline-heading">
+              <h4 class="timeline-title"><%= image_tag "hotel.png"%></h4>
+                <p>Jour: <%=(item.start_date - @start_date).to_i%></p>
+            </div>
+            <div class="timeline-body">
+              <p><%=item.compagny_name%></p>
+              <p><%=item.address_in%></p>
+              <p><%=item.start_date%></p>
+              <p><%=item.address_out%></p>
+              <p><%=item.end_date%></p>
+            </div>
+          </div>
+      </li>
+    <%else%>
+      <li >
+        <%if item.start_date < Date.today %>
+          <div class="timeline-badge-past">
+            <i class="fa fa-map-marker"></i>
+          </div>
+        <%elsif item.start_date == Date.today %>
+          <div class="timeline-badge-now">
+            <i class="fa fa-map-marker"></i>
+          </div>
+        <%else %>
+          <div class="timeline-badge">
+            <i class="fa fa-map-marker"></i>
+          </div>
+        <% end %>
+          <div class="timeline-panel">
+            <div class="timeline-heading">
+              <h4 class="timeline-title"><%= image_tag "hotel.png"%></h4>
+              <p>Jour: <%=(item.start_date - @start_date).to_i%></p>
+            </div>
+            <div class="timeline-body">
+              <p><%=item.title%></p>
+              <p><%=item.address%></p>
+            </div>
+          </div>
+        <%end %>
+      </li>
+    <%else %>
+      <% if item.class == Stay %>
+        <li class="timeline-inverted">
+          <%if item.start_date < Date.today %>
+            <div class="timeline-badge-past">
+              <i class="fa fa-map-marker"></i>
+            </div>
+          <%elsif item.start_date == Date.today %>
+            <div class="timeline-badge-now">
+              <i class="fa fa-map-marker"></i>
+            </div>
+          <%else %>
+            <div class="timeline-badge">
+              <i class="fa fa-map-marker"></i>
+            </div>
+          <% end %>
+            <div class="timeline-panel">
+              <div class="timeline-heading">
+                <h4 class="timeline-title"><%= image_tag "hotel.png"%></h4>
+                <p>Jour: <%=(item.start_date - @start_date).to_i%></p>
+              </div>
+              <div class="timeline-body">
+                <p><%=item.accomodation.name%></p>
+                <p><%=item.accomodation.phone_number%></p>
+                <p><%=item.start_date%></p>
+                <p><%=item.end_date%></p>
+              </div>
+            </div>
+        </li>
+    <%elsif item.class == Travel  %>
+  <li class="timeline-inverted">
+    <%if item.start_date < Date.today %>
+    <div class="timeline-badge-past">
+      <i class="fa fa-map-marker"></i>
+    </div>
+    <%elsif item.start_date == Date.today %>
+    <div class="timeline-badge-now">
+      <i class="fa fa-map-marker"></i>
+    </div>
+    <%else %>
+    <div class="timeline-badge">
+      <i class="fa fa-map-marker"></i>
+    </div>
+    <% end %>
+    <div class="timeline-panel">
+      <div class="timeline-heading">
+        <h4 class="timeline-title"><%= image_tag "hotel.png"%></h4>
+        <p>Jour: <%=(item.start_date - @start_date).to_i%></p>
+      </div>
+      <div class="timeline-body">
+        <p><%=item.compagny_name%></p>
+        <p><%=item.address_in%></p>
+        <p><%=item.start_date%></p>
+        <p><%=item.address_out%></p>
+        <p><%=item.end_date%></p>
+      </div>
+    </div>
+  </li>
+  <%else%>
+  <li >
+    <%if item.start_date < Date.today %>
+    <div class="timeline-badge-past">
+      <i class="fa fa-map-marker"></i>
+    </div>
+    <%elsif item.start_date == Date.today %>
+    <div class="timeline-badge-now">
+      <i class="fa fa-map-marker"></i>
+    </div>
+    <%else %>
+    <div class="timeline-badge">
+      <i class="fa fa-map-marker"></i>
+    </div>
+    <% end %>
+    <div class="timeline-panel">
+      <div class="timeline-heading">
+        <h4 class="timeline-title"><%= image_tag "hotel.png"%></h4>
+        <p>Jour: <%=(item.start_date - @start_date).to_i%></p>
+      </div>
+      <div class="timeline-body">
+        <p><%=item.title%></p>
+        <p><%=item.address%></p>
+      </div>
+    </div>
+    <%end %>
+  </li >
+  <%end %>
+  <%end %>
+</ul>
