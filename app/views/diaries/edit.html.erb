@@ -1,6 +1,14 @@
-<h1>Editing Travel</h1>
-
-<%= render 'form', diary: @diary %>
-
-<%= link_to 'Back', trip_diaries_path %>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-4 col-sm-offset-4">
+      <div class="form-login">
+        <h2>Editer une note</h2>
+        <%= render 'form', diary: @diary %>
+        <div style="margin-right: 30px;">
+          <%= link_to 'Retour', trip_diaries_path, class: "btn btn-default" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 

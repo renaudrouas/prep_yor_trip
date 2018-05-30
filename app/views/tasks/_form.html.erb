@@ -3,12 +3,12 @@
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
   <div class="form-inputs form-color">
-    <%= f.input :title, placeholder: 'Ne pas oublier : passeport', input_html: { class: 'my-input' }, label_html: { class: 'my-label' } %>
-    <%= f.input :description, placeholder: 'Description', input_html: { class: 'my-input' }, label_html: { class: 'my-label' } %>
+    <%= f.input :title, label: 'Titre', placeholder: 'Valise', input_html: { class: 'my-input' }, label_html: { class: 'my-label' } %>
+    <%= f.input :description, label: 'Description',placeholder: 'Prendre maillot de bain', input_html: { class: 'my-input' }, label_html: { class: 'my-label' } %>
 
   </div>
-  <div class="form-actions btn-medium my-button">
-    <%= f.button :submit %>
+  <div class="form-actions">
+    <%= f.button :submit, "Créer ma note", class: "btn btn-primary"%>
   </div>
 <% end %>
 
