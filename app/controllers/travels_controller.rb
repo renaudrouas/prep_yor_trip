@@ -49,14 +49,20 @@ class TravelsController < ApplicationController
   def create
     @trip = Trip.find(params[:trip_id])
     @travel = Travel.new(travel_params)
-    latlngin = Geocoder.search(@travel.address_in)
+    # latlngin = Geocoder.search(@travel.address_in)
+    # @travel.latin = latlngin[0].data["geometry"]["location"]["lat"]
+    # @travel.lngin = latlngin[0].data["geometry"]["location"]["lng"]
+    # latlngout = Geocoder.search(@travel.address_out)
+    # @travel.latout = latlngout[0].data["geometry"]["location"]["lat"]
+    # @travel.lngout = latlngout[0].data["geometry"]["location"]["lng"]
+    @travel.trip = @trip
+    if @travel.save
+      latlngin = Geocoder.search(@travel.address_in)
     @travel.latin = latlngin[0].data["geometry"]["location"]["lat"]
     @travel.lngin = latlngin[0].data["geometry"]["location"]["lng"]
     latlngout = Geocoder.search(@travel.address_out)
     @travel.latout = latlngout[0].data["geometry"]["location"]["lat"]
     @travel.lngout = latlngout[0].data["geometry"]["location"]["lng"]
-    @travel.trip = @trip
-    if @travel.save
       redirect_to trip_travels_path(@trip), notice: 'travel was successfully created.'
     else
       render :new
