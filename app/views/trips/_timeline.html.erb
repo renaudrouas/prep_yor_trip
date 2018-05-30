@@ -54,7 +54,7 @@
             <div class="timeline-body">
               <p><%=item.compagny_name%></p>
               <p><%=item.start_date%></p>
-              <%= link_to 'Detail', trip_travel_path(@trip,item), class: "btn-detail" %>
+              <%= link_to 'Detail', trip_travel_path(@trip, item), class: "btn-detail" %>
             </div>
           </div>
       </li>
@@ -162,6 +162,7 @@
       <p>Jour: <%=(item.start_date - @start_date).to_i%></p>
       <div class="timeline-body">
         <p><%=item.title%></p>
+        <%= link_to 'Detail', trip_diary_path(@trip, item), class: "btn-detail" %>
       </div>
     </div>
     <%end %>
