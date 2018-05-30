@@ -1,7 +1,12 @@
-
-<h1>Editing Stay</h1>
-
-<%= render 'form', accomodation: @accomodation %>
-
-<%= link_to 'Back', trip_accomodations_path %>
-
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-4 col-sm-offset-4">
+      <div class="form-login">
+        <h2>Editer l'hébergement</h2>
+        <%= render 'form', accomodation: @accomodation %>
+        <div style="margin-right: 30px;">
+          <%= link_to 'Retour', trip_accomodations_path, class: "btn btn-default" %>
+        </div>
+      </div>
+    </div>
+  </div>
