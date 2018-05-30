@@ -18,7 +18,20 @@
                   <table class="table">
                     <tbody>
                       <tr>
-                        <td class="white-cell"><%= image_tag "airplane-ticket.png"%></td>
+                        <%if accomodation.kind == "hotel"  %>
+                      <td class="white-cell">
+                        <div class="icon">
+                          <%= image_tag "hotel.svg"%>
+                        </div></td>
+                      <%elsif accomodation.kind == "habitant"  %>
+                      <td class="white-cell"><div class="icon"><%= image_tag "house.svg"%></div></td>
+                      <%elsif accomodation.kind == "b_b"  %>
+                      <td class="white-cell"><div class="icon"><%= image_tag "breakfast.svg"%></div></td>
+                      <%elsif accomodation.kind == "auberge"  %>
+                      <td class="white-cell"><div class="icon"><%= image_tag "signal.svg"%></div></td>
+                      <%else%>
+                      <td class="white-cell"><div class = "icon"><%= image_tag "travel.svg"%></div></td>
+                      <%end  %>
                         <td><h3>Date de départ</h3></td>
                         <td><h3>Date d'arrivée</h3></td>
                       </tr>
