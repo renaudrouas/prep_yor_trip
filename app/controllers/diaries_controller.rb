@@ -5,7 +5,7 @@ class DiariesController < ApplicationController
 
   def index
     @trip = Trip.find(params[:trip_id])
-    @diaries = Diary.all
+    @diaries = @trip.diaries
   end
 
   def show; end

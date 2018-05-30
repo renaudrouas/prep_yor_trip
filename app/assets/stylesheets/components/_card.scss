@@ -1,18 +1,11 @@
 .two-card-container {
-  color: black;
-  border: 3px solid #999999;
-  padding: 0vh 1vh;
-  border-radius: 20px;
+  padding: 20px;
+  color: #242424;
   font-weight: lighter;
-  opacity: 0.6;
-  margin-left: 3vh;
-  margin-top: 1vh;
-}
 
-.two-card-title {
-  p {
+  h2 {
     color: black;
-    margin:auto;
+    font-weight: 500;
   }
 }
 
@@ -27,7 +20,7 @@
   flex: 1 1 auto;
   background-color: $light-gray;
   margin-top: 20px;
-  margin-bottom:70px;
+  margin-bottom:-8px;
   position: relative;
 }
 
@@ -111,20 +104,20 @@
   }
 }
 
-@media (max-width: 1200px)
-{
-  .card-diaries {
-    min-height: 320px;
-    height: auto;
-  }
-}
+// @media (max-width: 1200px)
+// {
+//   .card-diaries {
+//     min-height: 320px;
+//     height: auto;
+//   }
+// }
 
 
-@media (max-width: 992px)
-{
-  .card-diaries {
-    min-height: 380px;
-    height: auto;
-  }
-}
+// @media (max-width: 992px)
+// {
+//   .card-diaries {
+//     min-height: 380px;
+//     height: auto;
+// //   }
+// }
 

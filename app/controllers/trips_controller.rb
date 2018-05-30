@@ -124,7 +124,7 @@ class TripsController < ApplicationController
         ]
       end
     end
-    @markers.compact!.flatten! unless @markers.empty?
+    @markers.compact!&.flatten! unless @markers.empty?
   end
 
   def set_path
