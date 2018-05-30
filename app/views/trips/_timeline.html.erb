@@ -21,7 +21,7 @@
         <% end %>
         <div class="timeline-panel">
           <div class="timeline-heading">
-            <i class="timeline-icon"><%= image_tag "hotel copie.png"%></i>
+            <i><%= image_tag "hotel copie.png", class: "icon-timeline" %></i>
               <p>Jour: <%=(item.start_date - @start_date).to_i%></p>
           </div>
           <div class="timeline-body">
@@ -48,7 +48,7 @@
         <% end %>
           <div class="timeline-panel">
             <div class="timeline-heading">
-              <i class="timeline-icon"><%= image_tag "travel.png"%></i>
+              <i><%= image_tag "travel.png", class: "icon-timeline"  %></i>
                 <p>Jour: <%=(item.start_date - @start_date).to_i%></p>
               </div>
             <div class="timeline-body">
@@ -75,7 +75,7 @@
         <% end %>
           <div class="timeline-panel">
             <div class="timeline-heading">
-              <i class="timeline-icon"><%= image_tag "note-2.png"%></i>
+              <i><%= image_tag "note-2.png", class: "icon-timeline" %></i>
               <p>Jour: <%=(item.start_date - @start_date).to_i%></p>
             </div>
             <div class="timeline-body">
@@ -103,7 +103,7 @@
         <% end %>
         <div class="timeline-panel">
           <div class="timeline-heading">
-            <i class="timeline-icon"><%= image_tag "hotel copie.png"%></i>
+            <i><%= image_tag "hotel copie.png", class: "icon-timeline" %></i>
               <p>Jour: <%=(item.start_date - @start_date).to_i%></p>
           </div>
           <div class="timeline-body">
@@ -130,7 +130,7 @@
             <% end %>
             <div class="timeline-panel">
               <div class="timeline-heading">
-                <i class="timeline-icon"><%= image_tag "travel.png"%></i>
+                <i ><%= image_tag "travel.png", class: "icon-timeline" %></i>
                   <p>Jour: <%=(item.start_date - @start_date).to_i%></p>
               </div>
             <div class="timeline-body">
@@ -157,7 +157,7 @@
     <% end %>
     <div class="timeline-panel">
       <div class="timeline-heading">
-        <i class="timeline-icon"><%= image_tag "note-2.png"%></i>
+        <i><%= image_tag "note-2.png", class: "icon-timeline" %></i>
       </div>
       <p>Jour: <%=(item.start_date - @start_date).to_i%></p>
       <div class="timeline-body">
