@@ -3,7 +3,7 @@
     <li role="presentation">
       <% if @travels.empty? %>
         <%= link_to new_trip_travel_path(@trip) do %>
-          <i class="fa fa-plane"></i> Transports
+          <i class="fa"><%= image_tag "travel.png", class: "icon_top_nav" %></i> Transports
         <% end %>
       <% else %>
         <%= link_to trip_travels_path(@trip) do %>
