@@ -1,5 +1,88 @@
-<h1>Travel show</h1>
-<p><%=@travel.reservation_number%></p>
-<%= link_to 'Destroy', trip_travel_path(@travel.trip), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary" %>
-<%= link_to 'Edit', edit_trip_travel_path(@travel.trip), class: "btn btn-primary" %>
-<%= link_to 'Back', trip_travels_path, class: "btn btn-primary" %>
+
+<div class="content">
+  <div class="cards-container">
+    <div class="bandeau" style="background-image: url('<%= asset_path "cover-travels.jpg" %>');">
+      <!-- <p>bandeau</p> -->
+    </div>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="text-center">
+          <%= link_to 'Dashboard', trip_path(@trip), class: "btn btn-default" %>
+        </div>
+            <div class="col-xs-12">
+              <div class="table-responsive">
+                <table class="table">
+                  <tbody>
+                    <tr>
+                      <td class="white-cell"></td>
+                      <td><h3>Lieux de départ</h3></td>
+                      <td><h3>Lieux d'arrivée</h3></td>
+                    </tr>
+                    <tr>
+                      <%if @travel.mode == "bateau"  %>
+                      <td class="white-cell">
+
+                          <%= image_tag "bateau.png", class: "icon" %>
+                        </td>
+                    <%elsif @travel.mode == "car"  %>
+                      <td class="white-cell"><%= image_tag "car.png", class: "icon" %></td>
+                    <%elsif @travel.mode == "voiture"  %>
+                      <td class="white-cell"><%= image_tag "voiture.png", class: "icon" %></td>
+                    <%elsif @travel.mode == "train"  %>
+                      <td class="white-cell"><%= image_tag "train.png", class: "icon" %></td>
+                    <%else%>
+                      <td class="white-cell"><%= image_tag "avion-2.png", class: "icon" %></td>
+                    <%end  %>
+                      <td class="white-bottom-border"><p><%= @travel.address_in %></p></td>
+                      <td class="white-bottom-border"><p><%= @travel.address_out %></p></td>
+                    </tr>
+                    <tr>
+                      <td class="white-cell"></td>
+                      <td><h3>Date et heure de départ</h3></td>
+                      <td><h3>Date et heure d'arrivée</h3></td>
+                    </tr>
+                    <tr>
+                      <td class="white-cell"></td>
+                      <td class="white-bottom-border"><p><%= @travel.start_date_time %> le <%= @travel.start_date %></p></td>
+                      <td class="white-bottom-border"><p><%= @travel.end_date_time %> le <%= @travel.end_date %></p></td>
+                    </tr>
+                    <tr>
+                      <td class="white-cell">
+                        <%= link_to 'Editer', edit_trip_travel_path(@trip, @travel), class: "btn btn-primary" %>
+                      </td>
+                      <td><h3>Compagnie</h3></td>
+                      <td><p><%= @travel.compagny_name %></p></td>
+                    </tr>
+                    <tr>
+                      <td class="white-cell"></td>
+                      <td><h3>Numéro de réservation</h3></td>
+                      <td><p><%= @travel.reservation_number %></p></td>
+                    </tr>
+                    <tr>
+                      <td class="white-cell"><%= link_to 'Supprimer', trip_travel_path(@trip, @travel), method: :delete, data: { confirm: 'Êtes-vous sûr?' }, class: "btn btn-transport" %></td>
+                      <td><h3>Ticket</h3></td>
+                      <td><p>Thumnail ticket</p></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+        </div>
+        <div class="text-center">
+          <%= link_to 'Dashboard', trip_path(@trip), class: "btn btn-default" %>
+        </div>
+      </div>
+      </div>
+    <div class="map">
+      <%= render 'shared/map', markers: @markers, path: @path, style: "width:100%; height:100vh" %>
+    </div>
+  </div>
+
+</div>
+
+
+
+
+
+
+
