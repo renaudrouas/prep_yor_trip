@@ -1,5 +1,12 @@
 <div class="card two-card-container">
   <div class="row">
+    <div class="col-xs-12">
+      <div class="show-trip-info-picture" style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.1)), url('<%= image_path choose_country_img(@trip.destination.downcase) %>');">
+      </div>
+
+    </div>
+  </div>
+  <div class="row">
     <div class="col-xs-6">
       <p> Départ pour :</p>
       <h2><%= @trip.destination %> </h2>

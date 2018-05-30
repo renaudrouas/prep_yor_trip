@@ -6,16 +6,8 @@
       <div class="card card-trip">
         <div class="row">
           <div class="col-xs-12">
-            <% if trip.destination.downcase == "bolivie" %>
-              <div class="card-picture" style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.1)), url('<%= image_path "colombie.jpg" %>');"></div>
-            <% elsif trip.destination.downcase == "italia" %>
-              <div class="card-picture" style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.1)), url('<%= image_path "italie.jpg" %>');"></div>
-              <% elsif trip.destination.downcase == "argentina" %>
-                <div class="card-picture" style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.1)), url('<%= image_path "argentine.jpg" %>');"></div>
-            <%else %>
-              <div class="card-picture" style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.1)), url('<%= image_path "picture-card-trip.jpg" %>');"></div>
-            <% end %>
-          </div>
+              <div class="card-picture" style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.1)), url('<%= image_path choose_country_img(trip.destination.downcase) %>');"></div>
+            </div>
         </div>
         <div class="row">
           <div class="col-xs-12">
