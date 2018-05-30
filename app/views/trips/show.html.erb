@@ -97,18 +97,22 @@
                 <%if index.even? %>
                   <% if item.class == Stay %>
                    <li>
-                      <%if item.start_date < Time.now %>
-                        <div class="timeline-badge-past">
-                          <i class="fa fa-map-marker"></i>
-                        </div>
-                      <%else  %>
-                        <div class="timeline-badge">
-                          <i class="fa fa-map-marker"></i>
-                        </div>
-                      <% end %>
+                      <%if item.start_date < Date.today %>
+                    <div class="timeline-badge-past">
+                      <i class="fa fa-map-marker"></i>
+                    </div>
+                  <%elsif item.start_date == Date.today %>
+                    <div class="timeline-badge-now">
+                      <i class="fa fa-map-marker"></i>
+                    </div>
+                  <%else %>
+                    <div class="timeline-badge">
+                      <i class="fa fa-map-marker"></i>
+                    </div>
+                  <% end %>
                   <div class="timeline-panel">
                     <div class="timeline-heading">
-                      <h4 class="timeline-title">Hebergement</h4>
+                      <h4 class="timeline-title"><%= image_tag "hotel.png"%></h4>
                       <p>Jour: <%=(item.start_date - @start_date).to_i%></p>
                     </div>
                     <div class="timeline-body">
@@ -121,8 +125,12 @@
                 </li>
               <%elsif item.class == Travel %>
                 <li >
-                  <%if item.start_date < Time.now %>
+                  <%if item.start_date < Date.today %>
                     <div class="timeline-badge-past">
+                      <i class="fa fa-map-marker"></i>
+                    </div>
+                  <%elsif item.start_date == Date.today %>
+                    <div class="timeline-badge-now">
                       <i class="fa fa-map-marker"></i>
                     </div>
                   <%else %>
@@ -132,7 +140,7 @@
                   <% end %>
                   <div class="timeline-panel">
                     <div class="timeline-heading">
-                      <h4 class="timeline-title">Transport</h4>
+                      <h4 class="timeline-title"><%= image_tag "hotel.png"%></h4>
                       <p>Jour: <%=(item.start_date - @start_date).to_i%></p>
                     </div>
                   <div class="timeline-body">
@@ -146,18 +154,22 @@
                 </li>
               <%else%>
               <li >
-                <%if item.start_date < Time.now %>
-                  <div class="timeline-badge-past">
-                    <i class="fa fa-map-marker"></i>
-                  </div>
-                <%else %>
-                  <div class="timeline-badge">
-                    <i class="fa fa-map-marker"></i>
-                  </div>
-                <% end %>
+                <%if item.start_date < Date.today %>
+                    <div class="timeline-badge-past">
+                      <i class="fa fa-map-marker"></i>
+                    </div>
+                  <%elsif item.start_date == Date.today %>
+                    <div class="timeline-badge-now">
+                      <i class="fa fa-map-marker"></i>
+                    </div>
+                  <%else %>
+                    <div class="timeline-badge">
+                      <i class="fa fa-map-marker"></i>
+                    </div>
+                  <% end %>
               <div class="timeline-panel">
                 <div class="timeline-heading">
-                  <h4 class="timeline-title">Diary</h4>
+                  <h4 class="timeline-title"><%= image_tag "hotel.png"%></h4>
                   <p>Jour: <%=(item.start_date - @start_date).to_i%></p>
                 </div>
                 <div class="timeline-body">
@@ -170,8 +182,12 @@
             <%else %>
              <% if item.class == Stay %>
                 <li class="timeline-inverted">
-                  <%if item.start_date < Time.now %>
+                 <%if item.start_date < Date.today %>
                     <div class="timeline-badge-past">
+                      <i class="fa fa-map-marker"></i>
+                    </div>
+                  <%elsif item.start_date == Date.today %>
+                    <div class="timeline-badge-now">
                       <i class="fa fa-map-marker"></i>
                     </div>
                   <%else %>
@@ -181,7 +197,7 @@
                   <% end %>
                   <div class="timeline-panel">
                     <div class="timeline-heading">
-                      <h4 class="timeline-title">Hebergement</h4>
+                      <h4 class="timeline-title"><%= image_tag "hotel.png"%></h4>
                       <p>Jour: <%=(item.start_date - @start_date).to_i%></p>
                     </div>
                     <div class="timeline-body">
@@ -192,20 +208,24 @@
                     </div>
                   </div>
                 </li>
-            <%elsif item.class == Transport  %>
+            <%elsif item.class == Travel  %>
             <li class="timeline-inverted">
-              <%if item.start_date < Time.now %>
-              <div class="timeline-badge-past">
-                <i class="fa fa-map-marker"></i>
-              </div>
-              <%else  %>
-              <div class="timeline-badge">
-                <i class="fa fa-map-marker"></i>
-              </div>
-              <% end %>
+              <%if item.start_date < Date.today %>
+                    <div class="timeline-badge-past">
+                      <i class="fa fa-map-marker"></i>
+                    </div>
+                  <%elsif item.start_date == Date.today %>
+                    <div class="timeline-badge-now">
+                      <i class="fa fa-map-marker"></i>
+                    </div>
+                  <%else %>
+                    <div class="timeline-badge">
+                      <i class="fa fa-map-marker"></i>
+                    </div>
+                  <% end %>
               <div class="timeline-panel">
                 <div class="timeline-heading">
-                  <h4 class="timeline-title">Transport</h4>
+                  <h4 class="timeline-title"><%= image_tag "hotel.png"%></h4>
                   <p>Jour: <%=(item.start_date - @start_date).to_i%></p>
                 </div>
                 <div class="timeline-body">
@@ -219,18 +239,22 @@
             </li>
             <%else%>
               <li >
-                <%if item.start_date < Time.now %>
-                  <div class="timeline-badge-past">
-                    <i class="fa fa-map-marker"></i>
-                  </div>
-                <%else %>
-                  <div class="timeline-badge">
-                    <i class="fa fa-map-marker"></i>
-                  </div>
-                <% end %>
+                <%if item.start_date < Date.today %>
+                    <div class="timeline-badge-past">
+                      <i class="fa fa-map-marker"></i>
+                    </div>
+                  <%elsif item.start_date == Date.today %>
+                    <div class="timeline-badge-now">
+                      <i class="fa fa-map-marker"></i>
+                    </div>
+                  <%else %>
+                    <div class="timeline-badge">
+                      <i class="fa fa-map-marker"></i>
+                    </div>
+                  <% end %>
               <div class="timeline-panel">
                 <div class="timeline-heading">
-                  <h4 class="timeline-title">Diary</h4>
+                  <h4 class="timeline-title"><%= image_tag "hotel.png"%></h4>
                   <p>Jour: <%=(item.start_date - @start_date).to_i%></p>
                 </div>
                 <div class="timeline-body">
@@ -264,65 +288,4 @@
 <%= link_to 'Retour', trips_path, class: "btn btn-default" %>
 </div>
 
- <!-- <li>
-              <div class="timeline-badge">
-                <i class="fa fa-map-marker"></i>
-              </div>
-              <div class="timeline-panel">
-                <div class="timeline-heading">
-                  <h4 class="timeline-title">Jour 3</h4>
-                </div>
-                <div class="timeline-body">
-                  <p>Hotel Name : du .. au .. </p>
-                  <p> Telephone </p>
-                </div>
-              </div>
-            </li>
-            <li class="timeline-inverted">
-              <div class="timeline-panel">
-                <div class="timeline-heading">
-                  <h4 class="timeline-title">25 Juillet 2018</h4>
-                </div>
-                <div class="timeline-body">
-                  <p> Départ pour Cassis </p>
-                </div>
-              </div>
-            </li>
-            <li>
-              <div class="timeline-badge">
-                <i class="fa fa-map-marker"></i>
-              </div>
-              <div class="timeline-panel">
-                <div class="timeline-heading">
-                  <h4 class="timeline-title">Jour 4</h4>
-                </div>
-                <div class="timeline-body">
-                  <p>Hotel Name : du .. au .. </p>
-                  <p> Telephone </p>
-                </div>
-              </div>
-            </li>
-            <li>
-              <div class="timeline-panel">
-                <div class="timeline-heading">
-                  <h4 class="timeline-title">1 er Aout</h4>
-                </div>
-                <div class="timeline-body">
-                  <p>Let's go Bandol  </p>
-                </div>
-              </div>
-            </li>
-            <li class="timeline-inverted">
-              <div class="timeline-badge">
-                <i class="fa fa-map-marker"></i>
-              </div>
-              <div class="timeline-panel">
-                <div class="timeline-heading">
-                  <h4 class="timeline-title">Jour 10</h4>
-                </div>
-                <div class="timeline-body">
-                  <p>Retour pour Paris sous la pluie </p>
-                </div>
-              </div>
-            </li>
- -->
+

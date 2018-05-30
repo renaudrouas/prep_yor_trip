@@ -53,6 +53,6 @@ class DiariesController < ApplicationController
   end
 
   def diary_params
-    params.require(:diary).permit(:date, :description, :address, :title, :latitude, :longitude)
+    params.require(:diary).permit(:start_date, :description, :address, :title, :latitude, :longitude)
   end
 end
