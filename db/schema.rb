@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_28_145047) do
+ActiveRecord::Schema.define(version: 2018_05_30_093112) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 2018_05_28_145047) do
   end
 
   create_table "diaries", force: :cascade do |t|
-    t.date "date"
+    t.date "start_date"
     t.text "description"
     t.string "address"
     t.float "latitude"
