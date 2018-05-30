@@ -3,6 +3,9 @@
 class Travel < ApplicationRecord
   belongs_to :trip
   mount_uploader :ticket_file, PhotoUploader
+  validates :start_date, presence: true
+  validates :address_in, presence: true
+  validates :address_out, presence: true
   enum mode: [:avion,:train,:car,:bateau,:voiture,]
 
   # geocoded_by :address_in
