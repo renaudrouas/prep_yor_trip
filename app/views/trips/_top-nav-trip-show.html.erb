@@ -5,30 +5,23 @@
     <li role="presentation">
       <% if @travels.empty? %>
       <div class="nav-elements">
-      <%= link_to 'Transports', new_trip_travel_path(@trip)%>
-      </div>
-      <%#link_to new_trip_travel_path(@trip) do %>
-      <!-- <i class="fa fa-plane">Transports</i> -->
-<!--       <div class="inline-block">
-        <i class="fa fa-plane fa-fw"></i>
-        <h2>Transports</h2>
-      </div> -->
-      <%# end %>
+        <i class="fa fa-plane"></i>
+        <%= link_to 'Transports', new_trip_travel_path(@trip)%>
       <% else %>
-      <%= link_to 'Transports', trip_travels_path(@trip)%>
-      <%# link_to trip_travels_path(@trip) do %>
-      <!-- <i class="fa fa-plane">Transports</i> -->
+      <div class="nav-elements">
+        <i class="fa fa-plane"></i>
+        <%= link_to 'Transports', trip_travels_path(@trip)%>
+        </div>
       <% end %>
-      <%# end %>
     </li>
     <li role="presentation">
       <% if @accomodations.empty? %>
       <%= link_to new_trip_accomodation_path(@trip) do %>
-      <i class="fa fa-home">Hébergements</i>
+      <i class="fa fa-home"></i> Hébergements
       <% end %>
       <% else %>
       <%= link_to trip_accomodations_path(@trip) do %>
-      <i class="fa fa-home">Hébergements</i>
+      <i class="fa fa-home"></i> Hébergements
       <% end %>
       <% end %>
     </li>
