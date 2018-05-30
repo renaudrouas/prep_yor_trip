@@ -6,6 +6,7 @@ class TripsController < ApplicationController
 
   def index
     @trips = Trip.all
+    # raise
   end
 
   def show
