@@ -1,7 +1,7 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-xs-12 col-sm-4 col-sm-offset-1">
+    <div class="col-xs-12 col-sm-4 col-sm-offset-4">
       <div class="form-login">
         <h1>Ajouter un hébergement</h1>
         <%= render 'form', accomodation: @accomodation %>
@@ -10,13 +10,37 @@
         </div>
       </div>
     </div>
-    <div class="col-xs-12 col-sm-7 col-sm-offset-0">
-      <div>
-
-      </div>
-      <%= render 'shared/map_big' %>
-
-    </div>
-
   </div>
 
+  <script>
+
+
+      document.addEventListener("DOMContentLoaded", function() {
+        var input = document.getElementById('pac-input');
+
+        var autocomplete = new google.maps.places.Autocomplete(input);
+        google.maps.event.addDomListener(input, 'keydown', function(e) {
+          if (e.key === "Enter") {
+          e.preventDefault(); // Do not submit the form on Enter.
+        }
+
+
+        autocomplete.addListener('place_changed', function() {
+          var place = autocomplete.getPlace()
+          var address = '';
+          if (place.address_components) {
+            address = [
+            (place.address_components[0] && place.address_components[0].short_name || ''),
+            (place.address_components[1] && place.address_components[1].short_name || ''),
+            (place.address_components[2] && place.address_components[2].short_name || '')
+            ].join(' ');
+          }
+
+          document.getElementById('accomodation_name').value = place.name
+          document.getElementById('accomodation_address').value = place.formatted_address
+          document.getElementById('accomodation_phone_number').value = place.formatted_phone_number
+        });
+      })
+      });
+
+  </script>

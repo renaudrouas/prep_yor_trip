@@ -6,14 +6,22 @@ class AccomodationsController < ApplicationController
   def index
     @trip = Trip.find(params[:trip_id])
     @accomodations = @trip.accomodations
-    @accomodations_geo = @accomodations.where.not(latitude: nil, longitude: nil)
-    @markers = @accomodations_geo.map do |accomodation|
-     {
-       lat: accomodation.latitude,
-       lng: accomodation.longitude,
-       title: accomodation.name,
-       id: accomodation.id
-     }
+
+    @markers = @accomodations.map do |accomodation|
+       {
+          lat: accomodation.latitude,
+          lng: accomodation.longitude,
+          infoWindow: {
+            content: render_to_string(partial: "/accomodations/map_box", locals: {
+              stay: accomodation
+            })
+          }
+        }
+    end
+    @markers.flatten!
+
+    @path = @accomodations.map do |accomodation|
+      [accomodation.latitude, accomodation.longitude]
     end
   end
 
