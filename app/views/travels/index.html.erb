@@ -23,17 +23,17 @@
                     <tr>
                       <%if travel.mode == "bateau"  %>
                       <td class="white-cell">
-                        <div class="icon">
-                          <%= image_tag "cruise.svg"%>
-                        </div></td>
+
+                          <%= image_tag "bateau.png", class: "icon" %>
+                        </td>
                     <%elsif travel.mode == "car"  %>
-                      <td class="white-cell"><div class="icon"><%= image_tag "bus.svg"%></div></td>
+                      <td class="white-cell"><%= image_tag "car.png", class: "icon" %></td>
                     <%elsif travel.mode == "voiture"  %>
-                      <td class="white-cell"><div class="icon"><%= image_tag "auto.svg"%></div></td>
+                      <td class="white-cell"><%= image_tag "voiture.png", class: "icon" %></td>
                     <%elsif travel.mode == "train"  %>
-                      <td class="white-cell"><div class="icon"><%= image_tag "train.svg"%></div></td>
+                      <td class="white-cell"><%= image_tag "train.png", class: "icon" %></td>
                     <%else%>
-                      <td class="white-cell"><div class = "icon"><%= image_tag "airplane.svg"%></div></td>
+                      <td class="white-cell"><%= image_tag "avion-2.png", class: "icon" %></td>
                     <%end  %>
                       <td class="white-bottom-border"><p><%= travel.address_in %></p></td>
                       <td class="white-bottom-border"><p><%= travel.address_out %></p></td>
