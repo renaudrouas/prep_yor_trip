@@ -1,39 +1,23 @@
 
-
 <div class="container">
   <div class="row">
-    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
-      <div class="diary-container">
-        <h2><%=@diary.title %></h2>
-        <div class="row">
-          <div class="col-xs-12">
-            <div class="diary-description">
-              <p><%=@diary.description %></p>
-            </div>
+    <div class="col-xs-12 col-sm-4">
+      <div class="card card-diaries">
+
+
+          <div class="diary-title text-center">
+            <h2><%=@diary.title %></h2>
           </div>
-        </div>
-        <div class="row">
-          <div class="col-xs-12">
-            <div class="diary-adress-date">
-              <p>Fait à <%=@diary.address %> le <%=@diary.start_date %> </p>
-            </div>
+
+          <div class="diary-description text-center">
+            <p><%=@diary.description.truncate_words(12) %></p>
           </div>
-        </div>
-        <div class="row">
-          <div class="col-xs-6">
-            <div class="button-edit">
-              <%= link_to 'Edit', edit_trip_diary_path(@diary.trip), class: "btn btn-primary" %>
-            </div>
+
+          <div class="diary-address-date text-center">
+            <p>le<%=@diary.start_date %></p>
           </div>
-          <div class="col-xs-6">
-            <div class="button-delete">
-              <%= link_to 'Destroy', trip_diary_path(@diary.trip), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-transport" %>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   </div>
 </div>
-
-<%= link_to 'Back', trip_diaries_path, class: "btn btn-primary" %>
+<%= link_to 'Dashboard', trip_path(@trip), class: "btn btn-default" %>

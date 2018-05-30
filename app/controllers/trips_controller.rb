@@ -28,7 +28,6 @@ class TripsController < ApplicationController
 
     # flag = Flag.new(@trip.destination)
     # @flag = flag.call[:flag]
-    @raise
 
     set_markers
     set_path
@@ -37,7 +36,6 @@ class TripsController < ApplicationController
 
   def new
     @trip = Trip.new
-
   end
 
   def create
