@@ -45,7 +45,10 @@
 
     .trip-title {
       width: 100%;
-      margin-top: 10px;
+      position: absolute;
+      bottom: 45px;
+      right: 0px;
+
     }
 
     .trip-btn-new {
@@ -58,10 +61,18 @@
 
     .trip-date {
     margin-top: 10px;
+    position: absolute;
+    top: 44px;
+    left: 40px;
     }
 
     .trip-btn {
-    margin-right: 34px;
+      margin-right: 34px;
+      position: absolute;
+      top: 79px;
+      width: 79%;
+      padding-left: 10px;
+      padding-right: 10px;
 
       .btn {
       width: 100%;
