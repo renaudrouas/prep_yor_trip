@@ -1,4 +1,6 @@
-<h1><%=@trip.title%></h1>
+<%= render "top-nav-trip-show"  %>
+
+
 <div class="wrapper">
   <nav id="sidebar">
     <ul class="list-unstyled components">
@@ -213,8 +215,10 @@
       </div>
     </div>
   </div>
+
 </div>
 <div class="text-center">
+
     <%= link_to 'Supprimer', trip_path(@trip), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-transport" %>
     <%= link_to 'Editer', edit_trip_path(@trip), class: "btn btn-primary" %>
     <%= link_to 'Retour', trips_path, class: "btn btn-default" %>

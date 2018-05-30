@@ -42,3 +42,26 @@ em {
     text-transform: uppercase;
     color: $blue;
 }
+
+
+
+.nav-tabs {
+  li {
+    i {
+    color: #616668;
+    font-style: "Poppins";
+    }
+    a {
+    margin-right: 47px;
+    margin-left: 15px;
+    line-height: 1.428571429;
+    border: 1px solid transparent;
+    border-radius: 2px 2px 0 0;
+    color: #616668;
+    font-weight: lighter;
+    font-style: "Poppins";
+    }
+  }
+}
+
+

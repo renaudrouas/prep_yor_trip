@@ -11,8 +11,8 @@
       <%= f.input :end_date, label: "Date d'arrivée", placeholder: 'Date', input_html: { class: 'my-input' }, label_html: { class: 'my-label' },
             html5: true %>
 
-      <%= f.input :address_in, label: "Adresse d'arrivée", placeholder: '167 rue Paradis, Marseille', input_html: { class: 'my-input' }, label_html: { class: 'my-label' } %>
-      <%= f.input :address_out, label: "Adresse de départ", placeholder: '167 rue Paradis, Marseille', input_html: { class: 'my-input' }, label_html: { class: 'my-label' } %>
+      <%= f.input :address_in, label: "Adresse de départ", placeholder: '167 rue Paradis, Marseille', input_html: { id: "origin-input" }, label_html: { class: 'my-label' } %>
+      <%= f.input :address_out, label: "Adresse d'arrivée'", placeholder: '167 rue Paradis, Marseille', input_html: { id: "destination-input" }, label_html: { class: 'my-label' } %>
       <%= f.input :mode, collection: Travel.modes.keys, label: 'Type de transport', placeholder: 'Hotel, Camping', input_html: { class: 'my-input' }, label_html: { class: 'my-label' } %>
 
       <%= f.input :ticket_file, label: 'Votre ticket', placeholder: 'Date', input_html: { class: 'my-input' }, label_html: { class: 'my-label' } %>
@@ -35,6 +35,5 @@ document.addEventListener("DOMContentLoaded", function() {
             destinationInput, {placeIdOnly: true});
 });
 </script>
-
 
 
