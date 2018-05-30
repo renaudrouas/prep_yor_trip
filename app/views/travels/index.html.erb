@@ -21,7 +21,20 @@
                       <td><h3>Lieux d'arrivée</h3></td>
                     </tr>
                     <tr>
-                      <td class="white-cell"><%= image_tag "airplane-ticket.png"%></td>
+                      <%if travel.mode == "bateau"  %>
+                      <td class="white-cell">
+                        <div class="icon">
+                          <%= image_tag "cruise.svg"%>
+                        </div></td>
+                    <%elsif travel.mode == "car"  %>
+                      <td class="white-cell"><div class="icon"><%= image_tag "bus.svg"%></div></td>
+                    <%elsif travel.mode == "voiture"  %>
+                      <td class="white-cell"><div class="icon"><%= image_tag "auto.svg"%></div></td>
+                    <%elsif travel.mode == "train"  %>
+                      <td class="white-cell"><div class="icon"><%= image_tag "train.svg"%></div></td>
+                    <%else%>
+                      <td class="white-cell"><div class = "icon"><%= image_tag "airplane.svg"%></div></td>
+                    <%end  %>
                       <td class="white-bottom-border"><p><%= travel.address_in %></p></td>
                       <td class="white-bottom-border"><p><%= travel.address_out %></p></td>
                     </tr>

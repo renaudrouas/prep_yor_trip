@@ -26,8 +26,11 @@ class TripsController < ApplicationController
     gouv = Gouv.new(@trip.destination)
     @vaccination = gouv.call[:vaccination]
 
+    @raise
+
     set_markers
     set_path
+
   end
 
   def new

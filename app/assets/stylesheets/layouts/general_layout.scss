@@ -43,40 +43,6 @@ em {
     color: $blue;
 }
 
-// nav {
-//   ul {
-//     li {
-//       a {
-
-//       }
-//     }
-//   }
-// }
-.nav-elements {
-  display: inline-block;
-  margin-right: 30px;
-  line-height: 1.428571429;
-  border: 1px solid transparent;
-  border-radius: 2px 2px 0 0;
-  color: #616668;
-  font-weight: lighter;
-  font-style: "Poppins";
-  padding: 10px 15px;
-  text-decoration: none;
-  a {
-
-  }
-    &:hover {
-      border-color: #eeeeee #eeeeee #ddd;
-    }
-    &:focus {
-      a:focus {
-      text-decoration: none;
-      background-color: #eeeeee;
-      }
-    }
-}
-
 
 
 .nav-tabs {
@@ -86,7 +52,8 @@ em {
     font-style: "Poppins";
     }
     a {
-    margin-right: 30px;
+    margin-right: 47px;
+    margin-left: 15px;
     line-height: 1.428571429;
     border: 1px solid transparent;
     border-radius: 2px 2px 0 0;
@@ -96,4 +63,5 @@ em {
     }
   }
 }
+
 

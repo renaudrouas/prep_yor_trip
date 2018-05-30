@@ -13,7 +13,6 @@ class Gouv
   def call
     doc = Nokogiri::HTML(open(@url), nil, 'utf-8')
     doc.search('p:contains("Vaccinations")').each do |node|
-      # binding.pry
     vaccination = node.text.split("\n").drop(1)
     @results[:vaccination] = vaccination
     end
