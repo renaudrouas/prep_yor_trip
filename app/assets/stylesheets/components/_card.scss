@@ -3,10 +3,10 @@
   color: #242424;
   font-weight: lighter;
 
-  h2 {
-    color: black;
-    font-weight: 500;
-  }
+  // h2 {
+  //   color: black;
+  //   font-weight: 500;
+  // }
 }
 
 // --------------------------cards global----------------------------------
@@ -116,6 +116,9 @@
   .diary-btn-new {
     padding-top:30%;
   }
+}
+.red-background-color {
+  background-color: $red;
 }
 
 // @media (max-width: 1200px)
