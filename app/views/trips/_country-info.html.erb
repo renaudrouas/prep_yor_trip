@@ -14,29 +14,30 @@
 
   <div class="row">
     <div class="col-xs-6">
-      <h2> Information</h2>
+      <h2> <i>Information <%= image_tag "information.png", class: "icon-titre" %> </i> </h2>
       <% if @country_info.nil? %>
-      <p> Désolée le pays n'existe pas.</p>
+      <p> Désolée le pays n'existe pas. </p>
       <% else %>
-      <p>Capital : <strong><%= @country_info.capital %></strong></p>
-      <p>Heure :<strong> <%= @country_info.timezones.first %></strong></p>
-      <p>Code téléphone :<strong>+ <%= @country_info.callingCodes.first %></strong></p>
-      <p>Monnaie :<strong><%= @country_info.currencies.first %></strong></p>
-      <p>Langue :<strong><%= @country_info.languages.first %></strong></p>
+      <p><i><%= image_tag "capitale.png", class: "icon-info" %></i>   <%=  @country_info.capital %></p>
+      <p><i><%= image_tag "heure.png", class: "icon-info" %></i>   <%=  @country_info.timezones.first %></p>
+      <p><i><%= image_tag "code-telephone.png", class: "icon-info" %></i>   + <%=  @country_info.callingCodes.first %></p>
+      <p><i><%= image_tag "monnaie.png", class: "icon-info" %></i>   <%=  @country_info.currencies.first %></p>
+      <p><i><%= image_tag "langue-1.png", class: "icon-info" %></i>   <%=  @country_info.languages.first %> </p>
       <% end %>
     </div>
 
+
     <div class="col-xs-6">
-      <h2> Meteo</h2>
-      <p> <i class="fa fa-thermometer"></i> Temperature = <strong><%= @weather.temp %>°C</strong></p>
-      <p> <i class="fa fa-sun"></i>Temperature max = <strong><%= @weather.max_temp %>°C</strong></p>
-      <p><i class="fas fa-snowflake"></i>Temperature min = <strong><%= @weather.min_temp %>°C</strong></p>
+      <h2> <i>Meteo <%= image_tag "meteo.png", class: "icon-titre" %> </i> </h2>
+      <p> <i><%= image_tag "temperature.png", class: "icon-info" %></i>   <%=  @weather.temp %> °C </p>
+      <p> <i><%= image_tag "temperature-max_2.png", class: "icon-info" %></i>   <%=  @weather.max_temp %> °C </p>
+      <p><i><%= image_tag "temperature-mini-2.png", class: "icon-info" %></i>   <%= @weather.min_temp %> °C </p>
     </div>
   </div> <!-- row 1 card 1 -->
 
   <div class="row">
     <div class="col-xs-6">
-      <h2>Vaccins</h2>
+      <h2> <i><%= image_tag "vaccins.png", class: "icon-titre" %> Vaccins</i></h2>
       <% if @vaccination.nil? || @vaccination.first.nil? %>
         <p>Aucun vaccin nécessaire</p>
       <% else %>
