@@ -16,8 +16,7 @@ class TripsController < ApplicationController
     @diaries = @trip.diaries
     @tasks = @trip.tasks
     @accomodations = @trip.accomodations
-
-    combined = (@travels + @stays).flatten
+    combined = (@travels + @stays + @diaries).flatten
     @date_order = combined.sort_by{|item|item.start_date}
 
     @weather = Weather.new(@trip.destination)
@@ -97,7 +96,7 @@ class TripsController < ApplicationController
             })
           }
         }
-      else
+      elsif element.class == Travel
         [
           {
             lat: element.latin,
@@ -122,16 +121,17 @@ class TripsController < ApplicationController
         ]
       end
     end
-    @markers.flatten!
+    @markers.compact!.flatten!
   end
 
   def set_path
     @path = @date_order.map do |element|
       if element.class == Stay
         [element.accomodation.latitude, element.accomodation.longitude]
-      else
+      elsif element.class == Travel
         [[element.latin, element.lngin], [element.latout, element.lngout]].flatten
       end
     end
+    @path.compact!
   end
 end
