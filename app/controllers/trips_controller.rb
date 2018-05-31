@@ -60,8 +60,6 @@ class TripsController < ApplicationController
   end
 
   def destroy
-    @trip.task.destroy
-    redirect_to trips_url, notice: 'Task was successfully destroyed.'
     @trip.destroy
     redirect_to trips_url, notice: 'Trip was successfully destroyed.'
   end
