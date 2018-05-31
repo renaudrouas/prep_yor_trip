@@ -1,10 +1,36 @@
 
+<div class="row">
+  <div class="col-xs-2">
+    <% @accomodations.each do |accomodation| %>
+      <%if accomodation.kind == "hotel" %>
+      <td><%= image_tag "hotel copie.png", class: "icon-map_box" %></td>
+      <%elsif accomodation.kind == "habitant"  %>
+      <td><%= image_tag "habitant-2.png", class: "icon-map_box" %></td>
+      <%elsif accomodation.kind == "b_b"  %>
+      <td><%= image_tag "b-b.png", class: "icon-map_box" %></td>
+      <%elsif accomodation.kind == "auberge"  %>
+      <td><%= image_tag "auberge.png", class: "icon-map_box" %></td>
+      <%else%>
+      <td><%= image_tag "travel.png", class: "icon-map_box" %></td>
+      <% end %>
+    <% end %>
+  </div>
 
-<p>
-  <% @trip.stays.each do |stay| %>
-  du <%= l stay.start_date, format: :short %>
-  au <%= l stay.end_date, format: :short   %>
-  <% end %>
-</p>
+  <div class="col-sm-6">
+    <p><strong>
+      <% @accomodations.each do |accomodation| %>
+      <%= accomodation.name %>
+      <% end %>
+    </strong></p>
+    <br>
+    <p>
+      <% @trip.stays.each do |stay| %>
+      du <%= l stay.start_date, format: :default_heure %>
+      <br>
+      au <%= l stay.end_date, format: :default_heure   %>
+      <% end %>
+    </p>
+  </div>
+</div> <!-- row 1 card 1 -->
 
-<p class="strong"><%#= @accomodation.name %></p>
+
