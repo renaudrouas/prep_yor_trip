@@ -7,9 +7,9 @@
 
 class Weather
 
-  def initialize(city)
+  def initialize(lat,lng)
     base_url = "https://api.weatherbit.io/v2.0/forecast/daily"
-    params = "?city=#{city}"
+    params = "?&lat=#{lat}&lon=#{lng}"
 
     key = "&key=#{ENV.fetch('WEATHER_API_KEY')}"
     @url = base_url + params + key

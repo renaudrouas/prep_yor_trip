@@ -20,11 +20,11 @@ class TripsController < ApplicationController
     combined = (@travels + @stays + @diaries).flatten
     @date_order = combined.sort_by{|item|item.start_date}
 
-    @weather = Weather.new(@trip.destination)
+    @weather = Weather.new(@trip.latitude, @trip.longitude)
     @weather = @weather.call
 
-    gouv = Gouv.new(@trip.destination)
-    @vaccination = gouv.call[:vaccination]
+    # gouv = Gouv.new(@trip.destination)
+    # @vaccination = gouv.call[:vaccination]
 
     # flag = Flag.new(@trip.destination)
     # @flag = flag.call[:flag]
