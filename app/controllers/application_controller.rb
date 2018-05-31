@@ -9,4 +9,8 @@ class ApplicationController < ActionController::Base
     added_attrs = [:photo]
     devise_parameter_sanitizer.permit(:account_update, keys: [:photo])
     end
+
+  def default_url_options
+  { host: ENV["HOST"] || "localhost:3000" }
+  end
 end
