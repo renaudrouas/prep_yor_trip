@@ -54,14 +54,9 @@
                       <td><p><%= @travel.compagny_name %></p></td>
                     </tr>
                     <tr>
-                      <td class="white-cell"></td>
+                      <td class="white-cell"><%= link_to 'Supprimer', trip_travel_path(@trip, @travel), method: :delete, data: { confirm: 'Êtes-vous sûr?' }, class: "btn btn-transport" %></td>
                       <td><h3>Numéro de réservation</h3></td>
                       <td><p><%= @travel.reservation_number %></p></td>
-                    </tr>
-                    <tr>
-                      <td class="white-cell"><%= link_to 'Supprimer', trip_travel_path(@trip, @travel), method: :delete, data: { confirm: 'Êtes-vous sûr?' }, class: "btn btn-transport" %></td>
-                      <td><h3>Ticket</h3></td>
-                      <td><p>Thumnail ticket</p></td>
                     </tr>
                   </tbody>
                 </table>
