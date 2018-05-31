@@ -25,7 +25,10 @@
   border: 1px solid #ddd;
   // box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
   td {
-
+    p{
+      margin-top: 20px;
+      margin-bottom: 12.5px;
+    }
   }
 }
 
@@ -45,8 +48,13 @@
 }
 
 .white-bottom-border {
-  border-bottom: 2px solid white !important;
+  border-bottom: 3px solid white !important;
 }
+
+.white-right-border {
+  border-right: 3px solid white !important;
+}
+
 .travel-card-frame {
   // padding: 0px !important;
   // margin: 0px !important;
@@ -57,7 +65,7 @@
 }
 
 .map {
-  flex: 0 0 450px;
+  flex: 0 0 55%;
   height: 100vh;
   position: sticky !important;
   top: 0 !important;
