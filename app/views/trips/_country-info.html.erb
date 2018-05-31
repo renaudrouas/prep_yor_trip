@@ -11,7 +11,7 @@
       <h2> Départ pour : &nbsp;<%= @trip.destination.capitalize %></h2>
     </div>
     <div class="col-xs-6">
-      <h2> le <%= @trip.start_date %></h2>
+      <h2> le <%= l @trip.start_date, format: :default_heure unless @trip.start_date.nil? %></h2>
   </div>
 </div>
 <!-- title -->
