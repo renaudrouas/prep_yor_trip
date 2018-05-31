@@ -2,9 +2,7 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-6 col-sm-offset-3">
-      <div class="card card-diaries">
-
-
+      <div class="card card-tasks">
           <div class="diary-title text-center">
             <h2><%=@diary.title %></h2>
           </div>
@@ -12,12 +10,22 @@
           <div class="diary-description text-center">
             <p><%=@diary.description.truncate_words(12) %></p>
           </div>
-
           <div class="diary-address-date text-center">
             <p>Le <%= l @diary.start_date, format: :default_heure unless @diary.start_date.nil? %></p>
+          </div>
+          <div class="col-xs-6">
+            <div class="diary-btn text-center">
+              <%= link_to 'Destroy', trip_diary_path(@diary.trip), method: :delete, data: { confirm: 'Etes vous sûr?' }, class: "btn btn-transport" %>
+            </div>
+          </div>
+          <div class="col-xs-6">
+            <div class="diary-btn text-center">
+               <%= link_to 'Edit', edit_trip_diary_path(@diary.trip), class: "btn btn-primary" %>
+            </div>
           </div>
       </div>
     </div>
   </div>
+
 </div>
 <%= link_to 'Dashboard', trip_path(@trip), class: "btn btn-default" %>
