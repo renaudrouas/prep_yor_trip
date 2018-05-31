@@ -1,21 +1,49 @@
 <% if departure %>
-  <p> départ le  <%= l travel.start_date, format: :short %> </p>
-  <p class="strong"><%= travel.address_in %></p>
-    <%if travel.mode == "bateau"  %>
-      <td class="white-cell"><%= image_tag "bateau.png", class: "icon" %></td>
-    <%elsif travel.mode == "car"  %>
-      <td class="white-cell"><%= image_tag "car.png", class: "icon" %></td>
-    <%elsif travel.mode == "voiture"  %>
-      <td class="white-cell"><%= image_tag "voiture.png", class: "icon" %></td>
-    <%elsif travel.mode == "train"  %>
-      <td class="white-cell"><%= image_tag "train.png", class: "icon" %></td>
-    <%else%>
-      <td class="white-cell"><%= image_tag "avion-2.png", class: "icon" %></td>
-    <%end  %>
+
+<div class="row">
+    <div class="col-xs-2">
+      <%if travel.mode == "bateau"  %>
+        <i><%= image_tag "bateau.png", class: "icon-map_box" %></i>
+      <%elsif travel.mode == "car"  %>
+        <i><%= image_tag "car.png", class: "icon-map_box" %></i>
+      <%elsif travel.mode == "voiture"  %>
+        <i><%= image_tag "voiture.png", class: "icon-map_box" %></i>
+      <%elsif travel.mode == "train"  %>
+        <i><%= image_tag "train.png", class: "icon-map_box" %></i>
+      <%else%>
+        <i><%= image_tag "avion-2.png", class: "icon-map_box" %></i>
+      <%end  %>
+    </div>
+
+    <div class="col-xs-6">
+      <p> <strong>départ le  <%= l travel.start_date, format: :default_heure %> </strong></p>
+      <p class="strong"><%= travel.address_in %></p>
+    </div>
+  </div> <!-- row 1 card 1 -->
 
 <% else %>
-  <p> arrivée le  <%= l travel.end_date , format: :short %></p>
-  <p class="strong"><%= travel.address_out %></p>
+<div class="row">
+    <div class="col-md-2">
+      <%if travel.mode == "bateau"  %>
+        <i><%= image_tag "bateau.png", class: "icon-map_box" %></i>
+      <%elsif travel.mode == "car"  %>
+        <i><%= image_tag "car.png", class: "icon-map_box" %></i>
+      <%elsif travel.mode == "voiture"  %>
+        <i><%= image_tag "voiture.png", class: "icon-map_box" %></i>
+      <%elsif travel.mode == "train"  %>
+        <i><%= image_tag "train.png", class: "icon-map_box" %></i>
+      <%else%>
+        <i><%= image_tag "avion-2.png", class: "icon-map_box" %></i>
+      <%end  %>
+    </div>
+
+    <div class="col-xs-6">
+      <p> <strong>arrivée le  <%= l travel.end_date, format: :default_heure %></strong></p>
+    <p class="strong"><%= travel.address_out %></p>
+    </div>
+  </div> <!-- row 1 card 1 -->
+
 <% end %>
 
-<!-- <p class="strong"><%#= @travel.name %></p> -->
+
+
