@@ -58,6 +58,7 @@ class TravelsController < ApplicationController
     # @travel.lngout = latlngout[0].data["geometry"]["location"]["lng"]
     # @travel.trip = @trip
     # if @travel.save
+
       latlngin = Geocoder.search(@travel.address_in)
     @travel.latin = latlngin[0].data["geometry"]["location"]["lat"]
     @travel.lngin = latlngin[0].data["geometry"]["location"]["lng"]

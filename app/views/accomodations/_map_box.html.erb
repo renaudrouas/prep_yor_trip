@@ -1,6 +1,10 @@
+
+
 <p>
+  <% @trip.stays.each do |stay| %>
   du <%= l stay.start_date, format: :short %>
   au <%= l stay.end_date, format: :short   %>
+  <% end %>
 </p>
 
 <p class="strong"><%#= @accomodation.name %></p>

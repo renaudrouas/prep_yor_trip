@@ -17,8 +17,10 @@ class TripsController < ApplicationController
     @diaries = @trip.diaries
     @tasks = @trip.tasks
     @accomodations = @trip.accomodations
-    combined = (@travels + @stays + @diaries).flatten
-    @date_order = combined.sort_by{|item|item.start_date}
+    combined_timeline = (@travels + @stays + @diaries).flatten
+    combined_maps = (@travels + @stays).flatten
+    @date_order = combined_timeline.sort_by{|item|item.start_date}
+    @date_order_maps = combined_maps.sort_by{|item|item.start_date}
 
     @weather = Weather.new(@trip.destination)
     @weather = @weather.call
@@ -86,7 +88,7 @@ class TripsController < ApplicationController
   end
 
   def set_markers
-    @markers = @date_order.map do |element|
+    @markers = @date_order_maps.map do |element|
       if element.class == Stay
         {
           lat: element.accomodation.latitude,
@@ -97,42 +99,41 @@ class TripsController < ApplicationController
             })
           }
         }
-      elsif element.class == Travel
-        [
-          {
-            lat: element.latin,
-            lng: element.lngin,
-            infoWindow: {
-              content: render_to_string(partial: "/travels/map_box", locals: {
-                travel: element,
-                departure: true
-              })
-            }
-          },
-          {
-            lat: element.latout,
-            lng: element.lngout,
-            infoWindow: {
-              content: render_to_string(partial: "/travels/map_box", locals: {
-                travel: element,
-                departure: false
-              })
-            }
-          }
-        ]
+          else
+            [
+              {
+                lat: element.latin,
+                lng: element.lngin,
+                infoWindow: {
+                  content: render_to_string(partial: "/travels/map_box", locals: {
+                    travel: element,
+                    departure: true
+                  })
+                }
+              },
+              {
+                lat: element.latout,
+                lng: element.lngout,
+                infoWindow: {
+                  content: render_to_string(partial: "/travels/map_box", locals: {
+                    travel: element,
+                    departure: false
+                  })
+                }
+              }
+            ]
+          end
+        end
+        @markers.flatten!
       end
-    end
-    @markers.compact!&.flatten! unless @markers.empty?
-  end
 
-  def set_path
-    @path = @date_order.map do |element|
-      if element.class == Stay
-        [element.accomodation.latitude, element.accomodation.longitude]
-      elsif element.class == Travel
-        [[element.latin, element.lngin], [element.latout, element.lngout]].flatten
+        def set_path
+          @path = @date_order_maps.map do |element|
+            if element.class == Stay
+              [element.accomodation.latitude, element.accomodation.longitude]
+            else
+              [[element.latin, element.lngin], [element.latout, element.lngout]].flatten
+            end
+          end
+        end
       end
-    end
-    @path.compact!
-  end
-end
