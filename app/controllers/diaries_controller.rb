@@ -22,7 +22,7 @@ class DiariesController < ApplicationController
     @diary = Diary.new(diary_params)
     @diary.trip = @trip
     if @diary.save
-      redirect_to trip_diary_path(@trip, @diary)
+      redirect_to trip_path(@trip)
     else
       render :new
     end
