@@ -33,13 +33,14 @@
       <% end %>
       <% end %>
     </li>
+    <!--link scroll down  -->
     <li role="presentation" >
-      <% if @diaries.empty? %>
+      <% if @tasks.empty? %>
       <%= link_to new_trip_task_path(@trip) do %>
       <i class="far"><%= image_tag "checklist.png", class: "icon-top-nav" %></i> Checklist
       <% end %>
       <% else %>
-      <%= link_to trip_tasks_path(@trip) do %>
+      <%= link_to trip_path(@trip) do %>
       <i class="far"><%= image_tag "checklist.png", class: "icon-top-nav" %></i> Checklist
       <% end %>
       <% end %>
