@@ -14,7 +14,7 @@
           </div>
 
           <div class="diary-address-date text-center">
-            <p>Fait à <%=diary.address %> le <%=diary.start_date %></p>
+            <p>Le <%= l diary.start_date, format: :default_heure unless diary.start_date.nil? %></p>
           </div>
 
           <div class="diary-btn text-center">
