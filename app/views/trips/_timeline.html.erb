@@ -29,7 +29,7 @@
               <p>Jour: <%=(item.start_date - @start_date).to_i%></p>
           <div class="timeline-body">
             <p><%=item.accomodation.name%></p>
-            <p><%=item.start_date%></p>
+            <p><%= l item.start_date, format: :default_heure unless item.start_date.nil?%></p>
             <%stay = item.accomodation  %>
             <%= link_to 'Detail', trip_accomodation_path(@trip, stay), class: "btn-detail" %>
           </div>
@@ -60,7 +60,7 @@
               <p>Jour: <%=(item.start_date - @start_date).to_i%></p>
             <div class="timeline-body">
               <p><%=item.compagny_name%></p>
-              <p><%=item.start_date%></p>
+              <p><%= l item.start_date, format: :default_heure unless item.start_date.nil?%></p>
               <%travel = item  %>
             </div>
           </div>
@@ -120,7 +120,7 @@
             <p>Jour: <%=(item.start_date - @start_date).to_i%></p>
           <div class="timeline-body">
             <p><%=item.accomodation.name%></p>
-            <p><%=item.start_date%></p>
+            <p><%= l item.start_date, format: :default_heure unless item.start_date.nil?%></p>
           </div>
         </div>
       </li>
@@ -149,7 +149,7 @@
               <p>Jour: <%=(item.start_date - @start_date).to_i%></p>
             <div class="timeline-body">
               <p><%=item.compagny_name%></p>
-              <p><%=item.start_date%></p>
+              <p><%= l item.start_date, format: :default_heure unless item.start_date.nil?%></p>
           </div>
       </li>
   <%else%>
