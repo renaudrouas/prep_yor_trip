@@ -1,29 +1,39 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title>Prep Your Trip</title>
 
-    <%= csrf_meta_tags %>
-    <%= action_cable_meta_tag %>
-    <%= stylesheet_link_tag 'application', media: 'all' %>
-    <%= favicon_link_tag('favicon.ico') %>
+<head>
+  <title><%= meta_title %></title>
+  <meta name="description" content="<%= meta_description %>">
 
-    <%# favicon_link_tag asset_path('favicon.png'), :rel => 'icon', :type =>  'image/png' %>
-    <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
-  </head>
-  <body>
-    <%= render 'shared/navbar' %>
-    <%= render 'shared/flashes' %>
-    <div class="full-screen">
-      <%= yield %>
-    </div>
-    <%= render 'shared/footer' %>
-    <%= javascript_include_tag 'application' %>
-    <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyAvdATWDXEuY1SASpXpkOW8fC8sm9Q7hHE" %>
-    <%= javascript_pack_tag 'application' %>
-    <%= javascript_pack_tag 'map' %>
-  </body>
+  <!-- Facebook Open Graph data -->
+  <meta property="og:title" content="<%= meta_title %>" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="<%= request.original_url %>" />
+  <meta property="og:image" content="<%= meta_image %>" />
+  <meta property="og:description" content="<%= meta_description %>" />
+  <meta property="og:site_name" content="<%= meta_title %>" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <%= csrf_meta_tags %>
+  <%= action_cable_meta_tag %>
+  <%= stylesheet_link_tag 'application', media: 'all' %>
+  <%= favicon_link_tag('favicon.ico') %>
+  <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
+</head>
+<body>
+  <%= render 'shared/navbar' %>
+  <%= render 'shared/flashes' %>
+  <div class="full-screen">
+    <%= yield %>
+  </div>
+  <%= render 'shared/footer' %>
+  <%= javascript_include_tag 'application' %>
+  <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyAvdATWDXEuY1SASpXpkOW8fC8sm9Q7hHE" %>
+  <%= javascript_pack_tag 'application' %>
+  <%= javascript_pack_tag 'map' %>
+</body>
+
+
 </html>
