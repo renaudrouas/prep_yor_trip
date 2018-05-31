@@ -24,6 +24,22 @@ trip1 = Trip.create!(
   user: user1
   )
 
+trip2 = Trip.create!(
+  title: "Petit repos en Italie",
+  destination: "italie",
+  start_date: "2018-05-03",
+  end_date: "2018-05-07",
+  user: user1
+  )
+
+trip3 = Trip.create!(
+  title: "A la découverte de l'Argentine",
+  destination: "argentine",
+  start_date: "2018-04-12",
+  end_date: "2018-04-20",
+  user: user1
+  )
+
 p "creating Accomodations"
 
 accomodation1 = Accomodation.create!(
@@ -50,6 +66,35 @@ accomodation3 = Accomodation.create!(
   kind: "auberge"
   )
 
+accomodation4 = Accomodation.create!(
+  address: " Località Pineta di Torrenuova, 57027 San Vincenzo LI, Italie",
+  phone_number: "+39 0565 701018",
+  name: "Park Albatros Village",
+  e_mail: "parkalbatros@gmail.com",
+  kind: "hotel")
+
+
+accomodation5 = Accomodation.create!(
+  address: " Via P. F. Calvi, 9, 00071 Pomezia RM, Italie",
+  phone_number: "+39 06 9837 2778",
+  name: "Simon Hotel",
+  e_mail: "simonhotel@gmail.com",
+  kind: "hotel")
+
+accomodation6 = Accomodation.create!(
+  address: " Av. Pres. Dr. Nestor C. Kirchner 1505, Z9400BBB Río Gallegos, Santa Cruz, Argentine",
+  phone_number: "+54 2966 43-4314",
+  name: "Apart Hotel Austral",
+  e_mail: "australhotel@gmail.com",
+  kind: "b_b")
+
+accomodation7 = Accomodation.create!(
+  address: " España 919, U9000CUK Comodoro Rivadavia, Chubut, Argentine",
+  phone_number: "+54 297 446-5673",
+  name: "Ventia Hotel Comodoro",
+  e_mail: "ventiahotel@gmail.com",
+  kind: "habitant")
+
 p "Creating Stay"
 
 stay1 = Stay.create!(
@@ -73,6 +118,35 @@ stay3 = Stay.create!(
   end_date: "2018-06-07",
   )
 
+stay4 = Stay.create!(
+  accomodation: accomodation4,
+  trip: trip2,
+  start_date: "2018-05-03",
+  end_date: "2018-05-04",
+  )
+
+stay5 = Stay.create!(
+  accomodation: accomodation5,
+  trip: trip2,
+  start_date: "2018-05-04",
+  end_date: "2018-05-07",
+  )
+
+stay6 = Stay.create!(
+  accomodation: accomodation6,
+  trip: trip3,
+  start_date: "2018-04-12",
+  end_date: "2018-04-14",
+  )
+
+stay7 = Stay.create!(
+  accomodation: accomodation7,
+  trip: trip3,
+  start_date: "2018-04-14",
+  end_date: "2018-04-20",
+  )
+
+
 
 p "Creating Travels"
 
@@ -92,6 +166,24 @@ Travel.create!(
     address_out: accomodation3.address,
     trip: trip1,
     mode: "train"
+  )
+
+Travel.create!(
+    start_date: stay4.end_date,
+    end_date: stay5.start_date,
+    address_in: accomodation4.address,
+    address_out: accomodation5.address,
+    trip: trip2,
+    mode: "bateau"
+  )
+
+Travel.create!(
+    start_date: stay6.end_date,
+    end_date: stay7.start_date,
+    address_in: accomodation6.address,
+    address_out: accomodation7.address,
+    trip: trip3,
+    mode: "avion"
   )
 
 p "super j'ai créé"
