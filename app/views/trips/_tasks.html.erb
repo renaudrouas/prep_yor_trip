@@ -8,7 +8,7 @@
             id="checkBox<%= task.id %>"
             data-task="<%= task.id %>"
             data-trip="<%= trip.id %>"
-            checked="<%= task.done? %>"
+            <%= task.done? ? "checked" : nil %>
           >
           <%= link_to task.title, trip_task_path(trip, task) %>
         </li>
