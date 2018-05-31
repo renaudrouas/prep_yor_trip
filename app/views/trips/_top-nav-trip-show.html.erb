@@ -25,11 +25,11 @@
     <li role="presentation">
       <% if @diaries.empty? %>
       <%= link_to new_trip_diary_path(@trip) do %>
-      <i class="fa"><%= image_tag "note-2.png", class: "icon-top-nav" %></i> Note
+      <i class="fa"><%= image_tag "note-2.png", class: "icon-top-nav" %></i> Notes
       <% end %>
       <% else %>
       <%= link_to trip_diaries_path(@trip) do %>
-      <i class="fa"><%= image_tag "note-2.png", class: "icon-top-nav" %></i> Note
+      <i class="fa"><%= image_tag "note-2.png", class: "icon-top-nav" %></i> Notes
       <% end %>
       <% end %>
     </li>
