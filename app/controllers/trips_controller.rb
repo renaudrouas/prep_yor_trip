@@ -27,13 +27,10 @@ class TripsController < ApplicationController
 
     gouv = Gouv.new(@trip.destination)
     @vaccination = gouv.call[:vaccination]
-
     # flag = Flag.new(@trip.destination)
     # @flag = flag.call[:flag]
-
     set_markers
     set_path
-
   end
 
   def new
@@ -130,10 +127,11 @@ class TripsController < ApplicationController
         def set_path
           @path = @date_order_maps.map do |element|
             if element.class == Stay
-              [element.accomodation.latitude, element.accomodation.longitude]
+              [[element.accomodation.latitude, element.accomodation.longitude]]
             else
-              [[element.latin, element.lngin], [element.latout, element.lngout]].flatten
+              [[element.latin, element.lngin], [element.latout, element.lngout]]
             end
           end
+          @path = @path.flatten(1)
         end
       end

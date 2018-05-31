@@ -1,7 +1,9 @@
 <% if departure %>
   <p> départ le  <%= l travel.start_date, format: :short %> </p>
+  <p class="strong"><%= travel.address_in %></p>
 <% else %>
   <p> arrivée le  <%= l travel.end_date , format: :short %></p>
+  <p class="strong"><%= travel.address_out %></p>
 <% end %>
 
-<p class="strong"><%#= @travel.name %></p>
+<!-- <p class="strong"><%#= @travel.name %></p> -->
