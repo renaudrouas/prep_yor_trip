@@ -1,12 +1,11 @@
-<h1>Liste des voyages</h1>
 <div class="container">
   <div class="row">
     <%@trips.each do |trip| %>
-    <div class="col-xs-12 col-sm-4">
+    <div class="col-xs-12 col-sm-4 col-md-3">
       <div class="card card-trip">
         <div class="row">
           <div class="col-xs-12">
-              <div class="card-picture" style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.1)), url('<%= image_path choose_country_img(trip.destination.downcase) %>');"></div>
+              <div class="card-picture" style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.6)), url('<%= image_path choose_country_img(trip.destination.downcase) %>');"></div>
             </div>
         </div>
         <div class="row">
@@ -14,20 +13,21 @@
             <div class="trip-index-card-content">
               <div class="col-xs-12">
                 <div class="trip-title text-center">
-                  <h3><%=trip.title %></h3>
+                  <h2 style="color:white"><%= trip.title.titleize.truncate_words(4) %></h2>
                 </div>
               </div>
               <div class="row">
                 <div class="col-xs-12">
                   <div class="trip-destination text-center">
-                    <p>Destination : <em><%=trip.destination %></em></p>
+                    <h1><%=trip.destination.truncate_words(1).capitalize %></h1>
                   </div>
                 </div>
               </div>
               <div class="row">
                 <div class="col-xs-12">
                   <div class="trip-date text-center">
-                    <p>Du  <em><%=trip.start_date %></em>  au  <em><%=trip.end_date %></em></p>
+
+                    <p>Du <%= l trip.start_date, format: :default_heure unless trip.start_date.nil? %> au <%= l trip.end_date, format: :default_heure unless trip.end_date.nil? %></p>
                   </div>
                 </div>
               </div>
@@ -44,7 +44,7 @@
       </div>
     </div>
     <% end %>
-    <div class="col-xs-12 col-sm-4">
+    <div class="col-xs-12 col-sm-4 col-md-3">
       <div class="card card-trip">
         <div class="row">
           <div class="col-xs-12">

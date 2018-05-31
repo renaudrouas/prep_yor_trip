@@ -1,6 +1,27 @@
-<h1>Tasks Show</h1>
-<p><%=@task.title %></p>
-<p><%=@task.description %></p>
-<%= link_to 'Destroy', trip_task_path(@task.trip), method: :delete, data: { confirm: 'Etes vous sûr?' }, class: "btn btn-primary" %>
-<%= link_to 'Edit', edit_trip_task_path(@task.trip), class: "btn btn-primary" %>
-<%= link_to 'Dashboard', trip_path(@trip), class: "btn btn-primary" %>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+      <div class="card card-tasks">
+          <div class="task-title text-center">
+            <h2><%=@task.title %></h2>
+          </div>
+
+          <div class="task-description text-center">
+            <p><%=@task.description.truncate_words(12) %></p>
+          </div>
+          <div class="col-xs-6">
+            <div class="task-btn text-center">
+              <%= link_to 'Destroy', trip_task_path(@task.trip), method: :delete, data: { confirm: 'Etes vous sûr?' }, class: "btn btn-transport" %>
+            </div>
+          </div>
+          <div class="col-xs-6">
+            <div class="task-btn text-center">
+               <%= link_to 'Edit', edit_trip_task_path(@task.trip), class: "btn btn-primary" %>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+<%= link_to 'Dashboard', trip_path(@trip), class: "btn btn-default" %>

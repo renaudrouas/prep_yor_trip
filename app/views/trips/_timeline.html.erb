@@ -19,15 +19,17 @@
             <i class="fa fa-map-marker"></i>
           </div>
         <% end %>
+        <%stay = item.accomodation  %>
+            <%= link_to trip_accomodation_path(@trip, stay) do %>
         <div class="timeline-panel">
           <div class="timeline-heading">
             <i><%= image_tag "hotel copie.png", class: "icon-timeline" %></i>
-              <p>Jour: <%=(item.start_date - @start_date).to_i%></p>
+          <%end  %>
           </div>
+              <p>Jour: <%=(item.start_date - @start_date).to_i%></p>
           <div class="timeline-body">
-            <p><%=item.accomodation.name%></p>
-            <p><%=item.start_date%></p>
-            <%= link_to 'Detail', trip_accomodation_path(@trip, item.accomodation), class: "btn-detail" %>
+            <h4><%=item.accomodation.name%></h4>
+            <p><%= l item.start_date, format: :default_heure unless item.start_date.nil?%></p>
           </div>
         </div>
       </li>
@@ -46,15 +48,18 @@
             <i class="fa fa-map-marker"></i>
           </div>
         <% end %>
+          <%travel = item  %>
+          <%= link_to trip_travel_path(@trip, travel) do%>
           <div class="timeline-panel">
             <div class="timeline-heading">
               <i><%= image_tag "travel.png", class: "icon-timeline"  %></i>
-                <p>Jour: <%=(item.start_date - @start_date).to_i%></p>
+              <%end  %>
               </div>
+              <p>Jour: <%=(item.start_date - @start_date).to_i%></p>
             <div class="timeline-body">
-              <p><%=item.compagny_name%></p>
-              <p><%=item.start_date%></p>
-              <%= link_to 'Detail', trip_travel_path(@trip,item), class: "btn-detail" %>
+              <h4><%=item.compagny_name%></h4>
+              <p><%= l item.start_date, format: :default_heure unless item.start_date.nil?%></p>
+              <%travel = item  %>
             </div>
           </div>
       </li>
@@ -73,14 +78,16 @@
             <i class="fa fa-map-marker"></i>
           </div>
         <% end %>
+        <%diary_other = item %>
+        <%= link_to trip_diary_path(@trip, diary_other) do %>
           <div class="timeline-panel">
             <div class="timeline-heading">
-              <i><%= image_tag "note-2.png", class: "icon-timeline" %></i>
-              <p>Jour: <%=(item.start_date - @start_date).to_i%></p>
-            </div>
+                <i><%= image_tag "note-2.png", class: "icon-timeline" %></i>
+        <%end  %>
+          </div>
+           <p>Jour: <%=(item.start_date - @start_date).to_i%></p>
             <div class="timeline-body">
-              <p><%=item.title%></p>
-              <%= link_to 'Detail', trip_diary_path(@trip,item), class: "btn-detail" %>
+              <h4><%=item.title%></h4>
             </div>
           </div>
         <%end %>
@@ -101,15 +108,17 @@
             <i class="fa fa-map-marker"></i>
           </div>
         <% end %>
+        <%stay = item.accomodation  %>
+            <%= link_to trip_accomodation_path(@trip, stay) do %>
         <div class="timeline-panel">
           <div class="timeline-heading">
             <i><%= image_tag "hotel copie.png", class: "icon-timeline" %></i>
-              <p>Jour: <%=(item.start_date - @start_date).to_i%></p>
+          <%end  %>
           </div>
+            <p>Jour: <%=(item.start_date - @start_date).to_i%></p>
           <div class="timeline-body">
-            <p><%=item.accomodation.name%></p>
-            <p><%=item.start_date%></p>
-            <%= link_to 'Detail', trip_accomodation_path(@trip,item.accomodation), class: "btn-detail" %>
+            <h4><%=item.accomodation.name%></h4>
+            <p><%= l item.start_date, format: :default_heure unless item.start_date.nil?%></p>
           </div>
         </div>
       </li>
@@ -128,20 +137,21 @@
                 <i class="fa fa-map-marker"></i>
               </div>
             <% end %>
+            <%travel_other = item %>
+              <%= link_to trip_travel_path(@trip, travel_other) do %>
             <div class="timeline-panel">
               <div class="timeline-heading">
                 <i ><%= image_tag "travel.png", class: "icon-timeline" %></i>
-                  <p>Jour: <%=(item.start_date - @start_date).to_i%></p>
+            <%end  %>
               </div>
+              <p>Jour: <%=(item.start_date - @start_date).to_i%></p>
             <div class="timeline-body">
-              <p><%=item.compagny_name%></p>
-              <p><%=item.start_date%></p>
-              <%= link_to 'Detail', trip_travel_path(@trip,item), class: "btn-detail" %>
-            </div>
+              <h4><%=item.compagny_name%></h4>
+              <p><%= l item.start_date, format: :default_heure unless item.start_date.nil?%></p>
           </div>
       </li>
   <%else%>
-  <li >
+  <li class="timeline-inverted">
     <%if item.start_date < Date.today %>
     <div class="timeline-badge-past">
       <i class="fa fa-map-marker"></i>
@@ -155,13 +165,16 @@
       <i class="fa fa-map-marker"></i>
     </div>
     <% end %>
+    <%diary_other = item %>
+    <%= link_to trip_diary_path(@trip, diary_other) do %>
     <div class="timeline-panel">
       <div class="timeline-heading">
         <i><%= image_tag "note-2.png", class: "icon-timeline" %></i>
+      <%end  %>
       </div>
       <p>Jour: <%=(item.start_date - @start_date).to_i%></p>
       <div class="timeline-body">
-        <p><%=item.title%></p>
+        <h4><%=item.title%></h4>
       </div>
     </div>
     <%end %>

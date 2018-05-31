@@ -2,11 +2,12 @@
   padding: 20px;
   color: #242424;
   font-weight: lighter;
+  background-color: white !important;
 
-  h2 {
-    color: black;
-    font-weight: 500;
-  }
+  // h2 {
+  //   color: black;
+  //   font-weight: 500;
+  // }
 }
 
 // --------------------------cards global----------------------------------
@@ -45,7 +46,10 @@
 
     .trip-title {
       width: 100%;
-      margin-top: 10px;
+      position: absolute;
+      bottom: 45px;
+      right: 0px;
+
     }
 
     .trip-btn-new {
@@ -58,10 +62,18 @@
 
     .trip-date {
     margin-top: 10px;
+    position: absolute;
+    top: 44px;
+    left: 40px;
     }
 
     .trip-btn {
-    margin-right: 34px;
+      margin-right: 34px;
+      position: absolute;
+      top: 79px;
+      width: 79%;
+      padding-left: 10px;
+      padding-right: 10px;
 
       .btn {
       width: 100%;
@@ -98,6 +110,32 @@
   }
 }
 
+.card-tasks {
+  min-height: 200px;
+  height: auto;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  position: relative;
+
+  .task-title {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .task-btn {
+     position: absolute;
+     top: 68px;
+     width: 88%;
+     padding-left: 10px;
+     padding-right: 10px;
+    .btn {
+      width: 100%;
+    }
+  }
+}
+
 .diary-card-new {
   background-color: $light-gray;
   min-height: 280px;
@@ -105,6 +143,9 @@
   .diary-btn-new {
     padding-top:30%;
   }
+}
+.red-background-color {
+  background-color: $red;
 }
 
 // @media (max-width: 1200px)

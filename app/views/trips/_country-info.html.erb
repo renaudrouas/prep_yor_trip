@@ -8,47 +8,48 @@
   </div>
   <div class="row">
     <div class="col-xs-6">
-      <p> Départ pour :</p>
-      <h2><%= @trip.destination %> </h2>
-      <p> <%#= @flag %></p>
+      <h2> Départ pour : &nbsp;<%= @trip.destination.capitalize %></h2>
     </div>
-
     <div class="col-xs-6">
-      <p> Le :</p>
-      <h2> <%= @trip.start_date %></h2>
-    </div>
-  </div> <!-- title -->
+      <h2> le <%= l @trip.start_date, format: :default_heure unless @trip.start_date.nil? %></h2>
+  </div>
+</div>
+<!-- title -->
 
   <div class="row">
     <div class="col-xs-6">
-      <h2> <i><%= image_tag "information.png", class: "icon-titre" %>   Information </i> </h2>
+
+      <h2>Information </h2>
+
       <% if @country_info.nil? %>
-      <p> Désolée le pays n'existe pas. </p>
+      <h4> Désolée le pays n'existe pas. </h4>
       <% else %>
-      <p><i><%= image_tag "capitale.png", class: "icon-info" %></i>   <%=  @country_info.capital %></p>
-      <p><i><%= image_tag "heure.png", class: "icon-info" %></i>   <%=  @country_info.timezones.first %></p>
-      <p><i><%= image_tag "code-telephone.png", class: "icon-info" %></i>   + <%=  @country_info.callingCodes.first %></p>
-      <p><i><%= image_tag "monnaie.png", class: "icon-info" %></i>   <%=  @country_info.currencies.first %></p>
-      <p><i><%= image_tag "langue-1.png", class: "icon-info" %></i>   <%=  @country_info.languages.first %> </p>
+      <h4><i><%= image_tag "capitale.png", class: "icon-info" %></i>   <%=  @country_info.capital %></h4>
+      <h4><i><%= image_tag "heure.png", class: "icon-info" %></i>   <%=  @country_info.timezones.first %></h4>
+      <h4><i><%= image_tag "code-telephone.png", class: "icon-info" %></i>   + <%=  @country_info.callingCodes.first %></h4>
+      <h4><i><%= image_tag "monnaie.png", class: "icon-info" %></i>   <%=  @country_info.currencies.first %></h4>
+      <h4><i><%= image_tag "langue-1.png", class: "icon-info" %></i>   <%=  @country_info.languages.first %> </h4>
       <% end %>
     </div>
 
 
     <div class="col-xs-6">
-      <h2> <i><%= image_tag "meteo.png", class: "icon-titre" %>   Meteo </i> </h2>
-      <p> <i><%= image_tag "temperature.png", class: "icon-info" %></i>   <%=  @weather.temp %> °C </p>
-      <p> <i><%= image_tag "temperature-max_2.png", class: "icon-info" %></i>   <%=  @weather.max_temp %> °C </p>
-      <p><i><%= image_tag "temperature-mini-2.png", class: "icon-info" %></i>   <%= @weather.min_temp %> °C </p>
+
+      <h2>Meteo </h2>
+      <h4> <i><%= image_tag "temperature.png", class: "icon-info" %></i>   <%=  @weather.temp %> °C (moy) </h4>
+      <h4> <i><%= image_tag "temperature-max_2.png", class: "icon-info" %></i>   <%=  @weather.max_temp %> °C (max)</h4>
+      <h4><i><%= image_tag "temperature-mini-2.png", class: "icon-info" %></i>   <%= @weather.min_temp %> °C (min)</h4>
+
     </div>
   </div> <!-- row 1 card 1 -->
 
   <div class="row">
     <div class="col-xs-6">
-      <h2> <i><%= image_tag "vaccins.png", class: "icon-titre" %> Vaccins</i></h2>
+      <h2>Vaccins</h2>
       <% if @vaccination.nil? || @vaccination.first.nil? %>
-        <p>Aucun vaccin nécessaire</p>
+        <h4>Aucun vaccin nécessaire</h4>
       <% else %>
-        <p><%= @vaccination.first %></p>
+        <h4><%= @vaccination.first %></h4>
       <% end %>
     </div>
   </div> <!-- row 2 card 1 -->

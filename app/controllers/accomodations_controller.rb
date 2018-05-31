@@ -28,6 +28,18 @@ class AccomodationsController < ApplicationController
   def show
     @trip = Trip.find(params[:trip_id])
     @stays = @accomodation.stays
+    @markers =
+       [{
+          lat: @accomodation.latitude,
+          lng: @accomodation.longitude,
+          infoWindow: {
+            content: render_to_string(partial: "/accomodations/map_box", locals: {
+              stay: @accomodation
+            })
+          }
+        }]
+
+    @path = [@accomodation.latitude, @accomodation.longitude]
   end
 
   def new

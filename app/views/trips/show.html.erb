@@ -6,19 +6,23 @@
     <div class="container-fluid">
       <%= render "country-info" %>
 
-      <div class="card two-card-container">
+      <div class="card two-card-container timeline-padding">
         <div class="row">
           <div class= "col-xs-12">
-            <h1>Checklist</h1>
-            <%= render "tasks", tasks: @trip.tasks, trip: @trip %>
+            <%= render "timeline" %>
+
           </div>
         </div> <!-- card 2 -->
       </div> <!-- card 2 row -->
-    </div> <!-- container fluid -->
 
-    <div class="row">
-      <%= render "timeline" %>
-    </div>
+      <div class="card two-card-container">
+        <div class="row">
+          <div class= "col-xs-12">
+            <%= render "tasks", tasks: @trip.tasks, trip: @trip %>
+          </div>
+        </div>
+      </div>
+    </div> <!-- container fluid -->
     <div class="text-center">
       <%= link_to 'Supprimer', trip_path(@trip), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-transport" %>
       <%= link_to 'Editer', edit_trip_path(@trip), class: "btn btn-primary" %>

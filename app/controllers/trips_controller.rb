@@ -22,11 +22,13 @@ class TripsController < ApplicationController
     @date_order = combined_timeline.sort_by{|item|item.start_date}
     @date_order_maps = combined_maps.sort_by{|item|item.start_date}
 
-    @weather = Weather.new(@trip.destination)
+    @weather = Weather.new(@trip.latitude, @trip.longitude)
     @weather = @weather.call
 
-    gouv = Gouv.new(@trip.destination)
-    @vaccination = gouv.call[:vaccination]
+
+    # gouv = Gouv.new(@trip.destination)
+    # @vaccination = gouv.call[:vaccination]
+
     # flag = Flag.new(@trip.destination)
     # @flag = flag.call[:flag]
     set_markers
