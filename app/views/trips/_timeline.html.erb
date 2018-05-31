@@ -28,10 +28,8 @@
           </div>
               <p>Jour: <%=(item.start_date - @start_date).to_i%></p>
           <div class="timeline-body">
-            <p><%=item.accomodation.name%></p>
-            <p><%=item.start_date%></p>
-            <%stay = item.accomodation  %>
-            <%= link_to 'Detail', trip_accomodation_path(@trip, stay), class: "btn-detail" %>
+            <h4><%=item.accomodation.name%></h4>
+            <p><%= l item.start_date, format: :default_heure unless item.start_date.nil?%></p>
           </div>
         </div>
       </li>
@@ -59,8 +57,8 @@
               </div>
               <p>Jour: <%=(item.start_date - @start_date).to_i%></p>
             <div class="timeline-body">
-              <p><%=item.compagny_name%></p>
-              <p><%=item.start_date%></p>
+              <h4><%=item.compagny_name%></h4>
+              <p><%= l item.start_date, format: :default_heure unless item.start_date.nil?%></p>
               <%travel = item  %>
             </div>
           </div>
@@ -89,7 +87,7 @@
           </div>
            <p>Jour: <%=(item.start_date - @start_date).to_i%></p>
             <div class="timeline-body">
-              <p><%=item.title%></p>
+              <h4><%=item.title%></h4>
             </div>
           </div>
         <%end %>
@@ -119,8 +117,8 @@
           </div>
             <p>Jour: <%=(item.start_date - @start_date).to_i%></p>
           <div class="timeline-body">
-            <p><%=item.accomodation.name%></p>
-            <p><%=item.start_date%></p>
+            <h4><%=item.accomodation.name%></h4>
+            <p><%= l item.start_date, format: :default_heure unless item.start_date.nil?%></p>
           </div>
         </div>
       </li>
@@ -148,8 +146,8 @@
               </div>
               <p>Jour: <%=(item.start_date - @start_date).to_i%></p>
             <div class="timeline-body">
-              <p><%=item.compagny_name%></p>
-              <p><%=item.start_date%></p>
+              <h4><%=item.compagny_name%></h4>
+              <p><%= l item.start_date, format: :default_heure unless item.start_date.nil?%></p>
           </div>
       </li>
   <%else%>
@@ -176,7 +174,7 @@
       </div>
       <p>Jour: <%=(item.start_date - @start_date).to_i%></p>
       <div class="timeline-body">
-        <p><%=item.title%></p>
+        <h4><%=item.title%></h4>
       </div>
     </div>
     <%end %>
