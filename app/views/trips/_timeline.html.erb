@@ -27,7 +27,8 @@
           <div class="timeline-body">
             <p><%=item.accomodation.name%></p>
             <p><%=item.start_date%></p>
-            <%= link_to 'Detail', trip_accomodation_path(@trip, item.accomodation), class: "btn-detail" %>
+            <%stay = item.accomodation  %>
+            <%= link_to 'Detail', trip_accomodation_path(@trip, stay), class: "btn-detail" %>
           </div>
         </div>
       </li>
@@ -54,7 +55,8 @@
             <div class="timeline-body">
               <p><%=item.compagny_name%></p>
               <p><%=item.start_date%></p>
-              <%= link_to 'Detail', trip_travel_path(@trip, item), class: "btn-detail" %>
+              <%travel = item  %>
+              <%= link_to 'Detail', trip_travel_path(@trip, travel), class: "btn-detail" %>
             </div>
           </div>
       </li>
@@ -80,7 +82,8 @@
             </div>
             <div class="timeline-body">
               <p><%=item.title%></p>
-              <%= link_to 'Detail', trip_diary_path(@trip,item), class: "btn-detail" %>
+              <%diary = item  %>
+              <%= link_to 'Detail', trip_diary_path(@trip,diary), class: "btn-detail" %>
             </div>
           </div>
         <%end %>
@@ -109,7 +112,8 @@
           <div class="timeline-body">
             <p><%=item.accomodation.name%></p>
             <p><%=item.start_date%></p>
-            <%= link_to 'Detail', trip_accomodation_path(@trip,item.accomodation), class: "btn-detail" %>
+            <%stay = item.accomodation  %>
+            <%= link_to 'Detail', trip_accomodation_path(@trip, stay), class: "btn-detail" %>
           </div>
         </div>
       </li>
@@ -136,7 +140,8 @@
             <div class="timeline-body">
               <p><%=item.compagny_name%></p>
               <p><%=item.start_date%></p>
-              <%= link_to 'Detail', trip_travel_path(@trip,item), class: "btn-detail" %>
+              <%travel_other = item %>
+              <%= link_to 'Detail', trip_travel_path(@trip, travel_other), class: "btn-detail" %>
             </div>
           </div>
       </li>
@@ -162,7 +167,8 @@
       <p>Jour: <%=(item.start_date - @start_date).to_i%></p>
       <div class="timeline-body">
         <p><%=item.title%></p>
-        <%= link_to 'Detail', trip_diary_path(@trip, item), class: "btn-detail" %>
+        <%diary_other = item %>
+        <%= link_to 'Detail', trip_diary_path(@trip, diary_other), class: "btn-detail" %>
       </div>
     </div>
     <%end %>
