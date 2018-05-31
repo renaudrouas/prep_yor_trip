@@ -15,12 +15,12 @@
           </div>
           <div class="col-xs-6">
             <div class="diary-btn text-center">
-              <%= link_to 'Destroy', trip_diary_path(@diary.trip), method: :delete, data: { confirm: 'Etes vous sûr?' }, class: "btn btn-transport" %>
+              <%= link_to 'Supprimer', trip_diary_path(@diary.trip), method: :delete, data: { confirm: 'Etes vous sûr?' }, class: "btn btn-transport" %>
             </div>
           </div>
           <div class="col-xs-6">
             <div class="diary-btn text-center">
-               <%= link_to 'Edit', edit_trip_diary_path(@diary.trip), class: "btn btn-primary" %>
+               <%= link_to 'Editer', edit_trip_diary_path(@diary.trip), class: "btn btn-primary" %>
             </div>
           </div>
       </div>
