@@ -31,11 +31,13 @@ class TravelsController < ApplicationController
         }
       ]
     end
+    # pry-byebug
     @markers.flatten!
 
     @path = @travels.map do |travel|
-      [[travel.latin, travel.lngin], [travel.latout, travel.lngout]].flatten
+      [[travel.latin, travel.lngin], [travel.latout, travel.lngout]]
     end
+    @path= @path.flatten(1)
   end
 
   def show
@@ -81,14 +83,17 @@ class TravelsController < ApplicationController
     # latlngout = Geocoder.search(@travel.address_out)
     # @travel.latout = latlngout[0].data["geometry"]["location"]["lat"]
     # @travel.lngout = latlngout[0].data["geometry"]["location"]["lng"]
+    # @travel.trip = @trip
+    # if @travel.save
+    binding.pry
+    geo_in = Geocoder.search(@travel.address_in)
+    @travel.latin = geo_in[0].data["geometry"]["location"]["lat"]
+    @travel.lngin = geo_in[0].data["geometry"]["location"]["lng"]
+    geo_out = Geocoder.search(@travel.address_out)
+    @travel.latout = geo_out[0].data["geometry"]["location"]["lat"]
+    @travel.lngout = geo_out[0].data["geometry"]["location"]["lng"]
     @travel.trip = @trip
     if @travel.save
-      latlngin = Geocoder.search(@travel.address_in)
-    @travel.latin = latlngin[0].data["geometry"]["location"]["lat"]
-    @travel.lngin = latlngin[0].data["geometry"]["location"]["lng"]
-    latlngout = Geocoder.search(@travel.address_out)
-    @travel.latout = latlngout[0].data["geometry"]["location"]["lat"]
-    @travel.lngout = latlngout[0].data["geometry"]["location"]["lng"]
       redirect_to trip_travels_path(@trip), notice: 'travel was successfully created.'
     else
       render :new

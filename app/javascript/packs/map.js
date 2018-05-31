@@ -18,8 +18,8 @@ if (mapElement) { // don't try to build a map if there's no div#map to inject in
 
   map.drawPolyline({
     path: path,
-    strokeColor: '#131540',
+    strokeColor: '#26c4be',
     strokeOpacity: 0.6,
-    strokeWeight: 6
+    strokeWeight: 4
   });
 }

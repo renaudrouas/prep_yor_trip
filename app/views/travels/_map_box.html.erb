@@ -1,5 +1,21 @@
 <% if departure %>
-  <p> départ le  <%= travel.start_date %> </p>
+  <p> départ le  <%= l travel.start_date, format: :short %> </p>
+  <p class="strong"><%= travel.address_in %></p>
+    <%if travel.mode == "bateau"  %>
+      <td class="white-cell"><%= image_tag "bateau.png", class: "icon" %></td>
+    <%elsif travel.mode == "car"  %>
+      <td class="white-cell"><%= image_tag "car.png", class: "icon" %></td>
+    <%elsif travel.mode == "voiture"  %>
+      <td class="white-cell"><%= image_tag "voiture.png", class: "icon" %></td>
+    <%elsif travel.mode == "train"  %>
+      <td class="white-cell"><%= image_tag "train.png", class: "icon" %></td>
+    <%else%>
+      <td class="white-cell"><%= image_tag "avion-2.png", class: "icon" %></td>
+    <%end  %>
+
 <% else %>
-  <p> arrivée le  <%= travel.end_date %> </p>
+  <p> arrivée le  <%= l travel.end_date , format: :short %></p>
+  <p class="strong"><%= travel.address_out %></p>
 <% end %>
+
+<!-- <p class="strong"><%#= @travel.name %></p> -->
