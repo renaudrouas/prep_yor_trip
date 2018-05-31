@@ -146,8 +146,6 @@ stay7 = Stay.create!(
   end_date: "2018-04-20",
   )
 
-
-
 p "Creating Travels"
 
 Travel.create!(
@@ -156,7 +154,11 @@ Travel.create!(
     address_in: accomodation1.address,
     address_out: accomodation2.address,
     trip: trip1,
-    mode: "car"
+    mode: "car",
+    latin: accomodation1.latitude,
+    lngin: accomodation1.longitude,
+    latout: accomodation2.latitude,
+    lngout: accomodation2.longitude,
   )
 
 Travel.create!(
@@ -165,7 +167,11 @@ Travel.create!(
     address_in: accomodation2.address,
     address_out: accomodation3.address,
     trip: trip1,
-    mode: "train"
+    mode: "train",
+    latin: accomodation2.latitude,
+    lngin: accomodation2.longitude,
+    latout: accomodation3.latitude,
+    lngout: accomodation3.longitude,
   )
 
 Travel.create!(
@@ -174,7 +180,11 @@ Travel.create!(
     address_in: accomodation4.address,
     address_out: accomodation5.address,
     trip: trip2,
-    mode: "bateau"
+    mode: "bateau",
+    latin: accomodation4.latitude,
+    lngin: accomodation4.longitude,
+    latout: accomodation5.latitude,
+    lngout: accomodation5.longitude,
   )
 
 Travel.create!(
@@ -183,8 +193,13 @@ Travel.create!(
     address_in: accomodation6.address,
     address_out: accomodation7.address,
     trip: trip3,
-    mode: "avion"
+    mode: "avion",
+    latin: accomodation6.latitude,
+    lngin: accomodation6.longitude,
+    latout: accomodation7.latitude,
+    lngout: accomodation7.longitude,
   )
+
 
 p "super j'ai créé"
 p "#{Trip.count} trips"
