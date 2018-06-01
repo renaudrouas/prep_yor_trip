@@ -5,17 +5,12 @@
       <div class="card card-trip">
         <div class="row">
           <div class="col-xs-12">
-              <div class="card-picture" style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.6)), url('<%= image_path choose_country_img(trip.destination.downcase) %>');"></div>
+              <div class="card-picture" style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('<%= image_path choose_country_img(trip.destination.downcase) %>');"></div>
             </div>
         </div>
         <div class="row">
           <div class="col-xs-12">
             <div class="trip-index-card-content">
-              <div class="col-xs-12">
-                <div class="trip-title text-center">
-                  <h2 style="color:white"><%= trip.title.titleize.truncate_words(4) %></h2>
-                </div>
-              </div>
               <div class="row">
                 <div class="col-xs-12">
                   <div class="trip-destination text-center">
