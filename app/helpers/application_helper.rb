@@ -2,7 +2,7 @@
 
 module ApplicationHelper
   def choose_country_img(name)
-    country_imgs = ['argentine', 'italia', 'bolivie', 'picture-card-trip']
+    country_imgs = ['argentine', 'italia', 'bolivie', 'surf']
     if country_imgs.include? name
       "#{name}.jpg"
     else
