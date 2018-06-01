@@ -5,7 +5,7 @@ class TripsController < ApplicationController
   before_action :set_trip, only: %i[show edit update destroy]
 
   def index
-    @trips = Trip.all
+    @trips = Trip.where(user_id: current_user)
     # raise
   end
 
