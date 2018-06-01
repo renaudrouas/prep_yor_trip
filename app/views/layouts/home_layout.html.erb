@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
-  <head>
-      <meta name="description" content="<%= meta_description %>">
+<head>
+  <title><%= meta_title %></title>
+  <meta name="description" content="<%= meta_description %>">
 
   <!-- Facebook Open Graph data -->
   <meta property="og:title" content="<%= meta_title %>" />
@@ -12,22 +13,21 @@
   <meta property="og:site_name" content="<%= meta_title %>" />
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title>Prep Your Trip</title>
-    <%= csrf_meta_tags %>
-    <%= action_cable_meta_tag %>
-    <%= stylesheet_link_tag 'application', media: 'all' %>
-    <%= favicon_link_tag('favicon.ico') %>
+  <%= csrf_meta_tags %>
+  <%= action_cable_meta_tag %>
+  <%= stylesheet_link_tag 'application', media: 'all' %>
+  <%= favicon_link_tag('favicon.ico') %>
 
-<!--     <%#= stylesheet_pack_tag 'application', media: 'all' %> Uncomment if you import CSS in app/javascript/packs/application.js -->
-  </head>
-  <body>
-    <%=  render '/shared/navbar' %>
-    <%= yield %>
-    <%= javascript_include_tag 'application' %>
-    <%= javascript_pack_tag 'application' %>
-  </body>
+  <!--     <%#= stylesheet_pack_tag 'application', media: 'all' %> Uncomment if you import CSS in app/javascript/packs/application.js -->
+</head>
+<body>
+  <%=  render '/shared/navbar' %>
+  <%= yield %>
+  <%= javascript_include_tag 'application' %>
+  <%= javascript_pack_tag 'application' %>
+</body>
 
 </html>
